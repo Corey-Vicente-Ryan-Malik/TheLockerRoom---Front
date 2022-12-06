@@ -1,4 +1,4 @@
-import './Forum.css';
+
 
 function Forum() {
     return (

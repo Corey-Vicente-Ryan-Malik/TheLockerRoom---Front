@@ -1,4 +1,4 @@
-import './Teams.css';
+
 
 function Teams() {
     return (

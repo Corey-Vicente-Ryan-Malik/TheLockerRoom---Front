@@ -1,4 +1,3 @@
-import './App.css';
 import Navbar from "./Navbar";
 import { BrowserRouter as Router, Routes, Route}
     from 'react-router-dom';
@@ -11,6 +10,10 @@ import Teams from './Teams';
 import Edit from './Edit';
 import Login from "./Login";
 import Schedules from "./Schedules";
+
+import Landing from './Landing';
+
+
 
 function App() {
     return (
@@ -36,6 +39,10 @@ function App() {
                            exact element={<Login/>}/>
                     <Route exact path='/schedules'
                            exact element={<Schedules/>}/>
+                </Routes>
+                <Routes>
+                    <Route exact path='/'
+                           exact element={<Landing/>}/>
                 </Routes>
             </Router>
         </div>
