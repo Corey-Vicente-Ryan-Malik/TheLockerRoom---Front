@@ -20,6 +20,8 @@ function App() {
             <Router>
                 <Navbar/>
                 <Routes>
+                    {/*<Route exact path='/'*/}
+                    {/*       exact element={<Landing/>}/>*/}
                     <Route exact path='/home'
                            exact element={<Home/>}/>
                     <Route exact path='/scores'
