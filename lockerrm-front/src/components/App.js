@@ -8,6 +8,7 @@ import Standings from './Standings';
 import Stats from './Stats';
 import Forum from './Forum';
 import Teams from './Teams';
+import Landing from './Landing';
 
 
 function App() {
@@ -28,6 +29,10 @@ function App() {
                            exact element={<Forum/>}/>
                     <Route exact path='/teams'
                            exact element={<Teams/>}/>
+                </Routes>
+                <Routes>
+                    <Route exact path='/'
+                           exact element={<Landing/>}/>
                 </Routes>
             </Router>
         </div>
