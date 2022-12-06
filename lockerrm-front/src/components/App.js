@@ -14,8 +14,6 @@ import Schedules from "./Schedules";
 
 import Landing from './Landing';
 
-
-
 function App() {
     return (
         <div className="App">

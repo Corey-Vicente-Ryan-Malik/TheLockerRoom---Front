@@ -32,10 +32,8 @@ function Navbar() {
                         <li className="nav-item">
                             <a className="nav-link" id="teams" href="/teams">Teams</a>
                         </li>
-
                         <li className="nav-item">
-                            <a className="nav-link" id="schedules" href="/schedules">Schedules</a>
-                        </li>
+                            <a className="nav-link" id="teams" href="/schedules">Schedules</a>
                     </ul>
                     <form className="d-flex my-2 my-lg-0 ms-auto">
                         <input className="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"/>
