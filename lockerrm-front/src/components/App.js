@@ -10,6 +10,7 @@ import Teams from './Teams';
 import Edit from './Edit';
 import Login from "./Login";
 import Schedules from "./Schedules";
+// import Landing from "./Landing.js"
 
 import Landing from './Landing';
 
@@ -21,6 +22,8 @@ function App() {
             <Router>
                 <Navbar/>
                 <Routes>
+                    {/*<Route exact path='/'*/}
+                    {/*       exact element={<Landing/>}/>*/}
                     <Route exact path='/home'
                            exact element={<Home/>}/>
                     <Route exact path='/scores'
