@@ -8,7 +8,9 @@ import Standings from './Standings';
 import Stats from './Stats';
 import Forum from './Forum';
 import Teams from './Teams';
-
+import Edit from './Edit';
+import Login from "./Login";
+import Schedules from "./Schedules";
 
 function App() {
     return (
@@ -28,6 +30,12 @@ function App() {
                            exact element={<Forum/>}/>
                     <Route exact path='/teams'
                            exact element={<Teams/>}/>
+                    <Route exact path='/edit'
+                           exact element={<Edit/>}/>
+                    <Route exact path='/login'
+                           exact element={<Login/>}/>
+                    <Route exact path='/schedules'
+                           exact element={<Schedules/>}/>
                 </Routes>
             </Router>
         </div>
