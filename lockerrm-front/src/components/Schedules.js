@@ -88,6 +88,7 @@ function Schedules () {
                     <h4 className="schedule_team_2_name">Team 2</h4>
                 </div>
             </div>
+        </div>
             );
 }
 
