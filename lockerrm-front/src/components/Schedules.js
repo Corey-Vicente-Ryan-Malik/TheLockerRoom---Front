@@ -1,6 +1,6 @@
 import './Schedules.css';
 
-function Weekly_schedule () {
+function Schedules () {
     return (
         <div className="Weekly_schedule">
             <h1 className="schedule_heading">Weekly Game Schedule</h1>
@@ -92,4 +92,5 @@ function Weekly_schedule () {
     );
 }
 
-export default Weekly_schedule ;
+
+export default Schedules;
