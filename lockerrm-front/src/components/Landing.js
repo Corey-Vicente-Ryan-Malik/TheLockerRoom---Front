@@ -22,7 +22,7 @@ const Landing = ( props, {} ) => {
 
                 <button style={loginBtn} onClick={onClick}>Log-In</button>
 
-                <a href="#">Forgot Password?</a>
+                <a href="#" style={forgotPassword}>Forgot Password?</a>
 
                 <button style={registerBtn} onClick={onClick}>Create New Account?</button>
             </div>
@@ -62,8 +62,8 @@ const header = {
     gridColumn: 1,
     gridRow: 1,
     margin: 'auto',
-    width: '100%',
-    height: '100%',
+    width: '85%',
+    height: '50%',
     display: 'flex',
     justifyContent: 'center',
     justifyItems: 'center',
@@ -73,8 +73,8 @@ const message = {
     gridColumn: 1,
     gridRow: 2,
     margin: 'auto',
-    width: '100%',
-    height: '100%',
+    width: '85%',
+    height: '50%',
     display: 'flex',
     justifyContent: 'center',
     justifyItems: 'center',
@@ -135,6 +135,17 @@ const registerBtn = {
     justifyItems: 'center',
     alignItems: 'center',
     borderRadius: '10px'
+}
+const forgotPassword = {
+    gridColumn: 1,
+    gridRow: 5,
+    margin: 'auto',
+    width: '50%',
+    height: '50%',
+    display: 'flex',
+    justifyContent: 'center',
+    justifyItems: 'center',
+    alignItems: 'center',
 }
 
 export default Landing

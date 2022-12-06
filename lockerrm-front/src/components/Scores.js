@@ -1,4 +1,4 @@
-import './Scores.css';
+
 
 function  Scores () {
     return (
