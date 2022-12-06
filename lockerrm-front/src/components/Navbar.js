@@ -32,6 +32,10 @@ function Navbar() {
                         <li className="nav-item">
                             <a className="nav-link" id="teams" href="/teams">Teams</a>
                         </li>
+
+                        <li className="nav-item">
+                            <a className="nav-link" id="schedules" href="/schedules">Schedules</a>
+                        </li>
                     </ul>
                     <form className="d-flex my-2 my-lg-0 ms-auto">
                         <input className="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"/>
@@ -42,12 +46,13 @@ function Navbar() {
                         <li className="nav-item dropdown">
                             <a className="nav-link dropdown-toggle" href="lockerrm-front/src/components/Navbar#" id="navbarDropdownMenuLink" role="button"
                                data-bs-toggle="dropdown" aria-expanded="false">
-                                Settings
+                                <i className="fa-solid fa-user-gear"></i>
                             </a>
+
                             <ul className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                <li><a className="dropdown-item" href="lockerrm-front/src/components/Navbar#"> Edit Profile</a></li>
+                                <li><a className="dropdown-item" href="/edit"> Edit Profile</a></li>
                                 <li><a className="dropdown-item" href="lockerrm-front/src/components/Navbar#">Settings</a></li>
-                                <li><a className="dropdown-item" href="lockerrm-front/src/components/Navbar#">Log in</a></li>
+                                <li><a className="dropdown-item" href="/login">Log in</a></li>
                             </ul>
                         </li>
                     </ul>
