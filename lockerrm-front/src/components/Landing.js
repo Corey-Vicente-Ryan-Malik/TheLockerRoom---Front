@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
 
-const Landing = ( props, {} ) => {
+const Landing = ( props ) => {
     const onClick = (e) => {
         e.preventDefault()
         console.log("Click Check.")
