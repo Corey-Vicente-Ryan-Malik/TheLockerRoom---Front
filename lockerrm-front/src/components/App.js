@@ -21,26 +21,28 @@ function App() {
                 <Routes>
                     {/*<Route exact path='/'*/}
                     {/*       exact element={<Landing/>}/>*/}
+                    
                     <Route path='/home' element={<Home/>}/>
+
                     <Route path='/scores' element={<Scores/>}/>
-                    <Route exact path='/standings'
-                           exact element={<Standings/>}/>
-                    <Route exact path='/stats'
-                           exact element={<Stats/>}/>
-                    <Route exact path='/forum'
-                           exact element={<Forum/>}/>
-                    <Route exact path='/teams'
-                           exact element={<Teams/>}/>
-                    <Route exact path='/edit'
-                           exact element={<Edit/>}/>
-                    <Route exact path='/login'
-                           exact element={<Login/>}/>
-                    <Route exact path='/schedules'
-                           exact element={<Schedules/>}/>
+
+                    <Route path='/standings' element={<Standings/>}/>
+
+                    <Route path='/stats' element={<Stats/>}/>
+
+                    <Route path='/forum' element={<Forum/>}/>
+
+                    <Route path='/teams' element={<Teams/>}/>
+
+                    <Route path='/edit' element={<Edit/>}/>
+
+                    <Route path='/login' element={<Login/>}/>
+
+                    <Route path='/schedules' element={<Schedules/>}/>
+
                 </Routes>
                 <Routes>
-                    <Route exact path='/'
-                           exact element={<Landing/>}/>
+                    <Route path='/' element={<Landing/>}/>
                 </Routes>
             </Router>
         </div>
