@@ -1,6 +1,7 @@
 import Navbar from "./Navbar";
 import { BrowserRouter as Router, Routes, Route}
     from 'react-router-dom';
+import React, { useState } from 'react';
 import Home from './Home';
 import Scores from './Scores';
 import Standings from './Standings';
@@ -10,8 +11,6 @@ import Teams from './Teams';
 import Edit from './Edit';
 import Login from "./Login";
 import Schedules from "./Schedules";
-// import Landing from "./Landing.js"
-
 import Landing from './Landing';
 
 function App() {
@@ -22,10 +21,8 @@ function App() {
                 <Routes>
                     {/*<Route exact path='/'*/}
                     {/*       exact element={<Landing/>}/>*/}
-                    <Route exact path='/home'
-                           exact element={<Home/>}/>
-                    <Route exact path='/scores'
-                           exact element={<Scores/>}/>
+                    <Route path='/home' element={<Home/>}/>
+                    <Route path='/scores' element={<Scores/>}/>
                     <Route exact path='/standings'
                            exact element={<Standings/>}/>
                     <Route exact path='/stats'
