@@ -1,6 +1,5 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import axios from 'axios';
 
 const Landing = ( props ) => {
 
@@ -38,6 +37,22 @@ const Landing = ( props ) => {
 // 	.then(response => response.json())
 // 	.then(response => console.log(response))
 // 	.catch(err => console.error(err));
+
+//Schedule GET Request ----------------------------
+const options = {
+	method: 'GET',
+	headers: {
+    'X-RapidAPI-Key': '030599a025msh7d87a89a5158c47p19faabjsnf8d88956da48',
+    'X-RapidAPI-Host': 'nfl-api1.p.rapidapi.com'
+  }
+};
+
+fetch('https://nfl-api1.p.rapidapi.com/nflschedule?year=2022&month=12&day=30', options)
+	.then(response => response.json())
+	.then(response => console.log(response))
+	.catch(err => console.error(err));
+
+
 
 
     return (

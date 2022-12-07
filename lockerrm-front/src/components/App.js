@@ -12,6 +12,7 @@ import Edit from './Edit';
 import Login from "./Login";
 import Schedules from "./Schedules";
 import Landing from './Landing';
+import Schedule from './Schedule';
 
 function App() {
     return (
@@ -43,6 +44,7 @@ function App() {
                 </Routes>
                 <Routes>
                     <Route path='/' element={<Landing/>}/>
+                    <Route path='/sched' element={<Schedule/>}/>
                 </Routes>
             </Router>
         </div>
