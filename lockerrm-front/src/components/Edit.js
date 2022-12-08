@@ -1,4 +1,4 @@
-import './Edit.css';
+
 
 function Edit() {
     return (
