@@ -7,7 +7,6 @@ import { useNavigate } from 'react-router-dom';
 
 const Landing = ( props, {} ) => {
     const navigate = useNavigate();
-
     const onClick = (e) => {
         e.preventDefault();
         navigate('/register');
