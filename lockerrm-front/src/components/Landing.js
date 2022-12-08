@@ -12,7 +12,7 @@ const Landing = ( props ) => {
 // const options = {
 // 	method: 'GET',
 // 	headers: {
-//     'X-RapidAPI-Key': '030599a025msh7d87a89a5158c47p19faabjsnf8d88956da48',
+//     'X-RapidAPI-Key': process.env.REACT_APP_NFLAPI_KEY,
 //     'X-RapidAPI-Host': 'nfl-api1.p.rapidapi.com'
 //   }
 // };
@@ -28,7 +28,7 @@ const Landing = ( props ) => {
 // const options = {
 // 	method: 'GET',
 // 	headers: {
-//     'X-RapidAPI-Key': '030599a025msh7d87a89a5158c47p19faabjsnf8d88956da48',
+//     'X-RapidAPI-Key': process.env.REACT_APP_NFLAPI_KEY,
 //     'X-RapidAPI-Host': 'nfl-api1.p.rapidapi.com'
 //   }
 // };
@@ -42,7 +42,7 @@ const Landing = ( props ) => {
 const options = {
 	method: 'GET',
 	headers: {
-    'X-RapidAPI-Key': '030599a025msh7d87a89a5158c47p19faabjsnf8d88956da48',
+    'X-RapidAPI-Key': process.env.REACT_APP_NFLAPI_KEY,
     'X-RapidAPI-Host': 'nfl-api1.p.rapidapi.com'
   }
 };
