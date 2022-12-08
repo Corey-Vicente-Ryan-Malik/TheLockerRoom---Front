@@ -1,6 +1,7 @@
 import Navbar from "./Navbar";
 import { BrowserRouter as Router, Routes, Route}
     from 'react-router-dom';
+import React, { useState } from 'react';
 import Home from './Home';
 import Scores from './Scores';
 import Standings from './Standings';
@@ -10,11 +11,10 @@ import Teams from './Teams';
 import Edit from './Edit';
 import Login from "./Login";
 import Schedules from "./Schedules";
-import Landing from "./Landing.js"
+import Landing from "./Landing"
 import Register from "./Register";
 import Settings from "./Settings";
-
-
+import Schedule from './Schedule';
 
 
 function App() {
@@ -47,8 +47,8 @@ function App() {
                            exact element={<Settings/>}/>
                 </Routes>
                 <Routes>
-                    <Route exact path='/'
-                           exact element={<Landing/>}/>
+                    <Route path='/' element={<Landing/>}/>
+                    <Route path='/sched' element={<Schedule/>}/>
                 </Routes>
             </Router>
         </div>
