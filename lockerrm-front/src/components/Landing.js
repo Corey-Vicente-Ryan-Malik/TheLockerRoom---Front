@@ -1,18 +1,28 @@
-import PropTypes from 'prop-types'
+import PropTypes from 'prop-types';
+import logo from '../logo.jpeg';
+import { useNavigate } from 'react-router-dom';
 
+
+
+<<<<<<< HEAD
 const Landing = ( props, {} ) => {
+    const navigate = useNavigate();
+=======
+const Landing = ( props ) => {
+>>>>>>> 492cac71b4290ad448cd0f82237c15b504a5442b
     const onClick = (e) => {
-        e.preventDefault()
-        console.log("Click Check.")
+        e.preventDefault();
+        navigate('/register');
+        console.log("Click Check.");
     }
 
     return (
 
         <div className="landingPage" style={landingPage}>
-
             <div className="landingInfo" style={landingInfo}>
-                <h1 style={header}>{props.header}</h1>
+                <img style={header} src={logo}/>
                 <p style={message}>{props.message}</p>
+
             </div>
 
             <div className="landingForm" style={landingForm}>
@@ -33,8 +43,7 @@ const Landing = ( props, {} ) => {
 }
 
 Landing.defaultProps = {
-    header: 'Main Welcome Header...(x)',
-    message: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Et maxime quo voluptas consectetur corporis, mollitia reprehenderit eveniet totam expedita impedit voluptate asperiores accusamus suscipit doloribus fugit deserunt placeat ipsa amet!',
+    message: 'Welcome to the Locker room ! where you can access all of the latest news, scores , stats,  and more all from your personal device ! please log in to get the scoop on your favorite teams.'
 }
 
 Landing.propTypes = {
@@ -53,17 +62,17 @@ const landingPage = {
 const landingInfo = {
     display: 'grid',
     margin: 'auto',
-    border: 'solid black',
-    borderRadius: '15px',
+    // border: 'solid black',
+    // borderRadius: '15px',
     width: '40%',
-    height: '60%'
+    height: '90%'
 }
 const header = {
     gridColumn: 1,
     gridRow: 1,
-    margin: 'auto',
+    margin: '0 auto',
     width: '85%',
-    height: '50%',
+    height: '80%',
     display: 'flex',
     justifyContent: 'center',
     justifyItems: 'center',
@@ -72,7 +81,7 @@ const header = {
 const message = {
     gridColumn: 1,
     gridRow: 2,
-    margin: 'auto',
+    margin: '0 auto',
     width: '85%',
     height: '50%',
     display: 'flex',

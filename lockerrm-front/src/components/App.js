@@ -10,9 +10,11 @@ import Teams from './Teams';
 import Edit from './Edit';
 import Login from "./Login";
 import Schedules from "./Schedules";
-// import Landing from "./Landing.js"
+import Landing from "./Landing.js"
+import Register from "./Register";
 
-import Landing from './Landing';
+
+
 
 function App() {
     return (
@@ -20,8 +22,6 @@ function App() {
             <Router>
                 <Navbar/>
                 <Routes>
-                    {/*<Route exact path='/'*/}
-                    {/*       exact element={<Landing/>}/>*/}
                     <Route exact path='/home'
                            exact element={<Home/>}/>
                     <Route exact path='/scores'
@@ -40,6 +40,8 @@ function App() {
                            exact element={<Login/>}/>
                     <Route exact path='/schedules'
                            exact element={<Schedules/>}/>
+                    <Route exact path='/register'
+                           exact element={<Register/>}/>
                 </Routes>
                 <Routes>
                     <Route exact path='/'
@@ -48,6 +50,8 @@ function App() {
             </Router>
         </div>
     );
+
+
 }
 
 export default App;
