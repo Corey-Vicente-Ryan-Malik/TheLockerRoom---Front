@@ -1,25 +1,48 @@
+import {useState} from "react";
+import axios from "axios";
+import {Link, useNavigate} from "react-router-dom";
+
 function Register () {
+    let navigate = useNavigate;
+    const [user, setUser] = useState({
+        firstname: "",
+        lastname: "",
+        email: "",
+        username: "",
+        password: "",
+        favoriteTeam: "",
+    });
+
+    const {firstname, lastname, email, username, password, favoriteTeam} = user;
+    const onInputChange = (e) => {
+        setUser({...user, [e.target.name]: e.target.value});
+    }
+    const onSubmit = async (e) =>{
+        e.preventDefault();
+        await axios.post("http://localhost:8080/register", user);
+        navigate("/home")
+
+    };
     return (
         <div className="RegisterPage">
             <div className="Edit form" style={RegisterForm}>
-                <form>
+                <form onSubmit={(e)=>onSubmit(e)}>
+
+                    <input style={firstName} type="text" placeholder="First Name" name="firstname" value={firstname} onChange={(e)=>onInputChange(e)}/>
 
 
-                    <input style={firstName} type="text" placeholder="First Name" name="first name"/>
+                    <input style={lastName} type="text" placeholder=" Last Name" name="lastname" value={lastname} onChange={(e)=>onInputChange(e)}/>
 
 
-                    <input style={lastName} type="text" placeholder=" Last Name" name="last name"/>
+                    <input style={Email} type="text" placeholder="Email" name="email" value={email} onChange={(e)=>onInputChange(e)}/>
 
 
-                    <input style={Email} type="text" placeholder="Email" name="email"/>
-
-
-                    <input style={Username} type="text" placeholder="Username" name="username"/>
+                    <input style={Username} type="text" placeholder="Username" name="username" value={username} onChange={(e)=>onInputChange(e)}/>
 
 
 
 
-                    <select name="favorite team" style={FavoriteTeam}>
+                    <select name="favorite team" style={FavoriteTeam} value={favoriteTeam} onChange={(e)=>onInputChange(e)}>
                         <option defaultValue="Select Your Favorite Team">Select Your Favorite Team</option>
                         <option value="San Fransisco 49ers">San Fransisco 49ers</option>
                         <option value="Chicago Bears">Chicago Bears</option>
@@ -55,7 +78,7 @@ function Register () {
                         <option value="Minnesota Vikings">Minnesota Vikings</option>
                     </select>
 
-                    <input style={Password} placeholder=" Enter Password" type="password" name="password"/>
+                    <input style={Password} placeholder=" Enter Password" type="password" name="password" value={password} onChange={(e)=>onInputChange(e)}/>
 
 
                     <input style={ConfirmPass} placeholder=" Re-enter Password" type="password" name=" confirm password"/>
