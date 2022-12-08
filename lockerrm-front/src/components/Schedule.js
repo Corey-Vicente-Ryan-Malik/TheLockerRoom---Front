@@ -1,52 +1,54 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react';
 
+class Schedule extends React.Component {
 
-const Schedule = () => {
-    const [data, setData] = useState([]);
+    constructor(props) {
+        super(props);
 
-    const fetchData = () => {
-        const options = {
-            method: 'GET',
-            headers: {
-                'X-RapidAPI-Key': process.env.REACT_APP_NFLAPI_KEY,
-                'X-RapidAPI-Host': 'nfl-api1.p.rapidapi.com'
-            }
+        this.state = {
+            items: [],
+            DataisLoaded: false
         };
+    }
 
-        fetch('https://nfl-api1.p.rapidapi.com/nflschedule?year=2022&month=12&day=30', options)
-            .then((response) => response.json)
-            .then((allData) => {
-                console.log(allData);
-                setData(allData.games)
-                console.log(data);
-            })
-            .catch((error) => {
-                console.log(error)
-            }); 
-    };
 
-    useEffect(() => {
-        fetchData();
-    }, []);
-    
-    return (
-        <div className="container">
+    componentDidMount() {
+        const options = {
+                method: 'GET',
+                headers: {
+                    'X-RapidAPI-Key': process.env.REACT_APP_NFLAPI_KEY,
+                    'X-RapidAPI-Host': 'nfl-api1.p.rapidapi.com'
+                }
+            };
 
-            <tbody>
-                <tr>
-                    <th>Home</th>
-                    <th>Away</th>
-                </tr>
-                {data.map((games, index) => (
-                <tr key={index}>
-                    <td>{games[0].competitions.competitors[0]}</td>
-                    <td>{games[0].competitions.competitors[1]}</td>
-                </tr>
+            fetch('https://nfl-api1.p.rapidapi.com/nflschedule?year=2022&month=12&day=30', options)
+                .then((response) => response.json())
+                .then((json) => {
+                    this.setState({
+                        items: json,
+                        DataisLoaded: true
+                    });
+                })
+    }
+    render() {
+        const { DataisLoaded, items } = this.state;
+        if(!DataisLoaded) return <div>
+            <h1> Loading... </h1>
+        </div>;
+
+        return (
+            <div className="schedule">
+                {items.map((item) => (
+                    <ol key={ item.games }>
+                        <li> { item.games[0].competitors[0] } </li>
+                    </ol>
                 ))}
-            </tbody>
-            
-        </div>
-    )
-}   
+            </div>
+        )
+    }
+}
 
+        
+
+  
 export default Schedule
