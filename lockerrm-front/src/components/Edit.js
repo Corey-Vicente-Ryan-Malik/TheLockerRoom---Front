@@ -2,33 +2,26 @@
 
 function Edit() {
     return (
-        <div className="Edit">
-            <h1>This is the [ Edit Profile page]</h1>
-            <div>
+        <div className="Edit" style={EditPage}>
+
+            <div className="Edit form" style={EditForm}>
                 <form>
-                    <label>
-                        First Name
-                        <input type="text" name="first name"/>
-                    </label>
 
-                    <label>
-                        Last Name
-                        <input type="text" name="last name"/>
-                    </label>
 
-                    <label>
-                        Email
-                        <input type="text" name="email"/>
-                    </label>
+                        <input style={firstName} type="text" placeholder="First Name" name="first name"/>
 
-                    <label>
-                        Username
-                        <input type="text" name="username"/>
-                    </label>
 
-                    <label>
-                        Favorite Team
-                        <select name="favorite team">
+                        <input style={lastName} type="text" placeholder=" Last Name" name="last name"/>
+
+
+                        <input style={Email} type="text" placeholder="Email" name="email"/>
+
+
+                        <input style={Username} type="text" placeholder="Username" name="username"/>
+
+
+                        <select name="favorite team" style={FavoriteTeam}>
+                            <option defaultValue="Select Your Favorite Team">Select Your Favorite Team</option>
                             <option value="San Fransisco 49ers">San Fransisco 49ers</option>
                             <option value="Chicago Bears">Chicago Bears</option>
                             <option value="Cincinnati Bengals">Cincinnati Bengals</option>
@@ -62,19 +55,16 @@ function Edit() {
                             <option value="Tennessee Titans">Tennessee Titans</option>
                             <option value="Minnesota Vikings">Minnesota Vikings</option>
                         </select>
-                    </label>
-                    <p>Enter your password to confirm your changes</p>
-                    <label>
-                        Password
-                        <input type="password" name="password"/>
-                    </label>
 
-                    <label>
-                        Confirm Password
-                        <input type="password" name=" confirm password"/>
-                    </label>
+                    <p style={Passmessage}>Enter your password to confirm your changes</p>
 
-                    <button type="sumbit" name="Save changes"/>
+
+                        <input style={Password} placeholder="Password" type="password" name="password"/>
+
+
+                    <input style={ConfirmPass} placeholder=" Confirm Password" type="password" name=" confirm password"/>
+
+                    <button style={SaveButton} type="sumbit" name="Save changes">Save Changes</button>
 
 
                 </form>
@@ -82,6 +72,140 @@ function Edit() {
 
         </div>
     );
+}
+
+const EditPage = {
+    display: 'flex',
+    margin: 'auto',
+    width: '95vw',
+    height: '95vh',
+}
+
+const firstName = {
+    gridColumn: 1,
+    gridRow: 1,
+    margin: '10px',
+    width: '90%',
+    display: 'flex',
+    justifyContent: 'center',
+    justifyItems: 'center',
+    alignItems: 'center',
+    padding: '5px',
+    borderRadius: '10px',
+}
+
+const lastName = {
+    gridColumn: 1,
+    gridRow: 2,
+    margin: '10px',
+    width: '90%',
+    display: 'flex',
+    justifyContent: 'center',
+    justifyItems: 'center',
+    alignItems: 'center',
+    padding: '5px',
+    borderRadius: '10px',
+
+}
+
+const Email = {
+    gridColumn: 1,
+    gridRow: 3,
+    margin: '10px',
+    width: '90%',
+    display: 'flex',
+    justifyContent: 'center',
+    justifyItems: 'center',
+    alignItems: 'center',
+    padding: '5px',
+    borderRadius: '10px',
+}
+
+const Username = {
+    gridColumn: 1,
+    gridRow: 4,
+    margin: '10px',
+    width: '90%',
+    display: 'flex',
+    justifyContent: 'center',
+    justifyItems: 'center',
+    alignItems: 'center',
+    padding:'5px',
+    borderRadius: '10px',
+
+}
+
+const FavoriteTeam = {
+    gridColumn: 1,
+    gridRow: 5,
+    margin: '10px',
+    width: '90%',
+    display: 'flex',
+    justifyContent: 'center',
+    justifyItems: 'center',
+    alignItems: 'center',
+    padding:'5px',
+    borderRadius: '10px',
+
+}
+
+const Passmessage = {
+    gridColumn: 1,
+    gridRow: 6,
+    margin: '10px',
+}
+
+const Password = {
+    gridColumn: 1,
+    gridRow: 7,
+    margin: '10px',
+    width: '90%',
+    display: 'flex',
+    justifyContent: 'center',
+    justifyItems: 'center',
+    alignItems: 'center',
+    padding: '5px',
+    borderRadius: '10px',
+}
+
+const ConfirmPass = {
+    gridColumn: 1,
+    gridRow: 8,
+    margin: '10px',
+    width: '90%',
+    display: 'flex',
+    justifyContent: 'center',
+    justifyItems: 'center',
+    alignItems: 'center',
+    padding: '5px',
+    border: 'solid black',
+    borderRadius: '15px',
+}
+
+const SaveButton = {
+    gridColumn: 1,
+    gridRow: 9,
+    margin: '10px',
+    width: '60%',
+    display: 'flex',
+    justifyContent: 'center',
+    justifyItems: 'center',
+    alignItems: 'center',
+    padding: '5px',
+    borderRadius: '10px',
+}
+
+const EditForm = {
+    display: 'grid',
+    margin: 'auto',
+    border: 'solid black',
+    borderRadius: '15px',
+    width: '60%',
+    height: '60%',
+}
+
+const message = {
+
 }
 
 export default Edit;

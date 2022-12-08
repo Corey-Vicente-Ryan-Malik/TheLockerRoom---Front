@@ -14,6 +14,7 @@ import Schedules from "./Schedules";
 import Landing from './Landing';
 import Schedule from './Schedule';
 
+
 function App() {
     return (
         <div className="App">
@@ -41,6 +42,7 @@ function App() {
 
                     <Route path='/schedules' element={<Schedules/>}/>
 
+
                 </Routes>
                 <Routes>
                     <Route path='/' element={<Landing/>}/>
@@ -49,6 +51,8 @@ function App() {
             </Router>
         </div>
     );
+
+
 }
 
 export default App;
