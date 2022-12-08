@@ -4,12 +4,9 @@ import { useNavigate } from 'react-router-dom';
 
 
 
-<<<<<<< HEAD
+
 const Landing = ( props, {} ) => {
     const navigate = useNavigate();
-=======
-const Landing = ( props ) => {
->>>>>>> 492cac71b4290ad448cd0f82237c15b504a5442b
     const onClick = (e) => {
         e.preventDefault();
         navigate('/register');

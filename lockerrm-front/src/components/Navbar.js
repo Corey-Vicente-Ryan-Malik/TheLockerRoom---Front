@@ -3,7 +3,7 @@
 function Navbar() {
     return (
         <div className="Navbar">
-            <nav className="navbar navbar-expand-lg navbar-light bg-light">
+            <nav className="navbar navbar-expand-lg navbar-light bg-light w-100">
                 <a className="navbar-brand" href="/home">The Locker Room</a>
                 <button className="navbar-toggler" type="button" data-toggle="collapse"
                         data-target="#navbarSupportedContent"
@@ -34,6 +34,7 @@ function Navbar() {
                         </li>
                         <li className="nav-item">
                             <a className="nav-link" id="teams" href="/schedules">Schedules</a>
+                        </li>
                     </ul>
                     <form className="d-flex my-2 my-lg-0 ms-auto">
                         <input className="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"/>
@@ -47,10 +48,10 @@ function Navbar() {
                                 <i className="fa-solid fa-user-gear"></i>
                             </a>
 
-                            <ul className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <ul className="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
                                 <li><a className="dropdown-item" href="/edit"> Edit Profile</a></li>
-                                <li><a className="dropdown-item" href="lockerrm-front/src/components/Navbar#">Settings</a></li>
-                                <li><a className="dropdown-item" href="/login">Log in</a></li>
+                                <li><a className="dropdown-item" href="/Settings">Settings</a></li>
+                                <li><a className="dropdown-item" href="/">Log in</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -60,5 +61,6 @@ function Navbar() {
         </div>
     );
 }
+
 
 export default Navbar;

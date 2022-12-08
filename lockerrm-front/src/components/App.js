@@ -12,6 +12,7 @@ import Login from "./Login";
 import Schedules from "./Schedules";
 import Landing from "./Landing.js"
 import Register from "./Register";
+import Settings from "./Settings";
 
 
 
@@ -42,6 +43,8 @@ function App() {
                            exact element={<Schedules/>}/>
                     <Route exact path='/register'
                            exact element={<Register/>}/>
+                    <Route exact path='/settings'
+                           exact element={<Settings/>}/>
                 </Routes>
                 <Routes>
                     <Route exact path='/'
