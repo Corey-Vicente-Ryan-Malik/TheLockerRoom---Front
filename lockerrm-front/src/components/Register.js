@@ -82,14 +82,14 @@ const RegisterForm = {
     margin: 'auto',
     border: 'solid black',
     borderRadius: '15px',
-    width: '50%',
-    height: '50%',
+    width: '60%',
+    height: '60%',
 }
 
 const firstName = {
     gridColumn: 1,
     gridRow: 1,
-    margin: 'auto',
+    margin: '10px',
     width: '90%',
     display: 'flex',
     justifyContent: 'center',
@@ -102,7 +102,7 @@ const firstName = {
 const lastName = {
     gridColumn: 1,
     gridRow: 2,
-    margin: 'auto',
+    margin: '10px',
     width: '90%',
     display: 'flex',
     justifyContent: 'center',
@@ -116,7 +116,7 @@ const lastName = {
 const Email = {
     gridColumn: 1,
     gridRow: 3,
-    margin: 'auto',
+    margin: '10px',
     width: '90%',
     display: 'flex',
     justifyContent: 'center',
@@ -129,7 +129,7 @@ const Email = {
 const Username = {
     gridColumn: 1,
     gridRow: 4,
-    margin: 'auto',
+    margin: '10px',
     width: '90%',
     display: 'flex',
     justifyContent: 'center',
@@ -143,7 +143,7 @@ const Username = {
 const FavoriteTeam = {
     gridColumn: 1,
     gridRow: 5,
-    margin: 'auto',
+    margin: '10px',
     width: '90%',
     display: 'flex',
     justifyContent: 'center',
@@ -157,7 +157,7 @@ const FavoriteTeam = {
 const Password = {
     gridColumn: 1,
     gridRow: 6,
-    margin: 'auto',
+    margin: '10px',
     width: '90%',
     display: 'flex',
     justifyContent: 'center',
@@ -170,7 +170,7 @@ const Password = {
 const ConfirmPass = {
     gridColumn: 1,
     gridRow: 7,
-    margin: 'auto',
+    margin: '10px',
     width: '90%',
     display: 'flex',
     justifyContent: 'center',
@@ -184,7 +184,7 @@ const ConfirmPass = {
 const SaveButton = {
     gridColumn: 1,
     gridRow: 8,
-    margin: 'auto',
+    margin: '10px',
     width: '60%',
     display: 'flex',
     justifyContent: 'center',

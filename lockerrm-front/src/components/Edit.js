@@ -20,8 +20,6 @@ function Edit() {
                         <input style={Username} type="text" placeholder="Username" name="username"/>
 
 
-
-
                         <select name="favorite team" style={FavoriteTeam}>
                             <option defaultValue="Select Your Favorite Team">Select Your Favorite Team</option>
                             <option value="San Fransisco 49ers">San Fransisco 49ers</option>
@@ -58,7 +56,7 @@ function Edit() {
                             <option value="Minnesota Vikings">Minnesota Vikings</option>
                         </select>
 
-                    <p>Enter your password to confirm your changes</p>
+                    <p style={Passmessage}>Enter your password to confirm your changes</p>
 
 
                         <input style={Password} placeholder="Password" type="password" name="password"/>
@@ -86,7 +84,7 @@ const EditPage = {
 const firstName = {
     gridColumn: 1,
     gridRow: 1,
-    margin: 'auto',
+    margin: '10px',
     width: '90%',
     display: 'flex',
     justifyContent: 'center',
@@ -99,7 +97,7 @@ const firstName = {
 const lastName = {
     gridColumn: 1,
     gridRow: 2,
-    margin: 'auto',
+    margin: '10px',
     width: '90%',
     display: 'flex',
     justifyContent: 'center',
@@ -113,7 +111,7 @@ const lastName = {
 const Email = {
     gridColumn: 1,
     gridRow: 3,
-    margin: 'auto',
+    margin: '10px',
     width: '90%',
     display: 'flex',
     justifyContent: 'center',
@@ -126,7 +124,7 @@ const Email = {
 const Username = {
     gridColumn: 1,
     gridRow: 4,
-    margin: 'auto',
+    margin: '10px',
     width: '90%',
     display: 'flex',
     justifyContent: 'center',
@@ -140,7 +138,7 @@ const Username = {
 const FavoriteTeam = {
     gridColumn: 1,
     gridRow: 5,
-    margin: 'auto',
+    margin: '10px',
     width: '90%',
     display: 'flex',
     justifyContent: 'center',
@@ -151,10 +149,16 @@ const FavoriteTeam = {
 
 }
 
-const Password = {
+const Passmessage = {
     gridColumn: 1,
     gridRow: 6,
-    margin: 'auto',
+    margin: '10px',
+}
+
+const Password = {
+    gridColumn: 1,
+    gridRow: 7,
+    margin: '10px',
     width: '90%',
     display: 'flex',
     justifyContent: 'center',
@@ -166,8 +170,8 @@ const Password = {
 
 const ConfirmPass = {
     gridColumn: 1,
-    gridRow: 7,
-    margin: 'auto',
+    gridRow: 8,
+    margin: '10px',
     width: '90%',
     display: 'flex',
     justifyContent: 'center',
@@ -180,8 +184,8 @@ const ConfirmPass = {
 
 const SaveButton = {
     gridColumn: 1,
-    gridRow: 8,
-    margin: 'auto',
+    gridRow: 9,
+    margin: '10px',
     width: '60%',
     display: 'flex',
     justifyContent: 'center',
@@ -196,8 +200,12 @@ const EditForm = {
     margin: 'auto',
     border: 'solid black',
     borderRadius: '15px',
-    width: '50%',
-    height: '50%',
+    width: '60%',
+    height: '60%',
+}
+
+const message = {
+
 }
 
 export default Edit;
