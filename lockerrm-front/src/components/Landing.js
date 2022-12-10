@@ -3,6 +3,7 @@ import logo from '../logo.jpeg';
 import { useNavigate } from 'react-router-dom';
 
 
+
 const Landing = ( props, {} ) => {
     const navigate = useNavigate();
 
@@ -10,7 +11,55 @@ const Landing = ( props, {} ) => {
         e.preventDefault();
         navigate('/register');
         console.log("Click Check.");
+
     }
+
+// Team List GET Request ------------------------
+// const options = {
+// 	method: 'GET',
+// 	headers: {
+//     'X-RapidAPI-Key': process.env.REACT_APP_NFLAPI_KEY,
+//     'X-RapidAPI-Host': 'nfl-api1.p.rapidapi.com'
+//   }
+// };
+
+// fetch('https://nfl-api1.p.rapidapi.com/nflteamlist', options)
+// 	.then(response => response.json())
+// 	.then(response => console.log(response))
+// 	.catch(err => console.error(err));
+
+
+
+// Team GET Request ------------------------------
+// const options = {
+// 	method: 'GET',
+// 	headers: {
+//     'X-RapidAPI-Key': process.env.REACT_APP_NFLAPI_KEY,
+//     'X-RapidAPI-Host': 'nfl-api1.p.rapidapi.com'
+//   }
+// };
+
+// fetch('https://nfl-api1.p.rapidapi.com/nflteamplayers?teamid=16', options)
+// 	.then(response => response.json())
+// 	.then(response => console.log(response))
+// 	.catch(err => console.error(err));
+
+//Schedule GET Request ----------------------------
+const options = {
+	method: 'GET',
+	headers: {
+    'X-RapidAPI-Key': process.env.REACT_APP_NFLAPI_KEY,
+    'X-RapidAPI-Host': 'nfl-api1.p.rapidapi.com'
+  }
+};
+
+fetch('https://nfl-api1.p.rapidapi.com/nflschedule?year=2022&month=12&day=30', options)
+	.then(response => response.json())
+	.then(response => console.log(response))
+	.catch(err => console.error(err));
+
+
+
 
     return (
 
