@@ -3,8 +3,6 @@ import logo from '../logo.jpeg';
 import { useNavigate } from 'react-router-dom';
 
 
-
-
 const Landing = ( props, {} ) => {
     const navigate = useNavigate();
 
@@ -20,7 +18,6 @@ const Landing = ( props, {} ) => {
             <div className="landingInfo" style={landingInfo}>
                 <img style={header} src={logo}/>
                 <p style={message}>{props.message}</p>
-
             </div>
 
             <div className="landingForm" style={landingForm}>

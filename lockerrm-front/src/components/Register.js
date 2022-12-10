@@ -39,9 +39,6 @@ function Register () {
 
                     <input style={Username} type="text" placeholder="Username" name="username" value={username} onChange={(e)=>onInputChange(e)}/>
 
-
-
-
                     <select name="favorite team" style={FavoriteTeam} value={favoriteTeam} onChange={(e)=>onInputChange(e)}>
                         <option defaultValue="Select Your Favorite Team">Select Your Favorite Team</option>
                         <option value="San Fransisco 49ers">San Fransisco 49ers</option>
@@ -112,7 +109,7 @@ const RegisterForm = {
 const firstName = {
     gridColumn: 1,
     gridRow: 1,
-    margin: '10px',
+    margin: '10px auto',
     width: '90%',
     display: 'flex',
     justifyContent: 'center',
@@ -125,7 +122,7 @@ const firstName = {
 const lastName = {
     gridColumn: 1,
     gridRow: 2,
-    margin: '10px',
+    margin: '10px auto',
     width: '90%',
     display: 'flex',
     justifyContent: 'center',
@@ -139,7 +136,7 @@ const lastName = {
 const Email = {
     gridColumn: 1,
     gridRow: 3,
-    margin: '10px',
+    margin: '10px auto',
     width: '90%',
     display: 'flex',
     justifyContent: 'center',
@@ -152,7 +149,7 @@ const Email = {
 const Username = {
     gridColumn: 1,
     gridRow: 4,
-    margin: '10px',
+    margin: '10px auto',
     width: '90%',
     display: 'flex',
     justifyContent: 'center',
@@ -160,13 +157,12 @@ const Username = {
     alignItems: 'center',
     padding:'5px',
     borderRadius: '10px',
-
 }
 
 const FavoriteTeam = {
     gridColumn: 1,
     gridRow: 5,
-    margin: '10px',
+    margin: '10px auto',
     width: '90%',
     display: 'flex',
     justifyContent: 'center',
@@ -174,13 +170,12 @@ const FavoriteTeam = {
     alignItems: 'center',
     padding:'5px',
     borderRadius: '10px',
-
 }
 
 const Password = {
     gridColumn: 1,
     gridRow: 6,
-    margin: '10px',
+    margin: '10px auto',
     width: '90%',
     display: 'flex',
     justifyContent: 'center',
@@ -193,7 +188,7 @@ const Password = {
 const ConfirmPass = {
     gridColumn: 1,
     gridRow: 7,
-    margin: '10px',
+    margin: '10px auto',
     width: '90%',
     display: 'flex',
     justifyContent: 'center',
@@ -207,7 +202,7 @@ const ConfirmPass = {
 const SaveButton = {
     gridColumn: 1,
     gridRow: 8,
-    margin: '10px',
+    margin: '10px auto',
     width: '60%',
     display: 'flex',
     justifyContent: 'center',
