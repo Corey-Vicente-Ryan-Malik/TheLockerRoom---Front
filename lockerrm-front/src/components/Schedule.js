@@ -25,17 +25,84 @@ export default function Schedule() {
         axios.get(url, options)
             .then((response) => {
                 const allData = response.data;
-                console.log(allData)
+                console.log(allData);
 
-                //Object.keys method used to iterate through objects
-                const dates = Object.keys(allData);
-                console.log(dates)
+                let allDataOne;
+                let allDataTwo;
+                let allDataThree;
+                let allDataFour;
+                for(let property in allData) {
+                    allDataOne = allData[property].games;
+                    
+                    for(let property in allDataOne) {
+                        allDataTwo = allDataOne[property].competitions;
 
-                dates.forEach((key, index) => {
-                    console.log(`${key}: ${dates[key]}`)
-                })
+                        for(let property in allDataTwo) {
+                            allDataThree = allDataTwo[property].competitors;
 
-                //Object.entries method used to iterate through objects
+                            for(let property in allDataThree) {
+                                allDataFour = allDataThree[property].team.displayName;
+                                console.log('displayName: ' + allDataFour)
+                                // for(const [key, value] of Object.entries(allDataFour)) {
+                                //     console.log(`${key}: ${value}`);
+                                // } 
+                            }
+                        }
+                    }
+                }
+
+                // console.log(allDataThree);
+
+
+                // const allDataObject = response.data;
+                // console.log(allDataObject)
+
+                // const allDataArray = Object.values(response.data);
+                // console.log(allDataArray)
+                
+
+                
+                // allDataArray.forEach((data) => {
+                //     console.log(data)
+                //     const newData = data
+                //     console.log(newData)
+                // })
+
+                // let allGames;
+                // for(const property in allData) {
+                //     allGames = allData[property].games;
+                // }
+                // console.log(allGames);
+
+                // let newAllGames;
+                // for(const property in allGames) {
+                //     newAllGames = allGames[property].competitions
+                // }
+                // console.log(newAllGames);
+
+
+
+
+                
+
+
+
+
+
+                //for...in loop used - No Success
+                // for(const key in allData) {
+                //     console.log(`${key}: ${allData[key]}`)
+                // }
+
+                //Object.keys method used to iterate through objects - No Success
+                // const dates = Object.keys(allData);
+                // console.log(dates)
+
+                // dates.forEach((key, index) => {
+                //     console.log(`${key}: ${dates[key]}`)
+                // })
+
+                //Object.entries method used to iterate through objects - No Success
                 // const one = Object.entries(allData);
                 // console.log(one);
 
@@ -43,7 +110,7 @@ export default function Schedule() {
 
 
 
-                getGames(allData)
+                // getGames(allData)
             })
             .catch(error => console.error(`Error: ${error}`));
     }
