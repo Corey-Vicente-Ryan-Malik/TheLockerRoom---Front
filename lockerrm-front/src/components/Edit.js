@@ -20,7 +20,7 @@ function Edit() {
                         <input style={Username} type="text" placeholder="Username" name="username"/>
 
 
-                        <select name="favorite team" style={FavoriteTeam}>
+                        <select  name="favorite team" style={FavoriteTeam}>
                             <option defaultValue="Select Your Favorite Team">Select Your Favorite Team</option>
                             <option value="San Fransisco 49ers">San Fransisco 49ers</option>
                             <option value="Chicago Bears">Chicago Bears</option>
@@ -205,6 +205,10 @@ const EditForm = {
 }
 
 const message = {
+
+}
+
+const select = {
 
 }
 

@@ -88,7 +88,7 @@ fetch('https://nfl-api1.p.rapidapi.com/nflschedule?year=2022&month=12&day=30', o
 }
 
 Landing.defaultProps = {
-    message: 'Welcome to the Locker room ! where you can access all of the latest news, scores , stats,  and more all from your personal device ! please log in to get the scoop on your favorite teams.'
+    message: 'Welcome to the Locker room ! Where you can access all of the latest news, scores , stats,  and more all from your personal device ! Please log in to get the scoop on your favorite teams.'
 }
 
 Landing.propTypes = {

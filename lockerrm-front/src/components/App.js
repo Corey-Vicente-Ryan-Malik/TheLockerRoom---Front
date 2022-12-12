@@ -14,7 +14,9 @@ import Schedules from "./Schedules";
 import Landing from "./Landing"
 import Register from "./Register";
 import Settings from "./Settings";
-import Schedule from './Schedule';
+import Schedule from './Schedules';
+import Footer from "./Footer";
+import About from "./About";
 
 
 function App() {
@@ -45,11 +47,14 @@ function App() {
                            exact element={<Register/>}/>
                     <Route exact path='/settings'
                            exact element={<Settings/>}/>
+                    <Route exact path='/about'
+                           exact element={<About/>}/>
                 </Routes>
                 <Routes>
                     <Route path='/' element={<Landing/>}/>
                     <Route path='/sched' element={<Schedule/>}/>
                 </Routes>
+                <Footer/>
             </Router>
         </div>
     );
