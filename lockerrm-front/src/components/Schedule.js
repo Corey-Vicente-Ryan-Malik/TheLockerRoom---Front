@@ -1,19 +1,15 @@
 import React from 'react';
+import { useState, useEffect } from 'react';
+import axios from 'axios';
+import GameSched from './GameSched';
 
-class Schedule extends React.Component {
+export default function Schedule() {
 
-    constructor(props) {
-        super(props);
+    const [games, getGames] = useState('');
 
-        this.state = {
-            items: [],
-            DataisLoaded: false
-        };
-    }
+    const url = 'https://nfl-api1.p.rapidapi.com/nflschedule?year=2023&month=03&day=01'
 
-
-    componentDidMount() {
-        const options = {
+    const options = {
                 method: 'GET',
                 headers: {
                     'X-RapidAPI-Key': process.env.REACT_APP_NFLAPI_KEY,
@@ -21,34 +17,39 @@ class Schedule extends React.Component {
                 }
             };
 
-            fetch('https://nfl-api1.p.rapidapi.com/nflschedule?year=2022&month=12&day=30', options)
-                .then((response) => response.json())
-                .then((json) => {
-                    this.setState({
-                        items: json,
-                        DataisLoaded: true
-                    });
+    useEffect(() => {
+        getData();
+    }, [])
+
+    const getData = () => {
+        axios.get(url, options)
+            .then((response) => {
+                const allData = response.data;
+                console.log(allData)
+
+                //Object.keys method used to iterate through objects
+                const dates = Object.keys(allData);
+                console.log(dates)
+
+                dates.forEach((key, index) => {
+                    console.log(`${key}: ${dates[key]}`)
                 })
-    }
-    render() {
-        const { DataisLoaded, items } = this.state;
-        if(!DataisLoaded) return <div>
-            <h1> Loading... </h1>
-        </div>;
 
-        return (
-            <div className="schedule">
-                {items.map((item) => (
-                    <ol key={ item.games }>
-                        <li> { item.games[0].competitors[0] } </li>
-                    </ol>
-                ))}
-            </div>
-        )
+                //Object.entries method used to iterate through objects
+                // const one = Object.entries(allData);
+                // console.log(one);
+
+
+
+
+
+                getGames(allData)
+            })
+            .catch(error => console.error(`Error: ${error}`));
     }
+
+    return(
+        <GameSched games = {games}/>
+    )
+
 }
-
-        
-
-  
-export default Schedule
