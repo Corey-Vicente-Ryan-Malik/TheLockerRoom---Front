@@ -1,4 +1,4 @@
-
+import './Schedules.css'
 
 function Schedules () {
     return (

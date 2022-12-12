@@ -4,7 +4,6 @@ import { useNavigate } from 'react-router-dom';
 
 
 
-
 const Landing = ( props, {} ) => {
     const navigate = useNavigate();
 
@@ -68,7 +67,6 @@ fetch('https://nfl-api1.p.rapidapi.com/nflschedule?year=2022&month=12&day=30', o
             <div className="landingInfo" style={landingInfo}>
                 <img style={header} src={logo}/>
                 <p style={message}>{props.message}</p>
-
             </div>
 
             <div className="landingForm" style={landingForm}>
