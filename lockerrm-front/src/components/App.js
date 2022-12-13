@@ -16,6 +16,7 @@ import Register from "./Register";
 import Settings from "./Settings";
 import Schedule from './Schedule';
 import GameSched from "./GameSched";
+import Data from "./Data";
 
 
 function App() {
@@ -51,6 +52,7 @@ function App() {
                     <Route path='/' element={<Landing/>}/>
                     <Route path='/sched' element={<Schedule/>}/>
                     <Route path='/schedule' element={<GameSched/>}/>
+                    <Route path='/data' element={<Data/>}/>
                 </Routes>
             </Router>
         </div>

@@ -43,73 +43,12 @@ export default function Schedule() {
                             for(let property in allDataThree) {
                                 allDataFour = allDataThree[property].team.displayName;
                                 console.log('displayName: ' + allDataFour)
-                                // for(const [key, value] of Object.entries(allDataFour)) {
-                                //     console.log(`${key}: ${value}`);
-                                // } 
                             }
                         }
                     }
                 }
 
-                // console.log(allDataThree);
-
-
-                // const allDataObject = response.data;
-                // console.log(allDataObject)
-
-                // const allDataArray = Object.values(response.data);
-                // console.log(allDataArray)
                 
-
-                
-                // allDataArray.forEach((data) => {
-                //     console.log(data)
-                //     const newData = data
-                //     console.log(newData)
-                // })
-
-                // let allGames;
-                // for(const property in allData) {
-                //     allGames = allData[property].games;
-                // }
-                // console.log(allGames);
-
-                // let newAllGames;
-                // for(const property in allGames) {
-                //     newAllGames = allGames[property].competitions
-                // }
-                // console.log(newAllGames);
-
-
-
-
-                
-
-
-
-
-
-                //for...in loop used - No Success
-                // for(const key in allData) {
-                //     console.log(`${key}: ${allData[key]}`)
-                // }
-
-                //Object.keys method used to iterate through objects - No Success
-                // const dates = Object.keys(allData);
-                // console.log(dates)
-
-                // dates.forEach((key, index) => {
-                //     console.log(`${key}: ${dates[key]}`)
-                // })
-
-                //Object.entries method used to iterate through objects - No Success
-                // const one = Object.entries(allData);
-                // console.log(one);
-
-
-
-
-
                 // getGames(allData)
             })
             .catch(error => console.error(`Error: ${error}`));
