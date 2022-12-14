@@ -1,71 +1,69 @@
-
-
 function Edit() {
     return (
         <div className="Edit" style={EditPage}>
 
             <div className="Edit form" style={EditForm}>
-                <form>
+                <form className="editForm">
 
 
-                        <input style={firstName} type="text" placeholder="First Name" name="first name"/>
+                    <input style={firstName} type="text" placeholder="First Name" name="first name"/>
 
 
-                        <input style={lastName} type="text" placeholder=" Last Name" name="last name"/>
+                    <input style={lastName} type="text" placeholder=" Last Name" name="last name"/>
 
 
-                        <input style={Email} type="text" placeholder="Email" name="email"/>
+                    <input style={Email} type="text" placeholder="Email" name="email"/>
 
 
-                        <input style={Username} type="text" placeholder="Username" name="username"/>
+                    <input style={Username} type="text" placeholder="Username" name="username"/>
 
 
-                        <select  name="favorite team" style={FavoriteTeam}>
-                            <option defaultValue="Select Your Favorite Team">Select Your Favorite Team</option>
-                            <option value="San Fransisco 49ers">San Fransisco 49ers</option>
-                            <option value="Chicago Bears">Chicago Bears</option>
-                            <option value="Cincinnati Bengals">Cincinnati Bengals</option>
-                            <option value="Buffalo Bills">Buffalo Bills</option>
-                            <option value="Denver Broncos">Denver Broncos</option>
-                            <option value="Cleveland Browns">Cleveland Browns</option>
-                            <option value="Tampa Bay Buccaneers">Tampa Bay Buccaneers</option>
-                            <option value="Arizona Cardinals">Arizona Cardinals</option>
-                            <option value="Los Angeles Chargers">Los Angeles Chargers</option>
-                            <option value="Kansas City Chiefs">Kansas City Chiefs</option>
-                            <option value="Indianapolis Colts">Indianapolis Colts</option>
-                            <option value="Washington Commanders">Washington Commanders</option>
-                            <option value="Dallas Cowboys">Dallas Cowboys</option>
-                            <option value="Miami Dolphins">Miami Dolphins</option>
-                            <option value="Philadelphia Eagles">Philadelphia Eagles</option>
-                            <option value="Atlanta Falcons">Atlanta Falcons</option>
-                            <option value="New York Giants">New York Giants</option>
-                            <option value="Jacksonville Jaguars">Jacksonville Jaguars</option>
-                            <option value="New York Jets">New York Jets</option>
-                            <option value="Detroit Lions">Detroit Lions</option>
-                            <option value="Green Bay Packers">Green Bay Packers</option>
-                            <option value="Carolina Panthers">Carolina Panthers</option>
-                            <option value="New England Patriots">New England Patriots</option>
-                            <option value="Las Vegas Raiders">Las Vegas Raiders</option>
-                            <option value="Los Angeles Rams">Los Angeles Rams</option>
-                            <option value="Baltimore ravens">Baltimore Ravens</option>
-                            <option value="New Orleans Saints">New Orleans Saints</option>
-                            <option value="Seattle Seahawks">Seattle Seahawks</option>
-                            <option value="Pittsburgh Steelers"> Pittsburgh Steelers</option>
-                            <option value="Houston Texans">Houston Texans</option>
-                            <option value="Tennessee Titans">Tennessee Titans</option>
-                            <option value="Minnesota Vikings">Minnesota Vikings</option>
-                        </select>
+                    <select name="favorite team" style={FavoriteTeam}>
+                        <option defaultValue="Select Your Favorite Team">Select Your Favorite Team</option>
+                        <option value="San Fransisco 49ers">San Fransisco 49ers</option>
+                        <option value="Chicago Bears">Chicago Bears</option>
+                        <option value="Cincinnati Bengals">Cincinnati Bengals</option>
+                        <option value="Buffalo Bills">Buffalo Bills</option>
+                        <option value="Denver Broncos">Denver Broncos</option>
+                        <option value="Cleveland Browns">Cleveland Browns</option>
+                        <option value="Tampa Bay Buccaneers">Tampa Bay Buccaneers</option>
+                        <option value="Arizona Cardinals">Arizona Cardinals</option>
+                        <option value="Los Angeles Chargers">Los Angeles Chargers</option>
+                        <option value="Kansas City Chiefs">Kansas City Chiefs</option>
+                        <option value="Indianapolis Colts">Indianapolis Colts</option>
+                        <option value="Washington Commanders">Washington Commanders</option>
+                        <option value="Dallas Cowboys">Dallas Cowboys</option>
+                        <option value="Miami Dolphins">Miami Dolphins</option>
+                        <option value="Philadelphia Eagles">Philadelphia Eagles</option>
+                        <option value="Atlanta Falcons">Atlanta Falcons</option>
+                        <option value="New York Giants">New York Giants</option>
+                        <option value="Jacksonville Jaguars">Jacksonville Jaguars</option>
+                        <option value="New York Jets">New York Jets</option>
+                        <option value="Detroit Lions">Detroit Lions</option>
+                        <option value="Green Bay Packers">Green Bay Packers</option>
+                        <option value="Carolina Panthers">Carolina Panthers</option>
+                        <option value="New England Patriots">New England Patriots</option>
+                        <option value="Las Vegas Raiders">Las Vegas Raiders</option>
+                        <option value="Los Angeles Rams">Los Angeles Rams</option>
+                        <option value="Baltimore ravens">Baltimore Ravens</option>
+                        <option value="New Orleans Saints">New Orleans Saints</option>
+                        <option value="Seattle Seahawks">Seattle Seahawks</option>
+                        <option value="Pittsburgh Steelers"> Pittsburgh Steelers</option>
+                        <option value="Houston Texans">Houston Texans</option>
+                        <option value="Tennessee Titans">Tennessee Titans</option>
+                        <option value="Minnesota Vikings">Minnesota Vikings</option>
+                    </select>
 
                     <p style={Passmessage}>Enter your password to confirm your changes</p>
 
 
-                        <input style={Password} placeholder="Password" type="password" name="password"/>
+                    <input style={Password} placeholder="Password" type="password" name="password"/>
 
 
-                    <input style={ConfirmPass} placeholder=" Confirm Password" type="password" name=" confirm password"/>
+                    <input style={ConfirmPass} placeholder=" Confirm Password" type="password"
+                           name=" confirm password"/>
 
                     <button style={SaveButton} type="sumbit" name="Save changes">Save Changes</button>
-
 
                 </form>
             </div>
@@ -130,7 +128,7 @@ const Username = {
     justifyContent: 'center',
     justifyItems: 'center',
     alignItems: 'center',
-    padding:'5px',
+    padding: '5px',
     borderRadius: '10px',
 
 }
@@ -144,7 +142,7 @@ const FavoriteTeam = {
     justifyContent: 'center',
     justifyItems: 'center',
     alignItems: 'center',
-    padding:'5px',
+    padding: '5px',
     borderRadius: '10px',
 
 }
@@ -200,16 +198,12 @@ const EditForm = {
     margin: 'auto',
     border: 'solid black',
     borderRadius: '15px',
-    width: '60%',
-    height: '60%',
+    // width: '60%',
+    // height: '70%',
 }
 
-const message = {
+const message = {}
 
-}
-
-const select = {
-
-}
+const select = {}
 
 export default Edit;
