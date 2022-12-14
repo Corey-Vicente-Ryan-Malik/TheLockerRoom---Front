@@ -92,7 +92,7 @@ function Register () {
 
 const RegisterPage = {
     display: 'flex',
-    margin: 'auto',
+    margin: '50px auto',
     width: '95vw',
     height: '95vh',
 }
