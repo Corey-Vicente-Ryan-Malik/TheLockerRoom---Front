@@ -12,7 +12,6 @@ const Landing = ( props, {} ) => {
         e.preventDefault();
         navigate('/register');
         console.log("Click Check.");
-
     }
 
 // Team List GET Request ------------------------

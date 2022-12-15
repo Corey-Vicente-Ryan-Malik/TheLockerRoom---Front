@@ -14,26 +14,26 @@ function Navbar() {
                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul className="navbar-nav mr-auto">
                         <li className="nav-item active">
-                            <a className="nav-link" id="scores" href="https://lockerrm.us/scores">Scores <span className="sr-only"></span></a>
+                            <a className="nav-link" id="scores" href="/scores">Scores <span className="sr-only"></span></a>
                         </li>
 
                         <li className="nav-item">
-                            <a className="nav-link" id="standings" href="https://lockerrm.us/standings">Standings</a>
+                            <a className="nav-link" id="standings" href="/standings">Standings</a>
                         </li>
 
                         <li className="nav-item">
-                            <a className="nav-link" id="stats" href="https://lockerrm.us/stats">Stats</a>
+                            <a className="nav-link" id="stats" href="/stats">Stats</a>
                         </li>
 
                         <li className="nav-item">
-                            <a className="nav-link" id="forum" href="https://lockerrm.us/forum">Forum</a>
+                            <a className="nav-link" id="forum" href="/forum">Forum</a>
                         </li>
 
                         <li className="nav-item">
-                            <a className="nav-link" id="teams" href="https://lockerrm.us/teams">Teams</a>
+                            <a className="nav-link" id="teams" href="/teams">Teams</a>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" id="teams" href="https://lockerrm.us/schedules">Schedules</a>
+                            <a className="nav-link" id="teams" href="/schedules">Schedules</a>
                         </li>
                     </ul>
                     <form className="d-flex my-2 my-lg-0 ms-auto">
