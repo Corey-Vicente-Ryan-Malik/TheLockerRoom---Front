@@ -2,7 +2,8 @@ import PropTypes from 'prop-types';
 import logo from '../logo.jpeg';
 import { useNavigate } from 'react-router-dom';
 import '../index.css';
-import {useState} from "react";
+import {useEffect, useRef, useState, useContext} from "react";
+import AuthContext from "../context/AuthProvider";
 
 
 
@@ -13,7 +14,14 @@ const Landing = ( props, {} ) => {
         navigate('/register');
         console.log("Click Check.");
     }
-
+    const {setAuth} = useContext(AuthContext);
+    const userRef = useRef();
+    const errRef = useRef();
+    const [errMsg, setErrMsg] = useState('')
+    const [success, setSuccess] = useState(false)
+    useEffect(() =>{
+        userRef.current.focus();
+    },[])
 
 
     const [user, setUser] = useState({
@@ -27,55 +35,99 @@ const Landing = ( props, {} ) => {
     }
 
     async function sendLoginRequest() {
+
         console.log("sending request")
         console.log(user)
 
         // const [jwt, setJwt] = useLocateState("", jwt);
+        try{
+            await fetch("http://localhost:8080/oauth/token", {
+                method: "POST",
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                    'Authorization': 'Basic ' + btoa('sports-app-client:secret'),
+                },
+                body: `grant_type=${user.grant_type}&username=${user.username}&password=${user.password}&client_id=sports-app-client`
+            }).then(data => data.json())
+                .then(data => {
+                    console.log(data);
+                    setAuth({data})
+                        if (data.access_token) {
+                        console.log("storing token...")
+                        // localStorage.setItem('access_token', data.access_token);
+                            setSuccess(true);
+                    }
+                    if (data.refresh_token) {
+                        // localStorage.setItem("refresh_token", data.refresh_token);
+                        console.log("Refresh token set")
+                    }
 
-        await fetch("http://localhost:8080/oauth/token", {
-            method: "POST",
-            headers: {
-                'Content-Type': 'application/x-www-form-urlencoded',
-                'Authorization': 'Basic ' + btoa('sports-app-client:secret'),
-            },
-            body: `grant_type=${user.grant_type}&username=${user.username}&password=${user.password}&client_id=sports-app-client`
-        }).then(data => data.json())
-            .then(data => {
-                console.log(data);
-            //     if (data.access_token) {
-            //     console.log("storing token...")
-            //     localStorage.setItem('access_token', data.access_token);
-            // }
-            // if (data.refresh_token) {
-            //     localStorage.setItem("refresh_token", data.refresh_token);
-            //     console.log("Refresh token set")
-            // }
-        })
+                })
+        }catch(error){
+            if(error.response?.status === 400){
+                setErrMsg('Missing username or password');
+            }else if(error.status === 401){
+                setErrMsg("Unauthorized")
+            }else{
+                setErrMsg("Login failed")
+            }
+
+        }
+
+
     }
 
     return (
+        <>
+            {success ? (
+                <div>
+                    <h1>Loggged in</h1>
+                    <br/>
+                    <p>
+                        <a href="#">Home</a>
+                    </p>
+                </div>
+            ):(
+                <div className="landingPage" >
+                    <div className="landingInfo" style={landingInfo}>
+                        <img className="landLogo" style={landLogo} src={logo}/>
+                        <p className="message" style={message}>{props.message}</p>
+                    </div>
+                    <div className="landingForm">
+                        <p ref={errRef} className={errMsg ? "errmsg" : "offscreen"} aria-live="assertive">{errMsg}</p>
+                        {/*<label htmlFor="username">Username</label>*/}
+                        <input type="text"
+                               className="username"
+                               value={username}
+                               name="username"
+                               placeholder="Username"
+                               style={usernameForm}
+                               onChange={(e)=>onInputChange(e)}
+                               ref={userRef}
+                               required/>
 
-        <div className="landingPage" >
-            <div className="landingInfo" style={landingInfo}>
-                <img className="landLogo" style={landLogo} src={logo}/>
-                <p className="message" style={message}>{props.message}</p>
-            </div>
+                        {/*<label htmlFor="password">Password</label>*/}
+                        <input type="password"
+                               className="password"
+                               value={password}
+                               name="password"
+                               placeholder="Password"
+                               style={passwordForm}
+                               onChange={(e)=>onInputChange(e)}
+                               ref={userRef}
+                               required/>
 
-            <div className="landingForm">
-                <label htmlFor="username">Username</label>
-                <input type="text" className="username" value={username} name="username" placeholder="Username" style={usernameForm} onChange={(e)=>onInputChange(e)} />
+                        <button style={loginBtn} type="button" onClick={(e)=>sendLoginRequest()}>Log-In</button>
 
-                <label htmlFor="password">Password</label>
-                <input type="password" className="password"  value={password} name="password" placeholder="Password" style={passwordForm} onChange={(e)=>onInputChange(e)}/>
+                        <a href="#" style={forgotPassword}>Forgot Password?</a>
 
-                <button style={loginBtn} type="button" onClick={(e)=>sendLoginRequest()}>Log-In</button>
+                        <button className="registerBtn" style={registerBtn} onClick={onClick}>Create New Account?</button>
+                    </div>
+                </div>
+            )}
+        </>
 
-                <a href="#" style={forgotPassword}>Forgot Password?</a>
 
-                <button className="registerBtn" style={registerBtn} onClick={onClick}>Create New Account?</button>
-            </div>
-
-        </div>
 
     )
 }
