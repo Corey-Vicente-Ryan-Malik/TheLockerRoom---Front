@@ -1,6 +1,7 @@
 import Navbar from "./components/Navbar";
-import {BrowserRouter as Router, Routes, Route, Link}
+import { BrowserRouter as Router, Routes, Route}
     from 'react-router-dom';
+<<<<<<< HEAD
 <<<<<<< HEAD
 import React, {Component, useState} from 'react';
 import Home from './components/Home';
@@ -21,6 +22,8 @@ import About from "./components/About";
 import GameSched from "./components/GameSched";
 import AuthService from "./services/auth.service";
 =======
+=======
+>>>>>>> be96e64d598dc449e3cde81d167bb78ac7b98a6c
 import React, { useState } from 'react';
 import Home from './Home';
 import Scores from './Scores';
@@ -40,7 +43,6 @@ import About from "./About";
 import GameSched from "./GameSched";
 import Data from "./Data";
 
->>>>>>> 000a944ca799115de2473a868584facc8a2173fc
 
 class App extends Component{
     constructor(props) {
@@ -171,11 +173,8 @@ class App extends Component{
                                element={<Standings/>}/>
                         <Route path='/stats'
                                element={<Stats/>}/>
-                        {currentUser && (
-                            <Route path='/forum'
-                                   element={<Forum/>}/>)
-                        }
-
+                        <Route path='/forum'
+                               element={<Forum/>}/>
                         <Route path='/teams'
                                element={<Teams/>}/>
                         <Route path='/edit'
@@ -190,19 +189,19 @@ class App extends Component{
                                element={<Settings/>}/>
                         <Route path='/about'
                                element={<About/>}/>
-                    </Routes>
+                </Routes>
+                    
                     <Routes>
                         <Route path='/' element={<Landing/>}/>
                         <Route path='/sched' element={<Schedule/>}/>
                         <Route path='/schedule' element={<GameSched/>}/>
+                        <Route path='/data' element={<Data/>}/>
                     </Routes>
                     <Footer/>
                 </Router>
             </div>
-        )
+        );
     }
-
-
 }
 
 export default App;
