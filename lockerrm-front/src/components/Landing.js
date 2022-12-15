@@ -6,18 +6,6 @@ import {useState} from "react";
 
 
 
-
-// const login = async () => {
-//     console.log("attempting to log in..")
-//     let obj = {
-//         username: username.value,
-//         password: password.value,
-//         grant_type: 'password'
-//     }
-
-
-
-
 const Landing = ( props, {} ) => {
     const navigate = useNavigate();
     const onClick = (e) => {
@@ -31,31 +19,38 @@ const Landing = ( props, {} ) => {
     const [user, setUser] = useState({
         username: "",
         password: "",
+        grant_type: 'password'
     });
     const {username, password} = user;
+    const onInputChange = (e) => {
+        setUser({...user, [e.target.name]: e.target.value});
+    }
 
-    function sendLoginRequest() {
+    async function sendLoginRequest() {
         console.log("sending request")
+        console.log(user)
 
         // const [jwt, setJwt] = useLocateState("", jwt);
 
-        // await fetch("https://lockerrm.us:8080/oauth/token", {
-        //     method: "POST",
-        //     headers: {
-        //         'Content-Type': 'application/x-www-form-urlencoded',
-        //         'Authorization': 'Basic ' + btoa('sports-app-client:secret')
-        //     },
-        //     body: `grant_type=${obj.grant_type}&username=${user.username}&password=${user.password}&client_id=sports-app-client`
-        // }).then(data => data.json()).then(data => {
-        //     if (data.access_token) {
-        //         console.log("storing token...")
-        //         localStorage.setItem('access_token', data.access_token)
-        //     }
-        //     if (data.refresh_token) {
-        //         localStorage.setItem("refresh_token", data.refresh_token);
-        //         console.log("Refresh token set")
-        //     }
-        // })
+        await fetch("http://localhost:8080/oauth/token", {
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+                'Authorization': 'Basic ' + btoa('sports-app-client:secret'),
+            },
+            body: `grant_type=${user.grant_type}&username=${user.username}&password=${user.password}&client_id=sports-app-client`
+        }).then(data => data.json())
+            .then(data => {
+                console.log(data);
+            //     if (data.access_token) {
+            //     console.log("storing token...")
+            //     localStorage.setItem('access_token', data.access_token);
+            // }
+            // if (data.refresh_token) {
+            //     localStorage.setItem("refresh_token", data.refresh_token);
+            //     console.log("Refresh token set")
+            // }
+        })
     }
 
     return (
@@ -68,10 +63,10 @@ const Landing = ( props, {} ) => {
 
             <div className="landingForm">
                 <label htmlFor="username">Username</label>
-                <input type="text" className="username" value={username} placeholder="Username" style={usernameForm} onChange={(e)=>setUser({...user, [e.target.name]: e.target.value})}/>
+                <input type="text" className="username" value={username} name="username" placeholder="Username" style={usernameForm} onChange={(e)=>onInputChange(e)} />
 
                 <label htmlFor="password">Password</label>
-                <input type="password" className="password"  value={password} placeholder="Password" style={passwordForm} onChange={(e)=>setUser({...user, [e.target.name]: e.target.value})}/>
+                <input type="password" className="password"  value={password} name="password" placeholder="Password" style={passwordForm} onChange={(e)=>onInputChange(e)}/>
 
                 <button style={loginBtn} type="button" onClick={(e)=>sendLoginRequest()}>Log-In</button>
 
