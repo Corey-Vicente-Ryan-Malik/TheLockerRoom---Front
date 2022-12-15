@@ -38,7 +38,7 @@ function Navbar() {
                     </ul>
                     <form className="d-flex my-2 my-lg-0 ms-auto">
                         <input className="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"/>
-                            <button className="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                        <button className="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
                     </form>
 
                     <ul className="navbar-nav">
