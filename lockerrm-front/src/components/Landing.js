@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import logo from '../logo.jpeg';
 import { useNavigate } from 'react-router-dom';
+import '../index.css';
 
 
 
@@ -63,13 +64,13 @@ fetch('https://nfl-api1.p.rapidapi.com/nflschedule?year=2022&month=12&day=30', o
 
     return (
 
-        <div className="landingPage" style={landingPage}>
+        <div className="landingPage" >
             <div className="landingInfo" style={landingInfo}>
-                <img style={header} src={logo}/>
-                <p style={message}>{props.message}</p>
+                <img className="landLogo" style={landLogo} src={logo}/>
+                <p className="message" style={message}>{props.message}</p>
             </div>
 
-            <div className="landingForm" style={landingForm}>
+            <div className="landingForm">
                 <input type="text" className="username" placeholder="Username" style={usernameForm}/>
 
                 <input type="password" className="password" placeholder="Password" style={passwordForm}/>
@@ -78,7 +79,7 @@ fetch('https://nfl-api1.p.rapidapi.com/nflschedule?year=2022&month=12&day=30', o
 
                 <a href="#" style={forgotPassword}>Forgot Password?</a>
 
-                <button style={registerBtn} onClick={onClick}>Create New Account?</button>
+                <button className="registerBtn" style={registerBtn} onClick={onClick}>Create New Account?</button>
             </div>
 
         </div>
@@ -87,20 +88,20 @@ fetch('https://nfl-api1.p.rapidapi.com/nflschedule?year=2022&month=12&day=30', o
 }
 
 Landing.defaultProps = {
-    message: 'Welcome to the Locker room ! where you can access all of the latest news, scores , stats,  and more all from your personal device ! please log in to get the scoop on your favorite teams.'
+    message: 'Welcome to the Locker room ! Where you can access all of the latest news, scores , stats,  and more all from your personal device ! Please log in to get the scoop on your favorite teams.'
 }
 
 Landing.propTypes = {
     message: PropTypes.string.isRequired
 }
 
-//Landing Page styling 
-const landingPage = {
-    display: 'flex',
-    margin: 'auto',
-    width: '95vw',
-    height: '95vh',
-}
+//Landing Page styling
+// const landingPage = {
+//     display: 'flex',
+//     margin: 'auto',
+//     width: '95vw',
+//     height: '95vh',
+// }
 
 //Landing Info styling
 const landingInfo = {
@@ -111,13 +112,13 @@ const landingInfo = {
     width: '40%',
     height: '90%'
 }
-const header = {
+const landLogo = {
     gridColumn: 1,
     gridRow: 1,
     margin: '0 auto',
     width: '85%',
     height: '80%',
-    display: 'flex',
+    // display: 'flex',
     justifyContent: 'center',
     justifyItems: 'center',
     alignItems: 'center',
@@ -128,7 +129,7 @@ const message = {
     margin: '0 auto',
     width: '85%',
     height: '50%',
-    display: 'flex',
+    // display: 'flex',
     justifyContent: 'center',
     justifyItems: 'center',
     alignItems: 'center',
@@ -181,8 +182,8 @@ const registerBtn = {
     gridColumn: 1,
     gridRow: 4,
     margin: 'auto',
-    width: '50%',
-    height: '50%',
+    // width: '50%',
+    // height: '50%',
     display: 'flex',
     justifyContent: 'center',
     justifyItems: 'center',

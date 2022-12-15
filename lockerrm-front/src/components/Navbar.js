@@ -5,8 +5,8 @@ function Navbar() {
         <div className="Navbar">
             <nav className="navbar navbar-expand-lg navbar-light bg-light w-100">
                 <a className="navbar-brand" href="/home">The Locker Room</a>
-                <button className="navbar-toggler" type="button" data-toggle="collapse"
-                        data-target="#navbarSupportedContent"
+                <button className="navbar-toggler" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarSupportedContent"
                         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
                 </button>
@@ -14,26 +14,26 @@ function Navbar() {
                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul className="navbar-nav mr-auto">
                         <li className="nav-item active">
-                            <a className="nav-link" id="scores" href="/scores">Scores <span className="sr-only"></span></a>
+                            <a className="nav-link" id="scores" href="https://lockerrm.us/scores">Scores <span className="sr-only"></span></a>
                         </li>
 
                         <li className="nav-item">
-                            <a className="nav-link" id="standings" href="/standings">Standings</a>
+                            <a className="nav-link" id="standings" href="https://lockerrm.us/standings">Standings</a>
                         </li>
 
                         <li className="nav-item">
-                            <a className="nav-link" id="stats" href="/stats">Stats</a>
+                            <a className="nav-link" id="stats" href="https://lockerrm.us/stats">Stats</a>
                         </li>
 
                         <li className="nav-item">
-                            <a className="nav-link" id="forum" href="/forum">Forum</a>
+                            <a className="nav-link" id="forum" href="https://lockerrm.us/forum">Forum</a>
                         </li>
 
                         <li className="nav-item">
-                            <a className="nav-link" id="teams" href="/teams">Teams</a>
+                            <a className="nav-link" id="teams" href="https://lockerrm.us/teams">Teams</a>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" id="teams" href="/schedules">Schedules</a>
+                            <a className="nav-link" id="teams" href="https://lockerrm.us/schedules">Schedules</a>
                         </li>
                     </ul>
                     <form className="d-flex my-2 my-lg-0 ms-auto">
