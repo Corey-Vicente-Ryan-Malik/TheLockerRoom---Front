@@ -1,5 +1,5 @@
 import Navbar from "./components/Navbar";
-import React, { useState } from 'react';
+import React, {Component, useState} from 'react';
 import Home from './components/Home';
 import Scores from './components/Scores';
 import Standings from './components/Standings';
@@ -17,7 +17,7 @@ import Footer from "./components/Footer";
 import About from "./components/About";
 import GameSched from "./components/GameSched";
 import Data from "./components/Data";
-import {Link, Route, Router} from "react-router-dom";
+import {BrowserRouter as Router, Route, Routes, Link} from "react-router-dom";
 import AuthService from "./services/auth.service";
 
 
