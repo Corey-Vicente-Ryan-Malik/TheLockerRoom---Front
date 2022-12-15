@@ -1,23 +1,24 @@
 import Navbar from "./components/Navbar";
 import React, { useState } from 'react';
-import Home from './Home';
-import Scores from './Scores';
-import Standings from './Standings';
-import Stats from './Stats';
-import Forum from './Forum';
-import Teams from './Teams';
-import Edit from './Edit';
-import Login from "./Login";
-import Schedules from "./Schedules";
-import Landing from "./Landing"
-import Register from "./Register";
-import Settings from "./Settings";
-import Schedule from './Schedules';
-import Footer from "./Footer";
-import About from "./About";
-import GameSched from "./GameSched";
-import Data from "./Data";
-import {Link} from "react-router-dom";
+import Home from './components/Home';
+import Scores from './components/Scores';
+import Standings from './components/Standings';
+import Stats from './components/Stats';
+import Forum from './components/Forum';
+import Teams from './components/Teams';
+import Edit from './components/Edit';
+import Login from "./components/Login";
+import Schedules from "./components/Schedules";
+import Landing from "./components/Landing"
+import Register from "./components/Register";
+import Settings from "./components/Settings";
+import Schedule from './components/Schedules';
+import Footer from "./components/Footer";
+import About from "./components/About";
+import GameSched from "./components/GameSched";
+import Data from "./components/Data";
+import {Link, Route, Router} from "react-router-dom";
+import AuthService from "./services/auth.service";
 
 
 class App extends Component{
@@ -165,7 +166,7 @@ class App extends Component{
                                element={<Settings/>}/>
                         <Route path='/about'
                                element={<About/>}/>
-                </Routes>
+                    </Routes>
                     
                     <Routes>
                         <Route path='/' element={<Landing/>}/>
