@@ -14,11 +14,10 @@ import Schedules from "./Schedules";
 import Landing from "./Landing"
 import Register from "./Register";
 import Settings from "./Settings";
-import Schedule from './Schedules';
 import Footer from "./Footer";
 import About from "./About";
-import GameSched from "./GameSched";
 import Data from "./Data";
+import WeeklySchedule from "./WeeklySchedule";
 
 
 function App() {
@@ -53,10 +52,9 @@ function App() {
                            exact element={<About/>}/>
                 </Routes>
                 <Routes>
-                    <Route path='/' element={<Landing/>}/>
-                    <Route path='/sched' element={<Schedule/>}/>
-                    <Route path='/schedule' element={<GameSched/>}/>
-                    <Route path='/data' element={<Data/>}/>
+                    <Route path='/' element={<Landing />}/>
+                    <Route path='/schedule' element={<WeeklySchedule />}/>
+                    <Route path='/data' element={<Data />}/>
                 </Routes>
                 <Footer/>
             </Router>
