@@ -55,11 +55,11 @@ const Landing = ( props, {} ) => {
                     setAuth({data})
                         if (data.access_token) {
                         console.log("storing token...")
-                        // localStorage.setItem('access_token', data.access_token);
+                        localStorage.setItem('access_token', data.access_token);
                             setSuccess(true);
                     }
                     if (data.refresh_token) {
-                        // localStorage.setItem("refresh_token", data.refresh_token);
+                        localStorage.setItem("refresh_token", data.refresh_token);
                         console.log("Refresh token set")
                     }
 
@@ -79,16 +79,6 @@ const Landing = ( props, {} ) => {
     }
 
     return (
-        <>
-            {success ? (
-                <div>
-                    <h1>Loggged in</h1>
-                    <br/>
-                    <p>
-                        <a href="#">Home</a>
-                    </p>
-                </div>
-            ):(
                 <div className="landingPage" >
                     <div className="landingInfo" style={landingInfo}>
                         <img className="landLogo" style={landLogo} src={logo}/>
@@ -125,10 +115,6 @@ const Landing = ( props, {} ) => {
                         <button className="registerBtn" style={registerBtn} onClick={onClick}>Create New Account?</button>
                     </div>
                 </div>
-            )}
-        </>
-
-
 
     )
 }
