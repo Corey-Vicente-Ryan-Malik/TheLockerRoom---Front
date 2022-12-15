@@ -1,29 +1,4 @@
 import Navbar from "./components/Navbar";
-import { BrowserRouter as Router, Routes, Route}
-    from 'react-router-dom';
-<<<<<<< HEAD
-<<<<<<< HEAD
-import React, {Component, useState} from 'react';
-import Home from './components/Home';
-import Scores from './components/Scores';
-import Standings from './components/Standings';
-import Stats from './components/Stats';
-import Forum from './components/Forum';
-import Teams from './components/Teams';
-import Edit from './components/Edit';
-import Login from "./components/Login";
-import Schedules from "./components/Schedules";
-import Landing from "./components/Landing"
-import Register from "./components/Register";
-import Settings from "./components/Settings";
-import Schedule from './components/Schedules';
-import Footer from "./components/Footer";
-import About from "./components/About";
-import GameSched from "./components/GameSched";
-import AuthService from "./services/auth.service";
-=======
-=======
->>>>>>> be96e64d598dc449e3cde81d167bb78ac7b98a6c
 import React, { useState } from 'react';
 import Home from './Home';
 import Scores from './Scores';
@@ -42,6 +17,7 @@ import Footer from "./Footer";
 import About from "./About";
 import GameSched from "./GameSched";
 import Data from "./Data";
+import {Link} from "react-router-dom";
 
 
 class App extends Component{
