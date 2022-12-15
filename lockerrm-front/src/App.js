@@ -1,6 +1,7 @@
 import Navbar from "./components/Navbar";
 import {BrowserRouter as Router, Routes, Route, Link}
     from 'react-router-dom';
+<<<<<<< HEAD
 import React, {Component, useState} from 'react';
 import Home from './components/Home';
 import Scores from './components/Scores';
@@ -19,6 +20,27 @@ import Footer from "./components/Footer";
 import About from "./components/About";
 import GameSched from "./components/GameSched";
 import AuthService from "./services/auth.service";
+=======
+import React, { useState } from 'react';
+import Home from './Home';
+import Scores from './Scores';
+import Standings from './Standings';
+import Stats from './Stats';
+import Forum from './Forum';
+import Teams from './Teams';
+import Edit from './Edit';
+import Login from "./Login";
+import Schedules from "./Schedules";
+import Landing from "./Landing"
+import Register from "./Register";
+import Settings from "./Settings";
+import Schedule from './Schedules';
+import Footer from "./Footer";
+import About from "./About";
+import GameSched from "./GameSched";
+import Data from "./Data";
+
+>>>>>>> 000a944ca799115de2473a868584facc8a2173fc
 
 class App extends Component{
     constructor(props) {
