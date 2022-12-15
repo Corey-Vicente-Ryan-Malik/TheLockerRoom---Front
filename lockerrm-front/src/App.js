@@ -1,24 +1,24 @@
 import Navbar from "./components/Navbar";
-import {BrowserRouter as Router, Routes, Route, Link}
+import { BrowserRouter as Router, Routes, Route}
     from 'react-router-dom';
-import React, {Component, useState} from 'react';
-import Home from './components/Home';
-import Scores from './components/Scores';
-import Standings from './components/Standings';
-import Stats from './components/Stats';
-import Forum from './components/Forum';
-import Teams from './components/Teams';
-import Edit from './components/Edit';
-import Login from "./components/Login";
-import Schedules from "./components/Schedules";
-import Landing from "./components/Landing"
-import Register from "./components/Register";
-import Settings from "./components/Settings";
-import Schedule from './components/Schedules';
-import Footer from "./components/Footer";
-import About from "./components/About";
-import GameSched from "./components/GameSched";
-import AuthService from "./services/auth.service";
+import React, { useState } from 'react';
+import Home from './Home';
+import Scores from './Scores';
+import Standings from './Standings';
+import Stats from './Stats';
+import Forum from './Forum';
+import Teams from './Teams';
+import Edit from './Edit';
+import Login from "./Login";
+import Schedules from "./Schedules";
+import Landing from "./Landing"
+import Register from "./Register";
+import Settings from "./Settings";
+import Schedule from './Schedules';
+import Footer from "./Footer";
+import About from "./About";
+import GameSched from "./GameSched";
+import Data from "./Data";
 
 class App extends Component{
     constructor(props) {
@@ -141,46 +141,43 @@ class App extends Component{
                         </nav>
                     </div>
                     <Routes>
-                        <Route path='/home'
-                               element={<Home/>}/>
-                        <Route path='/scores'
-                               element={<Scores/>}/>
-                        <Route path='/standings'
-                               element={<Standings/>}/>
-                        <Route path='/stats'
-                               element={<Stats/>}/>
-                        {currentUser && (
-                            <Route path='/forum'
-                                   element={<Forum/>}/>)
-                        }
-
-                        <Route path='/teams'
-                               element={<Teams/>}/>
-                        <Route path='/edit'
-                               element={<Edit/>}/>
-                        <Route path='/login'
-                               element={<Login/>}/>
-                        <Route path='/schedules'
-                               element={<Schedules/>}/>
-                        <Route path='/register'
-                               element={<Register/>}/>
-                        <Route path='/settings'
-                               element={<Settings/>}/>
-                        <Route path='/about'
-                               element={<About/>}/>
-                    </Routes>
+                    <Route exact path='/home'
+                           exact element={<Home/>}/>
+                    <Route exact path='/scores'
+                           exact element={<Scores/>}/>
+                    <Route exact path='/standings'
+                           exact element={<Standings/>}/>
+                    <Route exact path='/stats'
+                           exact element={<Stats/>}/>
+                    <Route exact path='/forum'
+                           exact element={<Forum/>}/>
+                    <Route exact path='/teams'
+                           exact element={<Teams/>}/>
+                    <Route exact path='/edit'
+                           exact element={<Edit/>}/>
+                    <Route exact path='/login'
+                           exact element={<Login/>}/>
+                    <Route exact path='/schedules'
+                           exact element={<Schedules/>}/>
+                    <Route exact path='/register'
+                           exact element={<Register/>}/>
+                    <Route exact path='/settings'
+                           exact element={<Settings/>}/>
+                    <Route exact path='/about'
+                           exact element={<About/>}/>
+                </Routes>
+                    
                     <Routes>
                         <Route path='/' element={<Landing/>}/>
                         <Route path='/sched' element={<Schedule/>}/>
                         <Route path='/schedule' element={<GameSched/>}/>
+                        <Route path='/data' element={<Data/>}/>
                     </Routes>
                     <Footer/>
                 </Router>
             </div>
-        )
+        );
     }
-
-
 }
 
 export default App;

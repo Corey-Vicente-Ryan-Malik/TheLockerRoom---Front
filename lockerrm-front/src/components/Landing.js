@@ -13,6 +13,7 @@ const Landing = ( props, {} ) => {
         e.preventDefault();
         navigate('/register');
         console.log("Click Check.");
+
     }
     const {setAuth} = useContext(AuthContext);
     const userRef = useRef();
