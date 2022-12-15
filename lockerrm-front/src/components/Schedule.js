@@ -25,25 +25,31 @@ export default function Schedule() {
         axios.get(url, options)
             .then((response) => {
                 const allData = response.data;
-                console.log(allData)
+                console.log(allData);
 
-                //Object.keys method used to iterate through objects
-                const dates = Object.keys(allData);
-                console.log(dates)
+                let allDataOne;
+                let allDataTwo;
+                let allDataThree;
+                let allDataFour;
+                for(let property in allData) {
+                    allDataOne = allData[property].games;
+                    
+                    for(let property in allDataOne) {
+                        allDataTwo = allDataOne[property].competitions;
 
-                dates.forEach((key, index) => {
-                    console.log(`${key}: ${dates[key]}`)
-                })
+                        for(let property in allDataTwo) {
+                            allDataThree = allDataTwo[property].competitors;
 
-                //Object.entries method used to iterate through objects
-                // const one = Object.entries(allData);
-                // console.log(one);
+                            for(let property in allDataThree) {
+                                allDataFour = allDataThree[property].team.displayName;
+                                console.log('displayName: ' + allDataFour)
+                            }
+                        }
+                    }
+                }
 
-
-
-
-
-                getGames(allData)
+                
+                // getGames(allData)
             })
             .catch(error => console.error(`Error: ${error}`));
     }
