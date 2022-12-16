@@ -17,14 +17,18 @@ export default function Data() {
                 }
             };
 
-    const [homeT, getHomeT] = useState('');
+    const [homeDisplay, getHomeDisplay] = useState([]);
+    const [awayDisplay, getawayDisplay] = useState([]);
+    const [gameNameDisplay, getGameNameDisplay] = useState([]);
+    const [dateDisplay, getDateDisplay] = useState([]);
+    const [logoDisplay, getLogoDisplay] = useState([]);
 
     useEffect(() => {
         homeTeam()
-        // awayTeam()
-        // gameName()
-        // gameDate()
-        // teamLogo()
+        awayTeam()
+        gameName()
+        gameDate()
+        teamLogo()
         // teamCall()
         // teamWins()
     }, []);
@@ -60,8 +64,7 @@ export default function Data() {
                         }
                     }
                 }
-                console.log(homeArr);
-                getHomeT(homeArr);
+                getHomeDisplay(homeArr);
             })
             .catch(error => console.error(`Error: ${error}`));
     }
@@ -97,8 +100,7 @@ export default function Data() {
                         }
                     }
                 }
-                console.log(awayArr);
-                return awayArr;
+                getawayDisplay(awayArr);
             })
             .catch(error => console.error(`Error: ${error}`));
     }
@@ -120,8 +122,7 @@ export default function Data() {
                         gameArr.push(allDataTwo);
                     }
                 }
-                console.log(gameArr);
-                return gameArr;
+                getGameNameDisplay(gameArr);
             })
             .catch(error => console.error(`Error: ${error}`));
     }
@@ -130,7 +131,6 @@ export default function Data() {
         axios.get(scheduleUrl, options)
             .then((response) => {
                 const allData = response.data;
-                console.log(allData);
 
                 let dateArr = [];
                 let allDataOne;
@@ -147,7 +147,7 @@ export default function Data() {
                         dateArr.push(allDataThree);
                     }
                 }
-                console.log(dateArr);
+                getDateDisplay(dateArr);
             })
             .catch(error => console.error(`Error: ${error}`));
     }
@@ -179,8 +179,7 @@ export default function Data() {
                         }
                     }
                 }
-                console.log(logoArr);
-                return logoArr;
+                getLogoDisplay(logoArr);
             })
             .catch(error => console.error(`Error: ${error}`));
     }
@@ -244,7 +243,20 @@ export default function Data() {
     
 
     return (
-        <WeeklySchedule homeT={homeT} />
+        <div>
+            <div>
+                <WeeklySchedule 
+                    homeDisplay={homeDisplay} 
+                    awayDisplay={awayDisplay} 
+                    gameNameDisplay={gameNameDisplay}
+                    dateDisplay={dateDisplay} 
+                    logoDisplay={logoDisplay}
+                />
+            </div>
+        </div>
+        
+                       
+        
     )
 
 }
