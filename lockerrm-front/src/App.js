@@ -18,7 +18,9 @@ import Footer from "./components/Footer";
 import About from "./components/About";
 import GameSched from "./components/GameSched";
 import Data from "./components/Data";
+// import loginComponent from "./components/login.component";
 import AuthService from "./services/auth.service";
+import LoginComponent from "./components/login.component";
 
 
 class App extends Component{
@@ -171,6 +173,7 @@ class App extends Component{
                         <Route path='/sched' element={<Schedule/>}/>
                         <Route path='/schedule' element={<GameSched/>}/>
                         <Route path='/data' element={<Data/>}/>
+                        <Route path='/login' element={<LoginComponent/>}/>
                     </Routes>
                     <Footer/>
                 </Router>
