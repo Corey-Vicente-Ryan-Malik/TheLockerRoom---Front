@@ -14,8 +14,10 @@ export default function WeeklySchedule(props) {
     // const gameDate = dateArr.map(date => <div>{date}</div>);
     // const teamLogo = logoArr.map(logo => <div>{logo}</div>);
 
-    console.log(homeTeams);
-    console.log(homeArr);
+    // console.log(homeTeams);
+    // console.log(homeArr);
+
+    let gameCards = '';
 
     for(let i in homeArr) {
         let homeTeam = homeArr[i];
@@ -29,11 +31,27 @@ export default function WeeklySchedule(props) {
                 for(let i in dateArr) {
                     let gameDate = dateArr[i];
 
-                    
+                    for(let i in logoArr) {
+                        let teamLogo = logoArr[i];
+
+                        gameCards = `<div class="gameCard">
+                                        <div>${homeTeam}</div>
+                                        <div>${awayTeam}</div>
+                                        <div>${gameName}</div>
+                                        <div>${gameDate}</div>
+                                        <img>${teamLogo}</img>
+                                    </div>`
+
+                                    return (
+                                        <Fragment>{gameCards}</Fragment>
+                                    )
+                    } 
                 }
             }
         }
     }
+    // console.log(gameCards);
+}
 
 
 
@@ -58,8 +76,8 @@ export default function WeeklySchedule(props) {
     //             </div>`
     // }
 
-    return (
-        // <Fragment>{gameCard}</Fragment> 
-        console.log()      
-    )
-}
+//     return (
+//         // <Fragment>{gameCard}</Fragment> 
+//         console.log()      
+//     )
+// }
