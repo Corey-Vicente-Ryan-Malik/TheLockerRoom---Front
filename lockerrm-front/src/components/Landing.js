@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import logo from '../logo.jpeg';
-import { useNavigate } from 'react-router-dom';
+import {Redirect, Route, useNavigate} from 'react-router-dom';
 import '../index.css';
 import {useEffect, useRef, useState, useContext} from "react";
 import AuthContext from "../context/AuthProvider";
@@ -39,6 +39,7 @@ const Landing = ( props, {} ) => {
 
         console.log("sending request")
         console.log(user)
+
 
         // const [jwt, setJwt] = useLocateState("", jwt);
         try{
