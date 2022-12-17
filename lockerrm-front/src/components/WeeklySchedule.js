@@ -8,6 +8,14 @@ export default function WeeklySchedule(props) {
     let dateArr = props.dateDisplay;
     let logoArr = props.logoDisplay;
 
+    return (
+        '<div>' + homeArr + '</div>'
+    )
+
+    
+    
+}
+
     // const homeTeams = homeArr.map(homeTeam => <h3>{homeTeam}</h3>);
     // const awayTeams = awayArr.map(awayTeam => <h3>{awayTeam}</h3>);
     // const gameName = gameArr.map(game => <div>{game}</div>);
@@ -17,41 +25,40 @@ export default function WeeklySchedule(props) {
     // console.log(homeTeams);
     // console.log(homeArr);
 
-    let gameCards = '';
+    
 
-    for(let i in homeArr) {
-        let homeTeam = homeArr[i];
+    // for(let i in homeArr) {
+    //     let homeTeam = homeArr;
 
-        for(let i in awayArr) {
-            let awayTeam = awayArr[i];
+    //     for(let i in awayArr) {
+    //         let awayTeam = awayArr;
 
-            for(let i in gameArr) {
-                let gameName = gameArr[i];
+    //         for(let i in gameArr) {
+    //             let gameName = gameArr;
 
-                for(let i in dateArr) {
-                    let gameDate = dateArr[i];
+    //             for(let i in dateArr) {
+    //                 let gameDate = dateArr;
 
-                    for(let i in logoArr) {
-                        let teamLogo = logoArr[i];
+    //                 for(let i in logoArr) {
+    //                     let teamLogo = logoArr;
 
-                        gameCards = `<div class="gameCard">
-                                        <div>${homeTeam}</div>
-                                        <div>${awayTeam}</div>
-                                        <div>${gameName}</div>
-                                        <div>${gameDate}</div>
-                                        <img>${teamLogo}</img>
-                                    </div>`
+                        // gameCards = `<div class="gameCard">
+                        //                 <div>${homeTeam[i]}</div>
+                        //                 <div>${awayTeam[i]}</div>
+                        //                 <div>${gameName[i]}</div>
+                        //                 <div>${gameDate[i]}</div>
+                        //                 <img>${teamLogo[i]}</img>
+                        //             </div>`
 
-                                    return (
-                                        <Fragment>{gameCards}</Fragment>
-                                    )
-                    } 
-                }
-            }
-        }
-    }
-    // console.log(gameCards);
-}
+                        //             return (
+                        //                 <Fragment>{gameCards}</Fragment>
+                        //             )
+    //                 } 
+    //             }
+    //         }
+    //     }
+    // }
+
 
 
 
@@ -60,13 +67,7 @@ export default function WeeklySchedule(props) {
 
     // for(let i in homeTeams) {
     //     console.log(homeTeams[i].props.children)
-            
-        
-        
-        
-        
-        
-        
+               
     //     gameCard += `<div class="gameCard">
     //                 <div>${homeTeams[i].props.children}</div>
     //                 <div>${awayTeams}</div>

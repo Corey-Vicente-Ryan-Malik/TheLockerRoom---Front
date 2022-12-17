@@ -18,7 +18,7 @@ export default function Data() {
             };
 
     const [homeDisplay, getHomeDisplay] = useState([]);
-    const [awayDisplay, getawayDisplay] = useState([]);
+    const [awayDisplay, getAwayDisplay] = useState([]);
     const [gameNameDisplay, getGameNameDisplay] = useState([]);
     const [dateDisplay, getDateDisplay] = useState([]);
     const [logoDisplay, getLogoDisplay] = useState([]);
@@ -100,7 +100,7 @@ export default function Data() {
                         }
                     }
                 }
-                getawayDisplay(awayArr);
+                getAwayDisplay(awayArr);
             })
             .catch(error => console.error(`Error: ${error}`));
     }
