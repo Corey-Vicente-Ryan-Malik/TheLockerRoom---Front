@@ -4,7 +4,7 @@ import Home from './components/Home';
 import Scores from './components/Scores';
 import Standings from './components/Standings';
 import Stats from './components/Stats';
-import Forum from './components/Forum';
+import Forum from './components/forum/Forum';
 import Teams from './components/Teams';
 import Edit from './components/Edit';
 import Login from "./components/Login";
@@ -19,6 +19,7 @@ import WeeklySchedule from "./components/WeeklySchedule";
 import Data from "./components/Data";
 import {BrowserRouter as Router, Route, Routes, Link} from "react-router-dom";
 import AuthService from "./services/auth.service";
+import CreatePost from "./components/forum/CreatePost";
 
 
 class App extends Component{
@@ -173,6 +174,7 @@ class App extends Component{
                         <Route path='/sched' element={<Schedule/>}/>
                         <Route path='/schedule' element={<WeeklySchedule/>}/>
                         <Route path='/data' element={<Data/>}/>
+                        <Route path='/create-post' element={<CreatePost/>} />
                     </Routes>
                     <Footer/>
                 </Router>
