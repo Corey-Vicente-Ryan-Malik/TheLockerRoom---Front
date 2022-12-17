@@ -1,10 +1,11 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import React from 'react';
 import axios from 'axios';
+import WeeklySchedule from "./WeeklySchedule";
 
 export default function Data() {
 
-    const scheduleUrl = 'https://nfl-api1.p.rapidapi.com/nflschedule?year=2022&month=12&day=31';
+    const scheduleUrl = 'https://nfl-api1.p.rapidapi.com/nflschedule?year=2023&month=03&day=31';
 
     const teamUrl = 'https://nfl-api1.p.rapidapi.com/nflteamlist';
 
@@ -16,13 +17,20 @@ export default function Data() {
                 }
             };
 
+    const [homeDisplay, getHomeDisplay] = useState([]);
+    const [awayDisplay, getAwayDisplay] = useState([]);
+    const [gameNameDisplay, getGameNameDisplay] = useState([]);
+    const [dateDisplay, getDateDisplay] = useState([]);
+    const [logoDisplay, getLogoDisplay] = useState([]);
+
     useEffect(() => {
         homeTeam()
         awayTeam()
         gameName()
         gameDate()
         teamLogo()
-        teamCall()
+        // teamCall()
+        // teamWins()
     }, []);
 
     function homeTeam () {
@@ -56,8 +64,7 @@ export default function Data() {
                         }
                     }
                 }
-                console.log(homeArr);
-                return homeArr;
+                getHomeDisplay(homeArr);
             })
             .catch(error => console.error(`Error: ${error}`));
     }
@@ -93,9 +100,9 @@ export default function Data() {
                         }
                     }
                 }
-                console.log(awayArr);
-                return awayArr;
+                getAwayDisplay(awayArr);
             })
+            .catch(error => console.error(`Error: ${error}`));
     }
 
     function gameName() {
@@ -115,9 +122,9 @@ export default function Data() {
                         gameArr.push(allDataTwo);
                     }
                 }
-                console.log(gameArr);
-                return gameArr;
+                getGameNameDisplay(gameArr);
             })
+            .catch(error => console.error(`Error: ${error}`));
     }
 
     function gameDate() {
@@ -128,18 +135,21 @@ export default function Data() {
                 let dateArr = [];
                 let allDataOne;
                 let allDataTwo;
+                let allDataThree;
                 for(let property in allData) {
                     allDataOne = allData[property].games;
 
                     for(let property in allDataOne) {
-                        allDataTwo = allDataOne[property].date;
+                        allDataTwo = allDataOne[property].status;
 
-                        dateArr.push(allDataTwo);
+                        allDataThree = allDataTwo.type.detail;
+
+                        dateArr.push(allDataThree);
                     }
                 }
-                console.log(dateArr);
-                return dateArr;
+                getDateDisplay(dateArr);
             })
+            .catch(error => console.error(`Error: ${error}`));
     }
 
     function teamLogo() {
@@ -169,47 +179,84 @@ export default function Data() {
                         }
                     }
                 }
-                console.log(logoArr);
-                return logoArr;
-            });
+                getLogoDisplay(logoArr);
+            })
+            .catch(error => console.error(`Error: ${error}`));
     }
 
     function teamCall() {
         axios.get(teamUrl, options)
             .then((response) => {
                 const allData = response.data;
-                console.log(allData);
 
                 let teamArr = [];
                 let allDataOne;
                 let allDataTwo;
                 let allDataThree;
                 let allDataFour;
-                let allDataFive;
-                for(let property in allData) {
-                    allDataOne = allData[property].sports;
-                    console.log(allDataOne);
-                    for(let property in allDataOne) {
-                        allDataTwo = allDataOne[property].leagues;
-                        console.log(allDataTwo);
-                        for(let property in allDataTwo) {
-                            allDataThree = allDataTwo[property].teams;
-                            console.log(allDataThree)
-                            for(let property in allDataThree) {
-                                allDataFour = allDataThree[property].team.displayName;
-                                
-                                teamArr.push(allDataFour)
-                            }
+
+                allDataOne = allData.sports;
+
+                for(let property in allDataOne) {
+                    allDataTwo = allDataOne[property].leagues;
+
+                    for(let property in allDataTwo) {
+                        allDataThree = allDataTwo[property].teams;
+
+                        for(let property in allDataThree) {
+                            allDataFour = allDataThree[property].team.displayName;
+
+                            teamArr.push(allDataFour);
                         }
                     }
                 }
-                console.log(teamArr);
+                console.log(teamArr);  
+                return teamArr;      
             })
+            .catch(error => console.error(`Error: ${error}`));
     }
 
-    return (
-        console.log()        
+    function teamWins() {
+        for(let i = 1; i <= 33; i++) {
+            let teamId = i;
+            let teamInfo = `https://nfl-api1.p.rapidapi.com/nflteaminfo?teamid=${teamId}`;
 
+            axios.get(teamInfo, options)
+                .then((response) => {
+                    const allData = response.data;
+
+                    let nameData;
+                    let standingData;
+
+                    if(allData.team.displayName === 'Afc' || allData.team.displayName === 'Nfc') { 
+                    } else {
+                        nameData = allData.team.displayName;
+                        standingData = allData.team.standingSummary;
+
+                        console.log(`${nameData} is ${standingData}`);
+                    }
+                            
+                })
+                .catch(error => console.error(`Error: ${error}`));
+        }
+    }
+    
+
+    return (
+        <div>
+            <div>
+                <WeeklySchedule 
+                    homeDisplay={homeDisplay} 
+                    awayDisplay={awayDisplay} 
+                    gameNameDisplay={gameNameDisplay}
+                    dateDisplay={dateDisplay} 
+                    logoDisplay={logoDisplay}
+                />
+            </div>
+        </div>
+        
+                       
+        
     )
 
 }
