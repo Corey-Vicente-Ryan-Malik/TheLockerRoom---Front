@@ -35,7 +35,7 @@ export default class Forum extends React.Component {
         console.log(this.state.posts);
 
         return (
-          <React.Fragment>
+          <div>
             {this.state.posts.map((post) => (
             //   <Post
             //     key={post.id}
@@ -48,7 +48,7 @@ export default class Forum extends React.Component {
             </div>
 
             ))}
-          </React.Fragment>
+          </div>
         );
       }
     }

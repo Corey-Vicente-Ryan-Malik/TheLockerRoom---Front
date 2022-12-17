@@ -15,7 +15,7 @@ import Settings from "./components/Settings";
 import Schedule from './components/Schedules';
 import Footer from "./components/Footer";
 import About from "./components/About";
-import GameSched from "./components/GameSched";
+import WeeklySchedule from "./components/WeeklySchedule";
 import Data from "./components/Data";
 import {BrowserRouter as Router, Route, Routes, Link} from "react-router-dom";
 import AuthService from "./services/auth.service";
@@ -171,7 +171,7 @@ class App extends Component{
                     <Routes>
                         <Route path='/' element={<Landing/>}/>
                         <Route path='/sched' element={<Schedule/>}/>
-                        <Route path='/schedule' element={<GameSched/>}/>
+                        <Route path='/schedule' element={<WeeklySchedule/>}/>
                         <Route path='/data' element={<Data/>}/>
                     </Routes>
                     <Footer/>
