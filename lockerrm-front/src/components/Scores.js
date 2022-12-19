@@ -1,6 +1,7 @@
 import AuthContext from "../context/AuthProvider";
 import authProvider from "../context/AuthProvider";
 import {useContext} from "react";
+import React from "react";
 
 function  Scores () {
     const {data}  = useContext(AuthContext)

@@ -28,6 +28,7 @@ class App extends Component{
     constructor(props) {
         super(props);
         this.logOut = this.logOut.bind(this);
+        this.componentDidMount = this.componentDidMount.bind(this);
 
         this.state = {
             showUserContent: false,
@@ -43,8 +44,8 @@ class App extends Component{
             this.setState({
                 currentUser: AuthService.getCurrentUser(),
                 // add roles to user
-                showUserContent: user.roles.includes("user"),
-                showForum: user.roles.includes("user")
+                // showUserContent: user.roles.includes("user"),
+                // showForum: user.roles.includes("user")
             })
         }
     }
@@ -52,7 +53,8 @@ class App extends Component{
         AuthService.logout();
     }
     render(){
-        const {currentUser, showUserContent, showForum  } = this.state;
+        const currentUser = localStorage.getItem("user");
+        const {showUserContent, showForum  } = this.state;
         return(
             <div className="App">
                 <Router>
@@ -151,8 +153,11 @@ class App extends Component{
                                element={<Standings/>}/>
                         <Route path='/stats'
                                element={<Stats/>}/>
-                        <Route path='/forum'
-                               element={<Forum/>}/>
+                        {currentUser &&(
+                            <Route path='/forum'
+                                   element={<Forum/>}/>)
+                        }
+
                         <Route path='/teams'
                                element={<Teams/>}/>
                         <Route path='/edit'
@@ -174,7 +179,7 @@ class App extends Component{
                         <Route path='/sched' element={<Schedule/>}/>
                         <Route path='/schedule' element={<GameSched/>}/>
                         <Route path='/data' element={<Data/>}/>
-                        <Route path='/login' element={<LoginComponent/>}/>
+
                     </Routes>
                     <Footer/>
                 </Router>
