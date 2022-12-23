@@ -1,55 +1,71 @@
-import { Fragment, useEffect } from "react";
+import React, { Fragment, useEffect } from 'react';
 
-export default function WeeklySchedule(props) {
+export default function WeeklySchedule({ games }) {
+  const cardStyle = {
+    display: 'grid',
+  };
 
-    let homeArr = props.homeDisplay;
-    let awayArr = props.awayDisplay;
-    let gameArr = props.gameNameDisplay;
-    let dateArr = props.dateDisplay;
+  const homeStyle = {
+    gridColumn: 1,
+    gridRow: 1,
+  };
 
-    const homeTeams = homeArr.map(homeTeam => <h3>{homeTeam}</h3>);
-    const awayTeams = awayArr.map(awayTeam => <h3>{awayTeam}</h3>);
-    const gameName = gameArr.map(game => <h3>{game}</h3>);
-    const gameDate = dateArr.map(date => <h3>{date}</h3>);
+  const homeImage = {
+    gridColumn: 2,
+    gridRow: 1,
+  };
 
-    const cardStyle = {
-        display: 'grid'
-    }
-    
-    const homeStyle = {
-        gridColumn: 1,
-        gridRow: 1,
-    }
-    
-    const gameNameStyle = {
-        gridColumn: 2,
-        gridRow: 1,
-    }
+  const gameNameStyle = {
+    gridColumn: 3,
+    gridRow: 1,
+  };
 
-    const awayStyle = {
-        gridColumn: 3,
-        gridRow: 1,
-    }
+  const awayStyle = {
+    gridColumn: 5,
+    gridRow: 1,
+  };
 
-    const gameDateStyle = {
-        gridColumn: 4,
-        gridRow: 1,
-    }
-    
-    return (
-        <div style={cardStyle}>
-            <div id='homeTeam' style={homeStyle}>
-                {homeTeams}
+  const awayImage = {
+    gridColumn: 4,
+    gridRow: 1,
+  };
+
+  const gameDateStyle = {
+    gridColumn: 3,
+    gridRow: 2,
+  };
+
+  const image = {
+    width: '75px',
+    height: '75px',
+  };
+
+  return (
+    <React.Fragment>
+      {games.map((game) => {
+        return (
+          <div key={game.id} className="weeklyGame" style={cardStyle}>
+            <div id="homeTeam" style={homeStyle}>
+              {game.homeTeam}
             </div>
-            <div id='gameName' style={gameNameStyle}>
-                {gameName}
-            </div> 
-            <div id='awayTeam' style={awayStyle}>
-                {awayTeams}
+            <div id="homeLogo" style={homeImage}>
+              <img src={game.homeLogo} style={image} alt="Home Team Logo" />
             </div>
-            <div id='gameDate' style={gameDateStyle}>
-                {gameDate}
+            <div id="gameName" style={gameNameStyle}>
+              {game.gameName}
             </div>
-        </div>
-    )
+            <div id="awayTeam" style={awayStyle}>
+              {game.awayTeam}
+            </div>
+            <div id="awayLogo" style={awayImage}>
+              <img src={game.awayLogo} style={image} alt="Away Team Logo" />
+            </div>
+            <div id="gameDate" style={gameDateStyle}>
+              {game.gameDate}
+            </div>
+          </div>
+        );
+      })}
+    </React.Fragment>
+  );
 }
