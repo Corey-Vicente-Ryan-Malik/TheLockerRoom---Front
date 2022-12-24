@@ -28,9 +28,16 @@ const Forum = () => {
   return (
     <div>
 
-      <h2>Welcome to The Locker Room's Forums</h2>
+      <h2>Welcome to The Locker Room's Forum</h2>
+      
 
       <button onClick={() => navigate("/create-post")}>Create Post</button>
+      <br />
+      <br />
+      <select>
+        <option disabled>Select One</option>
+        <option value="all-posts">All Posts</option>
+      </select>
 
       {/* <div className="allPosts">
         {posts.map((post) => (
