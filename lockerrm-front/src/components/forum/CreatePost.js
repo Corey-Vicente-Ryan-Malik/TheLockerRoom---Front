@@ -23,6 +23,11 @@ const CreatePost = () => {
             },
             body: JSON.stringify(post)
         })
+        // Getting 401 error (unauthorized)
+        // Currently not grabbing logged in user
+        // I need to grab current logged in user
+        // Send both the user, and the post being created in request
+        // Currently only sending post, without valid user credentials
         .then(() => { console.log('POST request fulfilled.'); })
         .catch((err) => { console.log(err) });
         
