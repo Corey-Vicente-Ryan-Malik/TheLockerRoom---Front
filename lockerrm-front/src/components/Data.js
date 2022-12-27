@@ -5,7 +5,7 @@ import WeeklySchedule from './WeeklySchedule';
 
 export default function Data() {
   const scheduleUrl =
-    'https://nfl-api1.p.rapidapi.com/nflschedule?year=2023&month=03&day=31';
+    'https://nfl-api1.p.rapidapi.com/nflschedule?year=2024&month=03&day=31';
 
   const teamUrl = 'https://nfl-api1.p.rapidapi.com/nflteamlist';
 
@@ -20,9 +20,10 @@ export default function Data() {
   const [games, setGames] = useState([]);
 
   useEffect(() => {
-    axios
-      .get(scheduleUrl, options)
-      .then((response) => createGameObjects(response.data));
+    axios.get(scheduleUrl, options).then((response) => {
+      console.log(response.data);
+      createGameObjects(response.data);
+    });
   }, []);
 
   function homeTeam(allData) {
@@ -55,6 +56,66 @@ export default function Data() {
     return homeArr;
   }
 
+  function homeScore(allData) {
+    let homeScoreArr = [];
+    let allDataOne;
+    let allDataTwo;
+    let allDataThree;
+    let allDataFour;
+    let allDataFive;
+    for (let property in allData) {
+      allDataOne = allData[property].games;
+
+      for (let property in allDataOne) {
+        allDataTwo = allDataOne[property].competitions;
+
+        for (let property in allDataTwo) {
+          allDataThree = allDataTwo[property].competitors;
+
+          for (let property in allDataThree) {
+            allDataFour = allDataThree[property].homeAway;
+            allDataFive = allDataThree[property].score;
+
+            if (allDataFour === 'home') {
+              homeScoreArr.push(allDataFive);
+            }
+          }
+        }
+      }
+    }
+    return homeScoreArr;
+  }
+
+  function homeRecord(allData) {
+    let homeRecordArr = [];
+    let allDataOne;
+    let allDataTwo;
+    let allDataThree;
+    let allDataFour;
+    let allDataFive;
+    for (let property in allData) {
+      allDataOne = allData[property].games;
+
+      for (let property in allDataOne) {
+        allDataTwo = allDataOne[property].competitions;
+
+        for (let property in allDataTwo) {
+          allDataThree = allDataTwo[property].competitors;
+
+          for (let property in allDataThree) {
+            allDataFour = allDataThree[property].homeAway;
+            allDataFive = allDataThree[property].records[0].summary;
+
+            if (allDataFour === 'home') {
+              homeRecordArr.push(allDataFive);
+            }
+          }
+        }
+      }
+    }
+    return homeRecordArr;
+  }
+
   function awayTeam(allData) {
     let awayArr = [];
     let allDataOne;
@@ -83,6 +144,66 @@ export default function Data() {
       }
     }
     return awayArr;
+  }
+
+  function awayScore(allData) {
+    let awayScoreArr = [];
+    let allDataOne;
+    let allDataTwo;
+    let allDataThree;
+    let allDataFour;
+    let allDataFive;
+    for (let property in allData) {
+      allDataOne = allData[property].games;
+
+      for (let property in allDataOne) {
+        allDataTwo = allDataOne[property].competitions;
+
+        for (let property in allDataTwo) {
+          allDataThree = allDataTwo[property].competitors;
+
+          for (let property in allDataThree) {
+            allDataFour = allDataThree[property].homeAway;
+            allDataFive = allDataThree[property].score;
+
+            if (allDataFour === 'away') {
+              awayScoreArr.push(allDataFive);
+            }
+          }
+        }
+      }
+    }
+    return awayScoreArr;
+  }
+
+  function awayRecord(allData) {
+    let awayRecordArr = [];
+    let allDataOne;
+    let allDataTwo;
+    let allDataThree;
+    let allDataFour;
+    let allDataFive;
+    for (let property in allData) {
+      allDataOne = allData[property].games;
+
+      for (let property in allDataOne) {
+        allDataTwo = allDataOne[property].competitions;
+
+        for (let property in allDataTwo) {
+          allDataThree = allDataTwo[property].competitors;
+
+          for (let property in allDataThree) {
+            allDataFour = allDataThree[property].homeAway;
+            allDataFive = allDataThree[property].records[0].summary;
+
+            if (allDataFour === 'away') {
+              awayRecordArr.push(allDataFive);
+            }
+          }
+        }
+      }
+    }
+    return awayRecordArr;
   }
 
   function gameName(allData) {
@@ -120,38 +241,122 @@ export default function Data() {
     return dateArr;
   }
 
-  //   function teamLogo() {
-  //     axios
-  //       .get(scheduleUrl, options)
-  //       .then((response) => {
-  //         let allData = response.data;
+  function homeLogo(allData) {
+    let homeLogoArr = [];
+    let allDataOne;
+    let allDataTwo;
+    let allDataThree;
+    let allDataFour;
+    let allDataFive;
+    for (let property in allData) {
+      allDataOne = allData[property].games;
 
-  //         let logoArr = [];
-  //         let allDataOne;
-  //         let allDataTwo;
-  //         let allDataThree;
-  //         let allDataFour;
-  //         for (let property in allData) {
-  //           allDataOne = allData[property].games;
+      for (let property in allDataOne) {
+        allDataTwo = allDataOne[property].competitions;
 
-  //           for (let property in allDataOne) {
-  //             allDataTwo = allDataOne[property].competitions;
+        for (let property in allDataTwo) {
+          allDataThree = allDataTwo[property].competitors;
 
-  //             for (let property in allDataTwo) {
-  //               allDataThree = allDataTwo[property].competitors;
+          for (let property in allDataThree) {
+            allDataFour = allDataThree[property].team.logo;
+            allDataFive = allDataThree[property].homeAway;
 
-  //               for (let property in allDataThree) {
-  //                 allDataFour = allDataThree[property].team.logo;
+            if (allDataFive === 'home') {
+              homeLogoArr.push(allDataFour);
+            }
+          }
+        }
+      }
+    }
+    return homeLogoArr;
+  }
 
-  //                 logoArr.push(allDataFour);
-  //               }
-  //             }
-  //           }
+  function awayLogo(allData) {
+    let awayLogoArr = [];
+    let allDataOne;
+    let allDataTwo;
+    let allDataThree;
+    let allDataFour;
+    let allDataFive;
+    for (let property in allData) {
+      allDataOne = allData[property].games;
+
+      for (let property in allDataOne) {
+        allDataTwo = allDataOne[property].competitions;
+
+        for (let property in allDataTwo) {
+          allDataThree = allDataTwo[property].competitors;
+
+          for (let property in allDataThree) {
+            allDataFour = allDataThree[property].team.logo;
+            allDataFive = allDataThree[property].homeAway;
+
+            if (allDataFive === 'away') {
+              awayLogoArr.push(allDataFour);
+            }
+          }
+        }
+      }
+    }
+    return awayLogoArr;
+  }
+
+  //   function gameSituation(allData) {
+  //     let situationArr = [];
+  //     let allDataOne;
+  //     let allDataTwo;
+  //     let allDataThree;
+  //     let allDataFour;
+  //     for (let i in allData) {
+  //       allDataOne = allData[i].games;
+
+  //       for (let i in allDataOne) {
+  //         allDataTwo = allDataOne[i].competitions;
+
+  //         for (let i in allDataTwo) {
+  //           allDataThree = allDataTwo[i].situation;
+
+  //           allDataFour = `${allDataThree.shortDownDistanceText} at ${allDataThree.possessionText}`;
+
+  //           situationArr.push(allDataFour);
   //         }
-  //         getLogoDisplay(logoArr);
-  //       })
-  //       .catch((error) => console.error(`Error: ${error}`));
+  //       }
+  //     }
+  //     return situationArr;
   //   }
+
+  function createGameObjects(data) {
+    let allGames = [];
+    let homeArr = homeTeam(data);
+    let homeScoreArr = homeScore(data);
+    let homeRecordArr = homeRecord(data);
+    let awayArr = awayTeam(data);
+    let awayScoreArr = awayScore(data);
+    let awayRecordArr = awayRecord(data);
+    let gameArr = gameName(data);
+    let dateArr = gameDate(data);
+    let homeLogoArr = homeLogo(data);
+    let awayLogoArr = awayLogo(data);
+    // let situationArr = gameSituation(data);
+    homeArr.forEach((team) => {
+      let game = {};
+      game.homeTeam = team;
+      allGames.push(game);
+    });
+    for (let i = 0; i < allGames.length; i++) {
+      allGames[i].id = i + 1;
+      allGames[i].homeScore = homeScoreArr[i];
+      allGames[i].homeRecord = homeRecordArr[i];
+      allGames[i].homeLogo = homeLogoArr[i];
+      allGames[i].awayTeam = awayArr[i];
+      allGames[i].awayScore = awayScoreArr[i];
+      allGames[i].awayRecord = awayRecordArr[i];
+      allGames[i].awayLogo = awayLogoArr[i];
+      allGames[i].gameName = gameArr[i];
+      allGames[i].gameDate = dateArr[i];
+    }
+    setGames(allGames);
+  }
 
   //   function teamCall() {
   //     axios
@@ -214,89 +419,6 @@ export default function Data() {
   //     }
   //   }
 
-  function homeLogo(allData) {
-    let homeLogoArr = [];
-    let allDataOne;
-    let allDataTwo;
-    let allDataThree;
-    let allDataFour;
-    let allDataFive;
-    for (let property in allData) {
-      allDataOne = allData[property].games;
-
-      for (let property in allDataOne) {
-        allDataTwo = allDataOne[property].competitions;
-
-        for (let property in allDataTwo) {
-          allDataThree = allDataTwo[property].competitors;
-
-          for (let property in allDataThree) {
-            allDataFour = allDataThree[property].team.logo;
-            allDataFive = allDataThree[property].homeAway;
-
-            if (allDataFive === 'home') {
-              homeLogoArr.push(allDataFour);
-            }
-          }
-        }
-      }
-    }
-    return homeLogoArr;
-  }
-
-  function awayLogo(allData) {
-    let awayLogoArr = [];
-    let allDataOne;
-    let allDataTwo;
-    let allDataThree;
-    let allDataFour;
-    let allDataFive;
-    for (let property in allData) {
-      allDataOne = allData[property].games;
-
-      for (let property in allDataOne) {
-        allDataTwo = allDataOne[property].competitions;
-
-        for (let property in allDataTwo) {
-          allDataThree = allDataTwo[property].competitors;
-
-          for (let property in allDataThree) {
-            allDataFour = allDataThree[property].team.logo;
-            allDataFive = allDataThree[property].homeAway;
-
-            if (allDataFive === 'away') {
-              awayLogoArr.push(allDataFour);
-            }
-          }
-        }
-      }
-    }
-    return awayLogoArr;
-  }
-
-  function createGameObjects(data) {
-    let allGames = [];
-    let homeArr = homeTeam(data);
-    let awayArr = awayTeam(data);
-    let gameArr = gameName(data);
-    let dateArr = gameDate(data);
-    let homeLogoArr = homeLogo(data);
-    let awayLogoArr = awayLogo(data);
-    homeArr.forEach((team) => {
-      let game = {};
-      game.homeTeam = team;
-      allGames.push(game);
-    });
-    for (let i = 0; i < allGames.length; i++) {
-      allGames[i].id = i + 1;
-      allGames[i].homeLogo = homeLogoArr[i];
-      allGames[i].awayTeam = awayArr[i];
-      allGames[i].awayLogo = awayLogoArr[i];
-      allGames[i].gameName = gameArr[i];
-      allGames[i].gameDate = dateArr[i];
-    }
-    setGames(allGames);
-  }
   return (
     <div>
       <div>
