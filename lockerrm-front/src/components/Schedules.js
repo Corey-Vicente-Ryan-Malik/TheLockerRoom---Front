@@ -1,5 +1,5 @@
 import './Schedules.css'
-
+import React from "react";
 function Schedules () {
     return (
         <div className="Weekly_schedule">

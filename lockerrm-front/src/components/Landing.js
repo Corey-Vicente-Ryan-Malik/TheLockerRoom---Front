@@ -4,7 +4,10 @@ import {Redirect, Route, useNavigate} from 'react-router-dom';
 import '../index.css';
 import {useEffect, useRef, useState, useContext} from "react";
 import AuthContext from "../context/AuthProvider";
-
+import React from "react";
+import axios from "axios";
+import login from "./Login";
+import authService from "../services/auth.service";
 
 
 const Landing = ( props, {} ) => {
@@ -34,49 +37,8 @@ const Landing = ( props, {} ) => {
     const onInputChange = (e) => {
         setUser({...user, [e.target.name]: e.target.value});
     }
-
     async function sendLoginRequest() {
-
-        console.log("sending request")
-        console.log(user)
-
-
-        // const [jwt, setJwt] = useLocateState("", jwt);
-        try{
-            await fetch("http://localhost:8080/oauth/token", {
-                method: "POST",
-                headers: {
-                    'Content-Type': 'application/x-www-form-urlencoded',
-                    'Authorization': 'Basic ' + btoa('sports-app-client:secret'),
-                },
-                body: `grant_type=${user.grant_type}&username=${user.username}&password=${user.password}&client_id=sports-app-client`
-            }).then(data => data.json())
-                .then(data => {
-                    console.log(data);
-                    setAuth({data})
-                        if (data.access_token) {
-                        console.log("storing token...")
-                        localStorage.setItem('access_token', data.access_token);
-                            setSuccess(true);
-                    }
-                    if (data.refresh_token) {
-                        localStorage.setItem("refresh_token", data.refresh_token);
-                        console.log("Refresh token set")
-                    }
-
-                })
-        }catch(error){
-            if(error.response?.status === 400){
-                setErrMsg('Missing username or password');
-            }else if(error.status === 401){
-                setErrMsg("Unauthorized")
-            }else{
-                setErrMsg("Login failed")
-            }
-
-        }
-
-
+        await authService.login(user.username, user.password, user.grant_type, user);
     }
 
     return (
