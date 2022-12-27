@@ -20,10 +20,9 @@ export default function Data() {
   const [games, setGames] = useState([]);
 
   useEffect(() => {
-    axios.get(scheduleUrl, options).then((response) => {
-      console.log(response.data);
-      createGameObjects(response.data);
-    });
+    axios
+      .get(scheduleUrl, options)
+      .then((response) => createGameObjects(response.data));
   }, []);
 
   function homeTeam(allData) {
@@ -418,7 +417,6 @@ export default function Data() {
   //         .catch((error) => console.error(`Error: ${error}`));
   //     }
   //   }
-
   return (
     <div>
       <div>
