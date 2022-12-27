@@ -8,7 +8,7 @@ const Forum = () => {
   // grabs the user from local storage from auth.service func.
   authService.getCurrentUser();
   //           traverse object for key
-  console.log(authService.getCurrentUser()['username']);
+  // console.log(authService.getCurrentUser()['username']);
 
 
   const [posts, setPosts] = useState([]);
