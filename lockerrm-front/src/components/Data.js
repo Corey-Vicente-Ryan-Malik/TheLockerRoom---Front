@@ -300,30 +300,6 @@ export default function Data() {
     return awayLogoArr;
   }
 
-  //   function gameSituation(allData) {
-  //     let situationArr = [];
-  //     let allDataOne;
-  //     let allDataTwo;
-  //     let allDataThree;
-  //     let allDataFour;
-  //     for (let i in allData) {
-  //       allDataOne = allData[i].games;
-
-  //       for (let i in allDataOne) {
-  //         allDataTwo = allDataOne[i].competitions;
-
-  //         for (let i in allDataTwo) {
-  //           allDataThree = allDataTwo[i].situation;
-
-  //           allDataFour = `${allDataThree.shortDownDistanceText} at ${allDataThree.possessionText}`;
-
-  //           situationArr.push(allDataFour);
-  //         }
-  //       }
-  //     }
-  //     return situationArr;
-  //   }
-
   function createGameObjects(data) {
     let allGames = [];
     let homeArr = homeTeam(data);
@@ -336,7 +312,6 @@ export default function Data() {
     let dateArr = gameDate(data);
     let homeLogoArr = homeLogo(data);
     let awayLogoArr = awayLogo(data);
-    // let situationArr = gameSituation(data);
     homeArr.forEach((team) => {
       let game = {};
       game.homeTeam = team;
