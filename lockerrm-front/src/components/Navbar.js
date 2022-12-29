@@ -78,8 +78,8 @@ export default function Navbar() {
                 </li>
 
                 <li className="nav-item">
-                  <Link to={'/stats'} id="stats" className="nav-link">
-                    Stats
+                  <Link to={'/news'} id="news" className="nav-link">
+                    News Information
                   </Link>
                 </li>
                 {currentUser && (
@@ -92,12 +92,12 @@ export default function Navbar() {
 
                 <li className="nav-item">
                   <Link to={'/teams'} id="teams" className="nav-link">
-                    Teams
+                    Team Information
                   </Link>
                 </li>
                 <li className="nav-item">
                   <Link to={'/schedules'} id="schedules" className="nav-link">
-                    Schedules
+                    Weekly Schedules
                   </Link>
                 </li>
               </ul>
