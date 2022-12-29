@@ -17,7 +17,6 @@ export default function TeamData() {
 
   useEffect(() => {
     axios.get(teamUrl, options).then((response) => {
-      console.log(response.data);
       createTeamObjects(response.data);
     });
 
@@ -311,11 +310,6 @@ export default function TeamData() {
 
   const textCenter = {
     textAlign: 'center',
-  };
-
-  const button = {
-    width: '200px',
-    height: '100px',
   };
 
   return (
