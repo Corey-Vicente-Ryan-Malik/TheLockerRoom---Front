@@ -3,9 +3,10 @@ import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import GameDisplay from '../displayFolder/GameDisplay';
 import TeamDisplay from '../displayFolder/TeamDisplay';
 import Landing from '../displayFolder/LandingDisplay';
+import NewsDisplay from '../displayFolder/NewsDisplay';
 import Register from '../settings/Register';
-import CreatePost from "../forum/CreatePost";
-import Forum from "../forum/Forum";
+import CreatePost from '../forum/CreatePost';
+import Forum from '../forum/Forum';
 
 export default function Navbar() {
   const { currentUser, showUserContent, showForum } = useState({});
@@ -166,6 +167,7 @@ export default function Navbar() {
           <Route path="/" element={<Landing />} />
           <Route path="/schedules" element={<GameDisplay />} />
           <Route path="/teams" element={<TeamDisplay />} />
+          <Route path="/news" element={<NewsDisplay />} />
           <Route path="/register" element={<Register />} />
           <Route path="/forum" element={<Forum />} />
           <Route path="/create-post" element={<CreatePost />} />
