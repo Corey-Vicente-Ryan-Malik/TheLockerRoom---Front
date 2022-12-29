@@ -1,18 +1,15 @@
 import { useEffect, useState } from 'react';
 import React from 'react';
 import axios from 'axios';
-import WeeklySchedule from './WeeklySchedule';
 
-export default function Data() {
+export default function GameData() {
   const scheduleUrl =
     'https://nfl-api1.p.rapidapi.com/nflschedule?year=2024&month=03&day=31';
-
-  const teamUrl = 'https://nfl-api1.p.rapidapi.com/nflteamlist';
 
   const options = {
     method: 'GET',
     headers: {
-      'X-RapidAPI-Key': process.env.REACT_APP_NFLAPI_KEY,
+      'X-RapidAPI-Key': '030599a025msh7d87a89a5158c47p19faabjsnf8d88956da48',
       'X-RapidAPI-Host': 'nfl-api1.p.rapidapi.com',
     },
   };
@@ -332,71 +329,71 @@ export default function Data() {
     setGames(allGames);
   }
 
-  //   function teamCall() {
-  //     axios
-  //       .get(teamUrl, options)
-  //       .then((response) => {
-  //         const allData = response.data;
+  const cardLayout = {
+    display: 'flex',
+    border: '1px solid black',
+    width: '98vw',
+    margin: '15px auto',
+    fontSize: '20px',
+  };
 
-  //         let teamArr = [];
-  //         let allDataOne;
-  //         let allDataTwo;
-  //         let allDataThree;
-  //         let allDataFour;
+  const cardItem = {
+    display: 'flex',
+    border: '1px solid black',
+    width: '20%',
+    justifyContent: 'center',
+    alignItems: 'center',
+  };
 
-  //         allDataOne = allData.sports;
+  const image = {
+    width: '200px',
+    height: '200px',
+  };
 
-  //         for (let property in allDataOne) {
-  //           allDataTwo = allDataOne[property].leagues;
+  const textCenter = {
+    textAlign: 'center',
+  };
 
-  //           for (let property in allDataTwo) {
-  //             allDataThree = allDataTwo[property].teams;
-
-  //             for (let property in allDataThree) {
-  //               allDataFour = allDataThree[property].team.displayName;
-
-  //               teamArr.push(allDataFour);
-  //             }
-  //           }
-  //         }
-  //         console.log(teamArr);
-  //         return teamArr;
-  //       })
-  //       .catch((error) => console.error(`Error: ${error}`));
-  //   }
-
-  //   function teamWins() {
-  //     for (let i = 1; i <= 33; i++) {
-  //       let teamId = i;
-  //       let teamInfo = `https://nfl-api1.p.rapidapi.com/nflteaminfo?teamid=${teamId}`;
-
-  //       axios
-  //         .get(teamInfo, options)
-  //         .then((response) => {
-  //           const allData = response.data;
-
-  //           let nameData;
-  //           let standingData;
-
-  //           if (
-  //             allData.team.displayName === 'Afc' ||
-  //             allData.team.displayName === 'Nfc'
-  //           ) {
-  //           } else {
-  //             nameData = allData.team.displayName;
-  //             standingData = allData.team.standingSummary;
-
-  //             console.log(`${nameData} is ${standingData}`);
-  //           }
-  //         })
-  //         .catch((error) => console.error(`Error: ${error}`));
-  //     }
-  //   }
   return (
-    <div>
-      <div>
-        <WeeklySchedule games={games} />
-      </div>
-    </div>
+    <React.Fragment>
+      {games.map((game) => {
+        return (
+          <div key={game.id} style={cardLayout}>
+            <div style={cardItem}>
+              <div style={textCenter}>
+                {game.homeTeam} <br />
+                {game.homeRecord}
+              </div>
+            </div>
+
+            <div style={cardItem}>
+              <img src={game.homeLogo} style={image} alt="Home Team Logo" />
+            </div>
+
+            <div style={cardItem}>
+              <div style={textCenter}>
+                {game.gameName} <br />
+                {game.gameDate} <br />
+                {game.gameSituation}
+                <div>
+                  {game.homeScore} - {game.awayScore}
+                </div>
+              </div>
+            </div>
+
+            <div style={cardItem}>
+              <img src={game.awayLogo} style={image} alt="AwayTeamLogo" />
+            </div>
+
+            <div style={cardItem}>
+              <div style={textCenter}>
+                {game.awayTeam} <br />
+                {game.awayRecord}
+              </div>
+            </div>
+          </div>
+        );
+      })}
+    </React.Fragment>
   );
 }
