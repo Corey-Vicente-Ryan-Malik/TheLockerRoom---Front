@@ -20,6 +20,7 @@ import WeeklySchedule from "./components/WeeklySchedule";
 import Data from "./components/Data";
 import AuthService from "./services/auth.service";
 import CreatePost from "./components/forum/CreatePost";
+import authService from "./services/auth.service";
 
 
 class App extends Component{
@@ -34,23 +35,11 @@ class App extends Component{
 
         };
     }
-    // componentDidMount() {
-    //     // const user = AuthService.getCurrentUser();
-    //
-    //     if(user){
-    //         this.setState({
-    //             currentUser: AuthService.getCurrentUser(),
-    //             // add roles to user
-    //             showUserContent: user.roles.includes("user"),
-    //             showForum: user.roles.includes("user")
-    //         })
-    //     }
-    // }
     logOut(){
         AuthService.logout();
     }
     render(){
-        const {currentUser, showUserContent, showForum  } = this.state;
+        const currentUser = authService.getCurrentUser()
         return(
             <div className="App">
                 <Router>
@@ -127,12 +116,20 @@ class App extends Component{
                                                     </Link>
                                                 </li>
                                             )}
-
+                                            {currentUser ? (
+                                                <li>
+                                                    <Link to={"/"} className="dropdown-item" onClick={authService.logout()}>
+                                                        Logout
+                                                    </Link>
+                                                </li>
+                                            ):(
                                                 <li>
                                                     <Link to={"/"} className="dropdown-item">
                                                         Login
                                                     </Link>
                                                 </li>
+                                            )}
+
                                         </ul>
                                     </li>
                                 </ul>

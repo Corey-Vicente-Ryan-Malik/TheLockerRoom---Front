@@ -21,7 +21,7 @@ function Register () {
     const onSubmit = async (e) =>{
         e.preventDefault();
         await axios.post("http://localhost:8080/register", user);
-        navigate("/home")
+        window.location.href = '/';
 
     };
     return (

@@ -29,6 +29,8 @@ class AuthService {
     }
     logout(){
         localStorage.removeItem("user");
+        localStorage.removeItem("access_token");
+        localStorage.removeItem('refresh_token');
     }
     register(firstname, lastname, email, username, password, favoriteTeam){
         return axios.post(API_URL + "/register",{
