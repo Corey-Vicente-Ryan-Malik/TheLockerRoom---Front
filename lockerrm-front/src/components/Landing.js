@@ -39,6 +39,11 @@ const Landing = ( props, {} ) => {
     }
     async function sendLoginRequest() {
         await authService.login(user.username, user.password, user.grant_type, user);
+        if(localStorage.getItem("access_token")){
+            navigate("/home");
+        }else {
+            navigate("/");
+        }
 
     }
 

@@ -20,17 +20,12 @@ class AuthService {
                             localStorage.setItem("refresh_token", data.refresh_token);
                             console.log("Refresh token set")
                             localStorage.setItem('user', JSON.stringify(user));
-                            window.location.href = '/home';
-                        }else {
-                            window.location.href = '/';
                         }
                     })
 
     }
     logout(){
-        localStorage.removeItem("user");
-        localStorage.removeItem("access_token");
-        localStorage.removeItem('refresh_token');
+        localStorage.clear()
     }v
     register(firstname, lastname, email, username, password, favoriteTeam){
         return axios.post(API_URL + "/register",{
