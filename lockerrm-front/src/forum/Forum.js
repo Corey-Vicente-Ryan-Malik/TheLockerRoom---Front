@@ -67,10 +67,8 @@ const Forum = () => {
 
       </div>
 
-
       </div>
 
-    // </div>
   );
 };
 

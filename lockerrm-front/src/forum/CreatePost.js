@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Post.css';
+import React from "react";
 
 const CreatePost = () => {
   const [postContent, setPostContent] = useState('');
