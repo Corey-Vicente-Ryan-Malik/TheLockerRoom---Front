@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 const Forum = () => {
-<<<<<<< HEAD:lockerrm-front/src/components/forum/Forum.js
+
   
   const [posts, setPosts] = useState([]);
   const navigate = useNavigate();
@@ -15,13 +15,7 @@ const Forum = () => {
       },
     }
   
-=======
-  const API = 'http://localhost:8080/posts';
-  const user = JSON.parse(localStorage.getItem('user'));
-  const [posts, setPosts] = useState([]);
-  const navigate = useNavigate();
 
->>>>>>> 6e2d66d9ecff10b7dbf2b328dfc4d1cf7b6293ef:lockerrm-front/src/forum/Forum.js
   // useEffect runs on initial page load and everytime the data changes
   useEffect(() => {
     getAllPosts();
@@ -41,15 +35,13 @@ const Forum = () => {
   };
 
   console.log(posts);
-<<<<<<< HEAD:lockerrm-front/src/components/forum/Forum.js
+
   
   // Create function for edit button
 
 
   // Create function to delete post.
-  
-=======
->>>>>>> 6e2d66d9ecff10b7dbf2b328dfc4d1cf7b6293ef:lockerrm-front/src/forum/Forum.js
+
 
   return (
     <div>
@@ -73,13 +65,13 @@ const Forum = () => {
               <button>Delete</button>
           </div>
         ))}
-<<<<<<< HEAD:lockerrm-front/src/components/forum/Forum.js
+
       </div>
 
-=======
-      </div> */}
->>>>>>> 6e2d66d9ecff10b7dbf2b328dfc4d1cf7b6293ef:lockerrm-front/src/forum/Forum.js
+
     </div>
+
+
   );
 };
 
