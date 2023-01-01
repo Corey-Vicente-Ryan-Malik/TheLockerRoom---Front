@@ -7,6 +7,7 @@ import NewsDisplay from '../displayFolder/NewsDisplay';
 import Register from '../settings/Register';
 import CreatePost from '../forum/CreatePost';
 import Forum from '../forum/Forum';
+import About from "./About";
 
 export default function Navbar() {
   const { currentUser, showUserContent, showForum } = useState({});
@@ -172,6 +173,7 @@ export default function Navbar() {
           <Route path="/register" element={<Register />} />
           <Route path="/forum" element={<Forum />} />
           <Route path="/create-post" element={<CreatePost />} />
+          <Route path="/about" element={<About />} />
         </Routes>
       </Router>
     </React.Fragment>
