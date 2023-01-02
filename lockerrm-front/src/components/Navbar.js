@@ -7,6 +7,8 @@ import NewsDisplay from '../displayFolder/NewsDisplay';
 import Register from '../settings/Register';
 import CreatePost from '../forum/CreatePost';
 import Forum from '../forum/Forum';
+import About from "./About";
+import Error from "../settings/Error";
 
 export default function Navbar() {
   const { currentUser, showUserContent, showForum } = useState({});
@@ -64,22 +66,22 @@ export default function Navbar() {
               id="navbarSupportedContent"
             >
               <ul className="navbar-nav mr-auto">
-                <li className="nav-item active">
-                  <Link to={'/scores'} className="nav-link" id="scores">
-                    <span className="sr-only"></span>
-                    Scores
-                  </Link>
-                </li>
+                {/*<li className="nav-item active">*/}
+                {/*  <Link to={'/scores'} className="nav-link" id="scores">*/}
+                {/*    <span className="sr-only"></span>*/}
+                {/*    Scores*/}
+                {/*  </Link>*/}
+                {/*</li>*/}
 
-                <li className="nav-item">
-                  <Link to={'/standings'} id="standings" className="nav-link">
-                    Standings
-                  </Link>
-                </li>
+                {/*<li className="nav-item">*/}
+                {/*  <Link to={'/standings'} id="standings" className="nav-link">*/}
+                {/*    Standings*/}
+                {/*  </Link>*/}
+                {/*</li>*/}
 
                 <li className="nav-item">
                   <Link to={'/news'} id="news" className="nav-link">
-                    News Information
+                    News
                   </Link>
                 </li>
                 {currentUser && (
@@ -172,6 +174,8 @@ export default function Navbar() {
           <Route path="/register" element={<Register />} />
           <Route path="/forum" element={<Forum />} />
           <Route path="/create-post" element={<CreatePost />} />
+          <Route path="/about" element={<About />} />
+          <Route path='*' element={<Error />}/>
         </Routes>
       </Router>
     </React.Fragment>
