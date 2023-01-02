@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
 import React from 'react';
-import axios from 'axios';
+import axios, { all } from 'axios';
 
 export default function HomeData() {
-  const teamUrl = 'https://nfl-api1.p.rapidapi.com/nflteamplayers?teamid=26';
+  const teamUrl = 'https://nfl-api1.p.rapidapi.com/nflteamplayers?teamid=25';
 
   const options = {
     method: 'GET',
@@ -260,22 +260,161 @@ export default function HomeData() {
     let athleteHeadshotArr = [];
     let allDataOne;
     let allDataTwo;
+    let allDataThree;
     for (let i in allData) {
       allDataOne = allData.team.athletes;
 
       for (let i in allDataOne) {
-        allDataTwo = allDataOne[i].headshot.href;
+        allDataTwo = allDataOne[i].headshot;
 
-        athleteHeadshotArr.push(allDataTwo);
+        for (let i in allDataTwo) {
+          if (allDataThree !== allDataTwo.href) {
+            allDataThree = allDataTwo.href;
+
+            athleteHeadshotArr.push(allDataThree);
+          }
+        }
       }
     }
     return athleteHeadshotArr;
+  }
+
+  function athleteHeight(allData) {
+    let athleteHeightArr = [];
+    let allDataOne;
+    let allDataTwo;
+    for (let i in allData) {
+      allDataOne = allData.team.athletes;
+
+      for (let i in allDataOne) {
+        allDataTwo = allDataOne[i].displayHeight;
+
+        athleteHeightArr.push(allDataTwo);
+      }
+    }
+    return athleteHeightArr;
+  }
+
+  function athleteWeight(allData) {
+    let athleteWeightArr = [];
+    let allDataOne;
+    let allDataTwo;
+    for (let i in allData) {
+      allDataOne = allData.team.athletes;
+
+      for (let i in allDataOne) {
+        allDataTwo = allDataOne[i].displayWeight;
+
+        athleteWeightArr.push(allDataTwo);
+      }
+    }
+    return athleteWeightArr;
+  }
+
+  function athleteJersey(allData) {
+    let athleteJerseyArr = [];
+    let allDataOne;
+    let allDataTwo;
+    for (let i in allData) {
+      allDataOne = allData.team.athletes;
+
+      for (let i in allDataOne) {
+        allDataTwo = allDataOne[i].jersey;
+
+        if (allDataTwo === undefined) {
+          allDataTwo = 'No Data Found';
+          athleteJerseyArr.push(allDataTwo);
+        } else {
+          athleteJerseyArr.push(allDataTwo);
+        }
+      }
+    }
+    return athleteJerseyArr;
+  }
+
+  function athleteDraft(allData) {
+    let athleteDraftArr = [];
+    let allDataOne;
+    let allDataTwo;
+    let allDataThree;
+    for (let i in allData) {
+      allDataOne = allData.team.athletes;
+
+      for (let i in allDataOne) {
+        allDataTwo = allDataOne[i].draft;
+
+        if (
+          allDataTwo !== undefined &&
+          allDataThree !== allDataTwo.displayText
+        ) {
+          allDataThree = allDataTwo.displayText;
+          athleteDraftArr.push(allDataThree);
+        } else {
+          allDataThree = 'No Data Found';
+          athleteDraftArr.push(allDataThree);
+        }
+      }
+    }
+    return athleteDraftArr;
+  }
+
+  function athletePosition(allData) {
+    let athletePositionArr = [];
+    let allDataOne;
+    let allDataTwo;
+    let allDataThree;
+    for (let i in allData) {
+      allDataOne = allData.team.athletes;
+
+      for (let i in allDataOne) {
+        allDataTwo = allDataOne[i].position;
+
+        if (allDataThree !== allDataTwo.displayName) {
+          allDataThree = allDataTwo.displayName;
+          athletePositionArr.push(allDataThree);
+        } else {
+          allDataThree = 'No Data Found';
+          athletePositionArr.push(allDataThree);
+        }
+      }
+    }
+    return athletePositionArr;
+  }
+
+  function athletePostitionAbbr(allData) {
+    let athletePositionAbbrArr = [];
+    let allDataOne;
+    let allDataTwo;
+    let allDataThree;
+    for (let i in allData) {
+      allDataOne = allData.team.athletes;
+
+      for (let i in allDataOne) {
+        allDataTwo = allDataOne[i].position;
+
+        if (allDataThree !== allDataTwo.abbreviation) {
+          allDataThree = allDataTwo.abbreviation;
+          athletePositionAbbrArr.push(allDataThree);
+        } else {
+          allDataThree = 'N/A';
+          athletePositionAbbrArr.push(allDataThree);
+        }
+      }
+    }
+    console.log(athletePositionAbbrArr);
+    return athletePositionAbbrArr;
   }
 
   function createPlayerObjects(data) {
     let allTeamPlayers = [];
     let athleteNameArr = athleteName(data);
     let athleteHeadshotArr = athleteHeadshot(data);
+    let athleteHeightArr = athleteHeight(data);
+    let athleteWeightArr = athleteWeight(data);
+    let athleteJerseyArr = athleteJersey(data);
+    let athleteDraftArr = athleteDraft(data);
+    let athletePositionArr = athletePosition(data);
+    let athletePositionAbbrArr = athletePostitionAbbr(data);
     athleteNameArr.forEach((nflPlayer) => {
       let player = {};
       player.playerName = nflPlayer;
@@ -283,7 +422,13 @@ export default function HomeData() {
     });
     for (let i = 0; i < allTeamPlayers.length; i++) {
       allTeamPlayers[i].playerId = i + 1;
-      allTeamPlayers[i].playerAthleteHeadshot = athleteHeadshotArr[i];
+      allTeamPlayers[i].playerHeadshot = athleteHeadshotArr[i];
+      allTeamPlayers[i].playerHeight = athleteHeightArr[i];
+      allTeamPlayers[i].playerWeight = athleteWeightArr[i];
+      allTeamPlayers[i].playerJersey = athleteJerseyArr[i];
+      allTeamPlayers[i].playerDraft = athleteDraftArr[i];
+      allTeamPlayers[i].playerPosition = athletePositionArr[i];
+      allTeamPlayers[i].playerPositionAbbr = athletePositionAbbrArr[i];
     }
     setPlayers(allTeamPlayers);
   }
@@ -332,9 +477,12 @@ export default function HomeData() {
     gridRow: 1,
     border: '1px solid black',
   };
-  const playerCard = {
+  const playerIndex = {
     gridColumn: 2,
     gridRow: 1,
+    border: '1px solid black',
+  };
+  const playerCard = {
     border: '1px solid black',
   };
   const teamImage = {
@@ -373,21 +521,33 @@ export default function HomeData() {
           </div>
         );
       })}
-      {players.map((player) => {
-        return (
-          <div key={player.playerId}>
-            <div className="playerInformation" style={playerCard}>
-              <h1>Player Information</h1>
-              <img
-                src={player.playerAthleteHeadshot}
-                alt="Player Headshot"
-                style={playerImage}
-              />
-              <p>{player.playerName}</p>
+      <div className="playerInformaion" style={playerIndex}>
+        <h1>Player Information</h1>
+        {players.map((player) => {
+          return (
+            <div key={player.playerId}>
+              <div style={playerCard}>
+                <img
+                  src={player.playerHeadshot}
+                  alt="Player Headshot"
+                  style={playerImage}
+                />
+                <p>Name: {player.playerName}</p> <br />
+                <p>Jersey #: {player.playerJersey}</p> <br />
+                <p>Draft: {player.playerDraft}</p> <br />
+                <p>
+                  Position: {player.playerPosition} - (
+                  {player.playerPositionAbbr})
+                </p>
+                <br />
+                <p>
+                  Ht / Wt: {player.playerHeight} - {player.playerWeight}
+                </p>
+              </div>
             </div>
-          </div>
-        );
-      })}
+          );
+        })}
+      </div>
     </div>
   );
 }

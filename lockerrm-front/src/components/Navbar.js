@@ -164,7 +164,6 @@ export default function Navbar() {
             </div>
           </nav>
         </div>
-
         <Routes>
           <Route path="/" element={<Landing />} />
           <Route path="/home" element={<HomeDisplay />} />
