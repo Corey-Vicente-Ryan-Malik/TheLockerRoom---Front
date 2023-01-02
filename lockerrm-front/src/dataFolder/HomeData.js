@@ -2,8 +2,8 @@ import { useEffect, useState } from 'react';
 import React from 'react';
 import axios from 'axios';
 
-export default function TeamData() {
-  const teamUrl = 'https://nfl-api1.p.rapidapi.com/nflteamplayers?teamid=25';
+export default function HomeData() {
+  const teamUrl = 'https://nfl-api1.p.rapidapi.com/nflteamplayers?teamid=26';
 
   const options = {
     method: 'GET',
@@ -14,26 +14,14 @@ export default function TeamData() {
   };
 
   const [teams, setTeams] = useState([]);
+  const [players, setPlayers] = useState([]);
 
   useEffect(() => {
     axios.get(teamUrl, options).then((response) => {
+      console.log(response.data);
       createTeamObjects(response.data);
+      createPlayerObjects(response.data);
     });
-
-    // for (let i = 1; i < 34; i++) {
-    //   if (i === 31 || i === 32) {
-    //   } else {
-    //     axios
-    //       .get(
-    //         `https://nfl-api1.p.rapidapi.com/nflteaminfo?teamid=${i}`,
-    //         options
-    //       )
-    //       .then((response) => {
-    //         console.log(response.data);
-    //         createTeamObjects(response.data);
-    //       });
-    //   }
-    // }
   }, []);
 
   function teamName(allData) {
@@ -252,6 +240,54 @@ export default function TeamData() {
     return teamStadiumArr;
   }
 
+  function athleteName(allData) {
+    let athleteNameArr = [];
+    let allDataOne;
+    let allDataTwo;
+    for (let i in allData) {
+      allDataOne = allData.team.athletes;
+
+      for (let i in allDataOne) {
+        allDataTwo = allDataOne[i].displayName;
+
+        athleteNameArr.push(allDataTwo);
+      }
+    }
+    return athleteNameArr;
+  }
+
+  function athleteHeadshot(allData) {
+    let athleteHeadshotArr = [];
+    let allDataOne;
+    let allDataTwo;
+    for (let i in allData) {
+      allDataOne = allData.team.athletes;
+
+      for (let i in allDataOne) {
+        allDataTwo = allDataOne[i].headshot.href;
+
+        athleteHeadshotArr.push(allDataTwo);
+      }
+    }
+    return athleteHeadshotArr;
+  }
+
+  function createPlayerObjects(data) {
+    let allTeamPlayers = [];
+    let athleteNameArr = athleteName(data);
+    let athleteHeadshotArr = athleteHeadshot(data);
+    athleteNameArr.forEach((nflPlayer) => {
+      let player = {};
+      player.playerName = nflPlayer;
+      allTeamPlayers.push(player);
+    });
+    for (let i = 0; i < allTeamPlayers.length; i++) {
+      allTeamPlayers[i].playerId = i + 1;
+      allTeamPlayers[i].playerAthleteHeadshot = athleteHeadshotArr[i];
+    }
+    setPlayers(allTeamPlayers);
+  }
+
   function createTeamObjects(data) {
     let allTeams = [];
     let teamNameArr = teamName(data);
@@ -287,59 +323,71 @@ export default function TeamData() {
     setTeams(allTeams);
   }
 
-  const cardLayout = {
-    display: 'flex',
-    border: '1px solid black',
-    width: '80vw',
-    margin: '15px auto',
-  };
-
-  const cardItem = {
-    display: 'flex',
-    border: '1px solid black',
-    width: '33.33%',
-    justifyContent: 'center',
-    alignItems: 'center',
-    fontSize: '25px',
-  };
-
-  const image = {
-    width: '200px',
-    height: '200px',
-  };
-
-  const textCenter = {
+  const homeView = {
     textAlign: 'center',
+    display: 'grid',
+  };
+  const teamCard = {
+    gridColumn: 1,
+    gridRow: 1,
+    border: '1px solid black',
+  };
+  const playerCard = {
+    gridColumn: 2,
+    gridRow: 1,
+    border: '1px solid black',
+  };
+  const teamImage = {
+    width: '100px',
+    height: '100px',
+  };
+  const playerImage = {
+    width: '125px',
+    height: '100px',
   };
 
   return (
-    <React.Fragment>
+    <div style={homeView}>
       {teams.map((team) => {
         return (
-          <div key={team.teamId} style={cardLayout}>
-            <div style={cardItem}>
-              <div style={textCenter}>
-                {team.teamName} <br />
-                {team.teamStanding} <br />
-                Seasonal Record: {team.teamSeasonalWins} -{' '}
-                {team.teamSeasonalLosses} - {team.teamSeasonalTies}
-                <br />
-                Divisional Record: {team.teamDivisionalWins} -{' '}
-                {team.teamDivisionalLosses} - {team.teamDivisionalTies}
-              </div>
-            </div>
-            <div style={cardItem}>
-              <img src={team.teamLogo} style={image} alt="Team's Logo" />
-            </div>
-            <div style={cardItem}>
-              <div style={textCenter}>
-                {team.teamStadium} <br />
-                {team.teamLocation}
-              </div>
+          <div key={team.teamId}>
+            <div className="teamInformation" style={teamCard}>
+              <h1>Team Information</h1>
+              <h3>{team.teamName}</h3>
+              <p>{team.teamStanding}</p> <br />
+              <img src={team.teamLogo} alt="Team Logo" style={teamImage} />{' '}
+              <br />
+              <p>
+                {team.teamSeasonalWins} - {team.teamSeasonalLosses} -{' '}
+                {team.teamSeasonalTies}
+              </p>{' '}
+              <br />
+              <p>
+                {team.teamDivisionalWins} - {team.teamDivisionalLosses} -{' '}
+                {team.teamDivisionalTies}
+              </p>{' '}
+              <br />
+              <p>{team.teamStadium}</p> <br />
+              <p>{team.teamLocation}</p> <br />
             </div>
           </div>
         );
       })}
-    </React.Fragment>
+      {players.map((player) => {
+        return (
+          <div key={player.playerId}>
+            <div className="playerInformation" style={playerCard}>
+              <h1>Player Information</h1>
+              <img
+                src={player.playerAthleteHeadshot}
+                alt="Player Headshot"
+                style={playerImage}
+              />
+              <p>{player.playerName}</p>
+            </div>
+          </div>
+        );
+      })}
+    </div>
   );
 }

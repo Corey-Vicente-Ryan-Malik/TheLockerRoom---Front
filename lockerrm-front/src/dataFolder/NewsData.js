@@ -38,10 +38,15 @@ export default function NewsData() {
   function newsCategories(allData) {
     let newsCategoriesArr = [];
     let allDataOne;
+    let allDataTwo;
     for (let i in allData) {
       allDataOne = allData[i].Categories;
+      allDataTwo = `Categories: ${allDataOne}`;
 
-      newsCategoriesArr.push(allDataOne);
+      if (allDataOne !== '') {
+        newsCategoriesArr.push(allDataTwo);
+      }
+      // newsCategoriesArr.push(allDataOne);
     }
     return newsCategoriesArr;
   }
@@ -143,7 +148,8 @@ export default function NewsData() {
               <h1 style={header}>{article.newsTitle}</h1>
               <p>{article.newsContent}</p>
               <div style={footer}>
-                <div>Categories: {article.newsCategories}</div>
+                {/* <div>Categories: {article.newsCategories}</div> */}
+                <div>{article.newsCategories}</div>
                 <div>Updated: {article.newsUpdate}</div>
                 <div>
                   <a
