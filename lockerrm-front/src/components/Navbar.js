@@ -7,6 +7,7 @@ import NewsDisplay from '../displayFolder/NewsDisplay';
 import Register from '../settings/Register';
 import CreatePost from '../forum/CreatePost';
 import Forum from '../forum/Forum';
+import HomeDisplay from "../displayFolder/HomeDisplay";
 
 export default function Navbar() {
   const { currentUser, showUserContent, showForum } = useState({});
@@ -64,16 +65,9 @@ export default function Navbar() {
               id="navbarSupportedContent"
             >
               <ul className="navbar-nav mr-auto">
-                <li className="nav-item active">
-                  <Link to={'/scores'} className="nav-link" id="scores">
-                    <span className="sr-only"></span>
-                    Scores
-                  </Link>
-                </li>
-
                 <li className="nav-item">
-                  <Link to={'/standings'} id="standings" className="nav-link">
-                    Standings
+                  <Link to={'/forum'} id="standings" className="nav-link">
+                    Forum
                   </Link>
                 </li>
 
@@ -165,6 +159,7 @@ export default function Navbar() {
         </div>
 
         <Routes>
+          <Route path="/home" element={<HomeDisplay />} />
           <Route path="/" element={<Landing />} />
           <Route path="/schedules" element={<GameDisplay />} />
           <Route path="/teams" element={<TeamDisplay />} />
