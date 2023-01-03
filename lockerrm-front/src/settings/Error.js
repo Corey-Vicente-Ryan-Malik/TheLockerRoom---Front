@@ -1,4 +1,5 @@
 import holup from '../images/holup.jpeg'
+import React from "react";
 
 function Error() {
     return(

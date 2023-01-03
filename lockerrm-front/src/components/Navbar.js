@@ -15,6 +15,7 @@ import Error from "../settings/Error";
 export default function Navbar(){
   const currentUser = authService.getCurrentUser()
 
+
   const [team, setTeam] = useState({
     favoriteTeam: "",
   });
@@ -54,12 +55,7 @@ export default function Navbar(){
               id="navbarSupportedContent"
             >
               <ul className="navbar-nav mr-auto">
-   
-                    <li className="nav-item">
-                      <Link to={'/news'} id="news" className="nav-link">
-                        News Information
-                      </Link>
-                    </li>
+
                     {currentUser && (
                         <li className="nav-item">
                           <Link to={'/forum'} id="forum" className="nav-link">
@@ -176,6 +172,7 @@ export default function Navbar(){
           </nav>
         </div>
         <Routes>
+          <Route path="/home" element={<HomeDisplay />} />
           <Route path="/" element={<Landing />} />
           <Route path="/home" element={<HomeDisplay />} />
           <Route path="/schedules" element={<GameDisplay />} />
