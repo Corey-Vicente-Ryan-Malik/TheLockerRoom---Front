@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+
+import React, { Component, useState } from 'react';
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import GameDisplay from '../displayFolder/GameDisplay';
 import TeamDisplay from '../displayFolder/TeamDisplay';
@@ -11,12 +12,10 @@ import Forum from '../forum/Forum';
 import About from "./About";
 import Error from "../settings/Error";
 import authService from "../services/auth.service";
-import axios from "axios";
 
 
 export default function Navbar() {
   const currentUser = authService.getCurrentUser()
-
 
   const [team, setTeam] = useState({
     currentTeam: "7",
@@ -24,9 +23,15 @@ export default function Navbar() {
 
   const {currentTeam} = team;
   localStorage.setItem("currentTeam", JSON.stringify(currentTeam));
+    favoriteTeam: '',
+  });
+
+  const { favoriteTeam } = team;
+  console.log(team);
+
   const onInputChange = (e) => {
     setTeam({ ...team, [e.target.name]: e.target.value });
-    axios.post("/HomeData");
+
 
   };
 
