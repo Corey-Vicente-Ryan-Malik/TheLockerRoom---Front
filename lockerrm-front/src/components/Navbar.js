@@ -1,5 +1,4 @@
-
-import React, { Component, useState } from 'react';
+import React, { useState } from 'react';
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import GameDisplay from '../displayFolder/GameDisplay';
 import TeamDisplay from '../displayFolder/TeamDisplay';
@@ -12,10 +11,12 @@ import Forum from '../forum/Forum';
 import About from "./About";
 import Error from "../settings/Error";
 import authService from "../services/auth.service";
+import axios from "axios";
 
 
 export default function Navbar() {
   const currentUser = authService.getCurrentUser()
+
 
   const [team, setTeam] = useState({
     currentTeam: "7",
@@ -23,16 +24,8 @@ export default function Navbar() {
 
   const {currentTeam} = team;
   localStorage.setItem("currentTeam", JSON.stringify(currentTeam));
-    favoriteTeam: '',
-  });
-
-  const { favoriteTeam } = team;
-  console.log(team);
-
   const onInputChange = (e) => {
     setTeam({ ...team, [e.target.name]: e.target.value });
-
-
   };
 
   const logOut = (e) => {
@@ -64,19 +57,6 @@ export default function Navbar() {
                   id="navbarSupportedContent"
               >
                 <ul className="navbar-nav mr-auto">
-
-                  {/*<li className="nav-item active">*/}
-                  {/*  <Link to={'/scores'} className="nav-link" id="scores">*/}
-                  {/*    <span className="sr-only"></span>*/}
-                  {/*    Scores*/}
-                  {/*  </Link>*/}
-                  {/*</li>*/}
-                  {/*<li className="nav-item">*/}
-                  {/*  <Link to={'/standings'} id="standings" className="nav-link">*/}
-                  {/*    Standings*/}
-                  {/*  </Link>*/}
-                  {/*</li>*/}
-
 
                   <li className="nav-item">
                     <Link to={'/news'} id="news" className="nav-link">
@@ -144,20 +124,6 @@ export default function Navbar() {
                     <option value="16">Minnesota Vikings</option>
                   </select>
                 </form>
-                {/*<form className="d-flex my-2 my-lg-0 ms-auto">*/}
-                {/*  <input*/}
-                {/*      className="form-control mr-sm-2"*/}
-                {/*      type="search"*/}
-                {/*      placeholder="Search"*/}
-                {/*      aria-label="Search"*/}
-                {/*  />*/}
-                {/*  <button*/}
-                {/*      className="btn btn-outline-success my-2 my-sm-0"*/}
-                {/*      type="submit"*/}
-                {/*  >*/}
-                {/*    Search*/}
-                {/*  </button>*/}
-                {/*</form>*/}
 
                 <ul className="navbar-nav">
                   <li className="nav-item dropdown">
