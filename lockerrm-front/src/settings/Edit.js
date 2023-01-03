@@ -1,4 +1,7 @@
+import React from "react";
+import authService from "../services/auth.service";
 function Edit() {
+  const currentUser = authService.getCurrentUser();
   return (
     <div className="Edit" style={EditPage}>
       <div className="Edit form" style={EditForm}>
@@ -7,26 +10,29 @@ function Edit() {
             style={firstName}
             type="text"
             placeholder="First Name"
-            name="first name"
+            name="firstName"
+            value={currentUser["firstName"]}
           />
 
           <input
             style={lastName}
             type="text"
             placeholder=" Last Name"
-            name="last name"
+            name="lastName"
+            value={currentUser["lastName"]}
           />
 
-          <input style={Email} type="text" placeholder="Email" name="email" />
+          <input style={Email} type="text" placeholder="Email" name="email" value={currentUser["email"]}/>
 
           <input
             style={Username}
             type="text"
             placeholder="Username"
             name="username"
+            value={currentUser["username"]}
           />
 
-          <select name="favorite team" style={FavoriteTeam}>
+          <select name="favorite team" style={FavoriteTeam} value={currentUser["favTeam"]}>
             <option defaultValue="Select Your Favorite Team">
               Select Your Favorite Team
             </option>
@@ -71,6 +77,7 @@ function Edit() {
             placeholder="Password"
             type="password"
             name="password"
+
           />
 
           <input

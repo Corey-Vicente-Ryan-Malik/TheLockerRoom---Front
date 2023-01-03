@@ -11,10 +11,10 @@ const Register = (props, {}) => {
     email: '',
     username: '',
     password: '',
-    favoriteTeam: '',
+    fav_team_id: '',
   });
 
-  const { firstname, lastname, email, username, password, favoriteTeam } = user;
+  const { firstname, lastname, email, username, password, fav_team_id } = user;
   const onInputChange = (e) => {
     setUser({ ...user, [e.target.name]: e.target.value });
   };
@@ -22,6 +22,7 @@ const Register = (props, {}) => {
     e.preventDefault();
     await axios.post('http://localhost:8080/register', user);
     navigate("/");
+    console.log(user)
 
   };
   return (
@@ -65,46 +66,43 @@ const Register = (props, {}) => {
           />
 
           <select
-            name="favorite team"
+            name="fav_team_id"
             style={FavoriteTeam}
-            value={favoriteTeam}
+            // value={favoriteTeam}
             onChange={(e) => onInputChange(e)}
           >
-            <option defaultValue="Select Your Favorite Team">
-              Select Your Favorite Team
-            </option>
-            <option value="San Fransisco 49ers">San Fransisco 49ers</option>
-            <option value="Chicago Bears">Chicago Bears</option>
-            <option value="Cincinnati Bengals">Cincinnati Bengals</option>
-            <option value="Buffalo Bills">Buffalo Bills</option>
-            <option value="Denver Broncos">Denver Broncos</option>
-            <option value="Cleveland Browns">Cleveland Browns</option>
-            <option value="Tampa Bay Buccaneers">Tampa Bay Buccaneers</option>
-            <option value="Arizona Cardinals">Arizona Cardinals</option>
-            <option value="Los Angeles Chargers">Los Angeles Chargers</option>
-            <option value="Kansas City Chiefs">Kansas City Chiefs</option>
-            <option value="Indianapolis Colts">Indianapolis Colts</option>
-            <option value="Washington Commanders">Washington Commanders</option>
-            <option value="Dallas Cowboys">Dallas Cowboys</option>
-            <option value="Miami Dolphins">Miami Dolphins</option>
-            <option value="Philadelphia Eagles">Philadelphia Eagles</option>
-            <option value="Atlanta Falcons">Atlanta Falcons</option>
-            <option value="New York Giants">New York Giants</option>
-            <option value="Jacksonville Jaguars">Jacksonville Jaguars</option>
-            <option value="New York Jets">New York Jets</option>
-            <option value="Detroit Lions">Detroit Lions</option>
-            <option value="Green Bay Packers">Green Bay Packers</option>
-            <option value="Carolina Panthers">Carolina Panthers</option>
-            <option value="New England Patriots">New England Patriots</option>
-            <option value="Las Vegas Raiders">Las Vegas Raiders</option>
-            <option value="Los Angeles Rams">Los Angeles Rams</option>
-            <option value="Baltimore ravens">Baltimore Ravens</option>
-            <option value="New Orleans Saints">New Orleans Saints</option>
-            <option value="Seattle Seahawks">Seattle Seahawks</option>
-            <option value="Pittsburgh Steelers"> Pittsburgh Steelers</option>
-            <option value="Houston Texans">Houston Texans</option>
-            <option value="Tennessee Titans">Tennessee Titans</option>
-            <option value="Minnesota Vikings">Minnesota Vikings</option>
+            <option value="25">San Fransisco 49ers</option>
+            <option value="3">Chicago Bears</option>
+            <option value="4">Cincinnati Bengals</option>
+            <option value="2">Buffalo Bills</option>
+            <option value="7">Denver Broncos</option>
+            <option value="5">Cleveland Browns</option>
+            <option value="27">Tampa Bay Buccaneers</option>
+            <option value="22">Arizona Cardinals</option>
+            <option value="24">Los Angeles Chargers</option>
+            <option value="12">Kansas City Chiefs</option>
+            <option value="11">Indianapolis Colts</option>
+            <option value="28">Washington Commanders</option>
+            <option value="6">Dallas Cowboys</option>
+            <option value="15">Miami Dolphins</option>
+            <option value="21">Philadelphia Eagles</option>
+            <option value="1">Atlanta Falcons</option>
+            <option value="19">New York Giants</option>
+            <option value="30">Jacksonville Jaguars</option>
+            <option value="20">New York Jets</option>
+            <option value="8">Detroit Lions</option>
+            <option value="9">Green Bay Packers</option>
+            <option value="29">Carolina Panthers</option>
+            <option value="17">New England Patriots</option>
+            <option value="13">Las Vegas Raiders</option>
+            <option value="14">Los Angeles Rams</option>
+            <option value="33">Baltimore Ravens</option>
+            <option value="18">New Orleans Saints</option>
+            <option value="26">Seattle Seahawks</option>
+            <option value="23">Pittsburgh Steelers</option>
+            <option value="34">Houston Texans</option>
+            <option value="10">Tennessee Titans</option>
+            <option value="16">Minnesota Vikings</option>
           </select>
 
           <input

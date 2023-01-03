@@ -1,6 +1,7 @@
 import axios from "axios";
 import React from "react";
 import Navbar from "../components/Navbar";
+import * as path from "path";
 const API_URL = "http://localhost:8080/oauth/token"
 
 class AuthService {
@@ -25,9 +26,10 @@ class AuthService {
 
             })
     }
-    logout(){
+    logout() {
         localStorage.clear()
-        window.location.reload(true);
+        // change url path in production
+        window.location.href = "http://localhost:3000/";
 
     }
     register(firstname, lastname, email, username, password, favoriteTeam){

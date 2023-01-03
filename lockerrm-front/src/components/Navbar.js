@@ -10,6 +10,7 @@ import CreatePost from '../forum/CreatePost';
 import Forum from '../forum/Forum';
 import About from "./About";
 import Error from "../settings/Error";
+import Edit from "../settings/Edit";
 import authService from "../services/auth.service";
 import axios from "axios";
 
@@ -118,7 +119,7 @@ export default function Navbar() {
                     <option value="33">Baltimore Ravens</option>
                     <option value="18">New Orleans Saints</option>
                     <option value="26">Seattle Seahawks</option>
-                    <option value="23"> Pittsburgh Steelers</option>
+                    <option value="23">Pittsburgh Steelers</option>
                     <option value="34">Houston Texans</option>
                     <option value="10">Tennessee Titans</option>
                     <option value="16">Minnesota Vikings</option>
@@ -179,6 +180,7 @@ export default function Navbar() {
             </nav>
           </div>
           <Routes>
+            <Route path="/edit" element={<Edit />} />
             <Route path="/home" element={<HomeDisplay />} />
             <Route path="/" element={<Landing />} />
             <Route path="/home" element={<HomeDisplay />} />
