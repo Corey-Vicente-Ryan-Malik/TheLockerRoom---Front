@@ -3,11 +3,11 @@ import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom';
 import React  from "react";
 
-function Register() {
-  let navigate = useNavigate;
+const Register = (props, {}) => {
+  const navigate = useNavigate();
   const [user, setUser] = useState({
-    firstname: '',
-    lastname: '',
+    firstName: '',
+    lastName: '',
     email: '',
     username: '',
     password: '',
@@ -21,7 +21,8 @@ function Register() {
   const onSubmit = async (e) => {
     e.preventDefault();
     await axios.post('http://localhost:8080/register', user);
-    navigate('/home');
+    navigate("/");
+
   };
   return (
     <div className="RegisterPage">
@@ -31,7 +32,7 @@ function Register() {
             style={firstName}
             type="text"
             placeholder="First Name"
-            name="firstname"
+            name="firstName"
             value={firstname}
             onChange={(e) => onInputChange(e)}
           />
@@ -40,7 +41,7 @@ function Register() {
             style={lastName}
             type="text"
             placeholder=" Last Name"
-            name="lastname"
+            name="lastName"
             value={lastname}
             onChange={(e) => onInputChange(e)}
           />
