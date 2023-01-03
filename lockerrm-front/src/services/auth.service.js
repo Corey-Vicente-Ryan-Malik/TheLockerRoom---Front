@@ -1,5 +1,6 @@
 import axios from "axios";
 import React from "react";
+import Navbar from "../components/Navbar";
 const API_URL = "http://localhost:8080/oauth/token"
 
 class AuthService {
@@ -20,11 +21,25 @@ class AuthService {
                     console.log("Refresh token set")
                     localStorage.setItem('user', JSON.stringify(user));
                 }
+                const API = "http://localhost:8080/user/";
+                const options = {
+                    method: "GET",
+                    headers: {
+                        "Content-Type": "application/json",
+                        "Authorization": "Bearer " + localStorage.getItem("access_token")
+                    },
+                }
+                fetch(API, options)
+                    .then((response) => response.json())
+                    .then((data) => {
+                        console.log(data);
+                        localStorage.setItem("user", JSON.stringify(data));
+                    });
             })
-
     }
     logout(){
         localStorage.clear()
+        window.location.reload(true);
     }
     register(firstname, lastname, email, username, password, favoriteTeam){
         return axios.post(API_URL + "/register",{
@@ -39,5 +54,6 @@ class AuthService {
     getCurrentUser(){
         return JSON.parse(localStorage.getItem("user"));
     }
+
 }
 export default new AuthService();

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, {Component, useState} from 'react';
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import GameDisplay from '../displayFolder/GameDisplay';
 import TeamDisplay from '../displayFolder/TeamDisplay';
@@ -8,167 +8,187 @@ import Register from '../settings/Register';
 import CreatePost from '../forum/CreatePost';
 import Forum from '../forum/Forum';
 import HomeDisplay from "../displayFolder/HomeDisplay";
+import authService from "../services/auth.service";
 
-export default function Navbar() {
-  const { currentUser, showUserContent, showForum } = useState({});
-  return (
-    // return (
-    //   <React.Fragment>
-    //      constructor(props) {
-    //       super(props);
-    //       this.logOut = this.logOut.bind(this);
+// class Navbar extends Component{
+//   constructor(props) {
+//     super(props);
+//     this.logOut = this.logOut.bind(this);
+//
+//     this.state = {
+//       showUserContent: false,
+//       showForum: false,
+//       currentUser: undefined
+//     };
+//   }
+//   logOut(){
+//     authService.logout();
+//   }
+//   render(){
+//     const currentUser = authService.getCurrentUser()
+export default function Navbar(){
+  const currentUser = authService.getCurrentUser()
 
-    //       this.state = {
-    //           showUserContent: false,
-    //           showForum: false,
-    //           currentUser: undefined
+  const [team, setTeam] = useState({
+    favoriteTeam: "",
+  });
 
-    //       };
-    //   }
-    //   componentDidMount() {
-    //       const user = AuthService.getCurrentUser();
+  const {favoriteTeam} = team;
+  console.log(team);
+  const onInputChange = (e) => {
+    setTeam({ ...team, [e.target.name]: e.target.value });
+  };
 
-    //       if(user){
-    //           this.setState({
-    //               currentUser: AuthService.getCurrentUser(),
-    //               // add roles to user
-    //               showUserContent: user.roles.includes("user"),
-    //               showForum: user.roles.includes("user")
-    //           })
-    //       }
-    //   }
-    //   logOut(){
-    //       AuthService.logout();
-    //   }
-    //   render(){
-    //       const {currentUser, showUserContent, showForum  } = this.state;
-    <React.Fragment>
-      <Router>
-        <div className="Navbar">
-          <nav className="navbar navbar-expand-lg navbar-light bg-light w-100">
-            <Link to={'/home'} className="navbar-brand">
-              The Locker Room
-            </Link>
-            <button
-              className="navbar-toggler"
-              type="button"
-              data-bs-toggle="collapse"
-              data-bs-target="#navbarSupportedContent"
-              aria-controls="navbarSupportedContent"
-              aria-expanded="false"
-              aria-label="Toggle navigation"
-            >
-              <span className="navbar-toggler-icon"></span>
-            </button>
-            <div
-              className="collapse navbar-collapse"
-              id="navbarSupportedContent"
-            >
-              <ul className="navbar-nav mr-auto">
-                <li className="nav-item">
-                  <Link to={'/forum'} id="standings" className="nav-link">
-                    Forum
-                  </Link>
-                </li>
-
-                <li className="nav-item">
-                  <Link to={'/news'} id="news" className="nav-link">
-                    News Information
-                  </Link>
-                </li>
-                {currentUser && (
-                  <li className="nav-item">
-                    <Link to={'/forum'} id="forum" className="nav-link">
-                      Forum
-                    </Link>
-                  </li>
-                )}
-
-                <li className="nav-item">
-                  <Link to={'/teams'} id="teams" className="nav-link">
-                    Team Information
-                  </Link>
-                </li>
-                <li className="nav-item">
-                  <Link to={'/schedules'} id="schedules" className="nav-link">
-                    Weekly Schedules
-                  </Link>
-                </li>
-              </ul>
-              <form className="d-flex my-2 my-lg-0 ms-auto">
-                <input
-                  className="form-control mr-sm-2"
-                  type="search"
-                  placeholder="Search"
-                  aria-label="Search"
-                />
-                <button
-                  className="btn btn-outline-success my-2 my-sm-0"
-                  type="submit"
-                >
-                  Search
+  const logOut = (e) => {
+    e.preventDefault();
+    authService.logout();
+  }
+    return(
+        <div className="App">
+          <Router>
+            <div className="Navbar">
+              <nav className="navbar navbar-expand-lg navbar-light bg-light w-100">
+                <Link to={"/home"} className="navbar-brand">
+                  The Locker Room
+                </Link>
+                <button className="navbar-toggler" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarSupportedContent"
+                        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                  <span className="navbar-toggler-icon"></span>
                 </button>
-              </form>
+                <div className="collapse navbar-collapse" id="navbarSupportedContent">
+                  <ul className="navbar-nav mr-auto">
+                    <li className="nav-item">
+                      <Link to={'/news'} id="news" className="nav-link">
+                        News Information
+                      </Link>
+                    </li>
+                    {currentUser && (
+                        <li className="nav-item">
+                          <Link to={'/forum'} id="forum" className="nav-link">
+                            Forum
+                          </Link>
+                        </li>
+                    )}
 
-              <ul className="navbar-nav">
-                <li className="nav-item dropdown">
-                  <Link
-                    to={'/lockerrm-front/src/components/Navbar#'}
-                    id="navbarDropdownMenuLink"
-                    className="nav-link dropdown-toggle"
-                    role="button"
-                    data-bs-toggle="dropdown"
-                    aria-expanded="false"
-                  >
-                    <i className="fa-solid fa-user-gear"></i>
-                  </Link>
-                  <ul
-                    className="dropdown-menu dropdown-menu-end"
-                    aria-labelledby="navbarDropdownMenuLink"
-                  >
-                    {currentUser && (
-                      <li>
-                        <Link to={'/edit'} id="edit" className="dropdown-item">
-                          Edit Profile
-                        </Link>
-                      </li>
-                    )}
-                    {currentUser && (
-                      <li>
-                        <Link
-                          to={'/Settings'}
-                          id="settings"
-                          className="dropdown-item"
-                        >
-                          Settings
-                        </Link>
-                      </li>
-                    )}
-                    {currentUser && (
-                      <li>
-                        <Link to={'/'} className="dropdown-item">
-                          Login
-                        </Link>
-                      </li>
-                    )}
+                    <li className="nav-item">
+                      <Link to={'/teams'} id="teams" className="nav-link">
+                        Team Information
+                      </Link>
+                    </li>
+                    <li className="nav-item">
+                      <Link to={'/schedules'} id="schedules" className="nav-link">
+                        Weekly Schedules
+                      </Link>
+                    </li>
                   </ul>
-                </li>
-              </ul>
-            </div>
-          </nav>
-        </div>
+                  <div className="d-flex my-2 my-lg-0 ms-auto">
+                    <select
+                        name="favoriteTeam"
+                        onChange={(e) => onInputChange(e)}
+                    >
+                      {/*<option defaultValue="Select Your Favorite Team">*/}
+                      {/*  Select Your Favorite Team*/}
+                      {/*</option>*/}
+                      <option value="San Fransisco 49ers">San Fransisco 49ers</option>
+                      <option value="Chicago Bears">Chicago Bears</option>
+                      <option value="Cincinnati Bengals">Cincinnati Bengals</option>
+                      <option value="Buffalo Bills">Buffalo Bills</option>
+                      <option value="Denver Broncos">Denver Broncos</option>
+                      <option value="Cleveland Browns">Cleveland Browns</option>
+                      <option value="Tampa Bay Buccaneers">Tampa Bay Buccaneers</option>
+                      <option value="Arizona Cardinals">Arizona Cardinals</option>
+                      <option value="Los Angeles Chargers">Los Angeles Chargers</option>
+                      <option value="Kansas City Chiefs">Kansas City Chiefs</option>
+                      <option value="Indianapolis Colts">Indianapolis Colts</option>
+                      <option value="Washington Commanders">Washington Commanders</option>
+                      <option value="Dallas Cowboys">Dallas Cowboys</option>
+                      <option value="Miami Dolphins">Miami Dolphins</option>
+                      <option value="Philadelphia Eagles">Philadelphia Eagles</option>
+                      <option value="Atlanta Falcons">Atlanta Falcons</option>
+                      <option value="New York Giants">New York Giants</option>
+                      <option value="Jacksonville Jaguars">Jacksonville Jaguars</option>
+                      <option value="New York Jets">New York Jets</option>
+                      <option value="Detroit Lions">Detroit Lions</option>
+                      <option value="Green Bay Packers">Green Bay Packers</option>
+                      <option value="Carolina Panthers">Carolina Panthers</option>
+                      <option value="New England Patriots">New England Patriots</option>
+                      <option value="Las Vegas Raiders">Las Vegas Raiders</option>
+                      <option value="Los Angeles Rams">Los Angeles Rams</option>
+                      <option value="Baltimore ravens">Baltimore Ravens</option>
+                      <option value="New Orleans Saints">New Orleans Saints</option>
+                      <option value="Seattle Seahawks">Seattle Seahawks</option>
+                      <option value="Pittsburgh Steelers"> Pittsburgh Steelers</option>
+                      <option value="Houston Texans">Houston Texans</option>
+                      <option value="Tennessee Titans">Tennessee Titans</option>
+                      <option value="Minnesota Vikings">Minnesota Vikings</option>
+                    </select>
+                  </div>
 
-        <Routes>
-          <Route path="/home" element={<HomeDisplay />} />
-          <Route path="/" element={<Landing />} />
-          <Route path="/schedules" element={<GameDisplay />} />
-          <Route path="/teams" element={<TeamDisplay />} />
-          <Route path="/news" element={<NewsDisplay />} />
-          <Route path="/register" element={<Register />} />
-          <Route path="/forum" element={<Forum />} />
-          <Route path="/create-post" element={<CreatePost />} />
-        </Routes>
-      </Router>
-    </React.Fragment>
-  );
+                  <ul className="navbar-nav">
+                    <li className="nav-item dropdown">
+                      <Link
+                          to={'/lockerrm-front/src/components/Navbar#'}
+                          id="navbarDropdownMenuLink"
+                          className="nav-link dropdown-toggle"
+                          role="button"
+                          data-bs-toggle="dropdown"
+                          aria-expanded="false"
+                      >
+                        <i className="fa-solid fa-user-gear"></i>
+                      </Link>
+                      <ul
+                          className="dropdown-menu dropdown-menu-end"
+                          aria-labelledby="navbarDropdownMenuLink"
+                      >
+                        {currentUser &&(
+                            <li>
+                              <Link to={"/edit"} id="edit" className="dropdown-item">
+                                Edit Profile
+                              </Link>
+                            </li>
+                        )}
+                        {currentUser && (
+                            <li>
+                              <Link to={"/Settings"} id="settings" className="dropdown-item">
+                                Settings
+                              </Link>
+                            </li>
+                        )}
+                        {currentUser ? (
+                            <li>
+                              <Link to={"/"} className="dropdown-item" onClick={logOut}>
+                                Logout
+                              </Link>
+                            </li>
+                        ):(
+                            <li>
+                              <Link to={"/"} className="dropdown-item">
+                                Login
+                              </Link>
+                            </li>
+                        )}
+                      </ul>
+                    </li>
+                  </ul>
+
+                </div>
+              </nav>
+            </div>
+
+
+            <Routes>
+              <Route path="/home" element={<HomeDisplay />} />
+              <Route path="/" element={<Landing />} />
+              <Route path="/schedules" element={<GameDisplay />} />
+              <Route path="/teams" element={<TeamDisplay />} />
+              <Route path="/news" element={<NewsDisplay />} />
+              <Route path="/register" element={<Register />} />
+              <Route path="/forum" element={<Forum />} />
+              <Route path="/create-post" element={<CreatePost />} />
+            </Routes>
+          </Router>
+        </div>
+    );
 }
+
