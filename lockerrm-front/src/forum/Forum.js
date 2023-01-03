@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
+
 const Forum = () => {
 
   
@@ -14,7 +15,6 @@ const Forum = () => {
         "Authorization": "Bearer " + localStorage.getItem("access_token")
       },
     }
-  
 
   // useEffect runs on initial page load and everytime the data changes
   useEffect(() => {
@@ -68,9 +68,7 @@ const Forum = () => {
 
       </div>
 
-
-    </div>
-
+      </div>
 
   );
 };

@@ -8,6 +8,7 @@ export default function NewsData() {
 
   useEffect(() => {
     axios.get(newsUrl).then((response) => {
+      console.log(response.data);
       createNewsObject(response.data);
     });
   }, []);
@@ -32,6 +33,33 @@ export default function NewsData() {
       newsContentArr.push(allDataOne);
     }
     return newsContentArr;
+  }
+
+  function newsCategories(allData) {
+    let newsCategoriesArr = [];
+    let allDataOne;
+    let allDataTwo;
+    for (let i in allData) {
+      allDataOne = allData[i].Categories;
+      allDataTwo = `Categories: ${allDataOne}`;
+
+      if (allDataOne !== '') {
+        newsCategoriesArr.push(allDataTwo);
+      }
+      // newsCategoriesArr.push(allDataOne);
+    }
+    return newsCategoriesArr;
+  }
+
+  function newsUpdate(allData) {
+    let newsUpdateArr = [];
+    let allDataOne;
+    for (let i in allData) {
+      allDataOne = allData[i].TimeAgo;
+
+      newsUpdateArr.push(allDataOne);
+    }
+    return newsUpdateArr;
   }
 
   function newsLink(allData) {
@@ -62,6 +90,8 @@ export default function NewsData() {
     let newsTitleArr = newsTitle(data);
     let newsLinkArr = newsLink(data);
     let newsSourceArr = newsSource(data);
+    let newsCategoriesArr = newsCategories(data);
+    let newsUpdateArr = newsUpdate(data);
 
     newsContentArr.forEach((info) => {
       let article = {};
@@ -74,6 +104,8 @@ export default function NewsData() {
       allArticles[i].newsTitle = newsTitleArr[i];
       allArticles[i].newsLink = newsLinkArr[i];
       allArticles[i].newsSource = newsSourceArr[i];
+      allArticles[i].newsCategories = newsCategoriesArr[i];
+      allArticles[i].newsUpdate = newsUpdateArr[i];
     }
     setNews(allArticles);
   }
@@ -81,23 +113,30 @@ export default function NewsData() {
   const cardLayout = {
     display: 'flex',
     border: '1px solid black',
-    width: '90vw',
-    margin: '15px auto',
+    width: '75vw',
+    margin: '25px auto',
+    fontFamily: 'Times New Roman',
+    fontSize: '25px',
+    color: 'black',
+    backgroundColor: 'lightGrey',
   };
-
   const cardItem = {
     justifyContent: 'center',
     alignItems: 'center',
-    fontSize: '25px',
-  };
-
-  const title = {
-    textDecoration: 'underline',
-    fontSize: '50px',
-  };
-
-  const textCenter = {
     textAlign: 'center',
+    width: '71vw',
+    margin: 'auto',
+  };
+  const header = {
+    fontSize: '60px',
+  };
+  const footer = {
+    display: 'flex',
+    justifyContent: 'space-between',
+    fontSize: '18px',
+  };
+  const link = {
+    color: 'green',
   };
 
   return (
@@ -106,13 +145,20 @@ export default function NewsData() {
         return (
           <div key={article.newsId} style={cardLayout}>
             <div style={cardItem}>
-              <div style={textCenter}>
-                <div style={title}>{article.newsTitle}</div>
-                <div>{article.newsContent}</div>
+              <h1 style={header}>{article.newsTitle}</h1>
+              <p>{article.newsContent}</p>
+              <div style={footer}>
+                {/* <div>Categories: {article.newsCategories}</div> */}
+                <div>{article.newsCategories}</div>
+                <div>Updated: {article.newsUpdate}</div>
                 <div>
-                  Source: {article.newsSource} /{' '}
-                  <a href={article.newsLink} target="_blank" rel="noreferrer">
-                    Check the Source
+                  <a
+                    style={link}
+                    href={article.newsLink}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    Source: {article.newsSource}
                   </a>
                 </div>
               </div>
