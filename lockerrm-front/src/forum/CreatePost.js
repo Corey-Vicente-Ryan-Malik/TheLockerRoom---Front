@@ -1,20 +1,19 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-
 import React from "react";
 import authService from '../services/auth.service';
 
 const CreatePost = () => {
-  const [postContent, setPostContent] = useState("");
+  const [postBody, setPostBody] = useState("");
+
   const navigate = useNavigate();
 
   // Function submits POST request to API
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const post = { user, postContent };
-    // TODO: grab all user fields to send in request
-    const user = null;
+    const user = authService.getCurrentUser();
+    const post = { user, postBody };
 
     const API = "http://localhost:8080/posts/create";
     const options = {
@@ -29,24 +28,24 @@ const CreatePost = () => {
     fetch(API, options)
     .then(() => {
       navigate("/forum");
-      console.log("Request was fullfilled.");
     })
     .catch((err) => {
       console.log(err);
     })
   };
 
+
   return (
     <div className="createPost">
       <h3>Create a New Post</h3>
-      <form onSubmit={handleSubmit}>
+      <form>
         <label>Post:</label>
         <textarea
           required
-          value={postContent}
-          onChange={(e) => setPostContent(e.target.value)}
+          value={postBody}
+          onChange={(e) => setPostBody(e.target.value)}
         ></textarea>
-        <button type="submit">Post</button>
+        <button onClick={ handleSubmit }>Post</button>
       </form>
     </div>
   );

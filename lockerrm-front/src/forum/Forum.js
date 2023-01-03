@@ -13,9 +13,9 @@ const Forum = () => {
   const options = {
     method: "GET",
     headers: {
-      "Content-Type": "application/json",
-      "Authorization": "Bearer" + localStorage.getItem("access_token")
-    }
+        "Content-Type": "application/json",
+        "Authorization": "Bearer " + localStorage.getItem("access_token")
+    },
   }
 
   useEffect(() => {
@@ -24,11 +24,12 @@ const Forum = () => {
 
   const getAllPosts = async () => {
     fetch(API, options)
-    .then(response => response.json())
-    .then(data => setPosts(data));
+    .then((response) => response.json())
+    .then((data) => {
+      setPosts(data);
+    });
   }
-
-
+  
   return (
     <div>
       <h2>Welcome to The Locker Room's Forum</h2>
@@ -45,7 +46,7 @@ const Forum = () => {
                 // If logged in user username === posts username
                 // Send user to edit post form
                 if (currentUser["username"] === post.user.username) {
-                  navigate("/edit-post")
+                  navigate("/edit-post" + "/" + post.id);
                 } else {
                   alert("You are not the owner of the post.");
                 }
@@ -64,7 +65,7 @@ const Forum = () => {
                     }
                   }
                   fetch(DELETE_POST_API, requestOptions)
-                  .then(console.log("Post successfully deleted."));
+                  .then(navigate("/forum"));
                 } else {
                   alert("You are not the owner of this post.");
                 }
