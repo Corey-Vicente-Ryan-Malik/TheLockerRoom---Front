@@ -15,7 +15,6 @@ const Landing = ( props, {} ) => {
   const onClick = (e) => {
     e.preventDefault();
     navigate('/register');
-    console.log("Click Check.");
 
   }
 
@@ -41,10 +40,10 @@ const Landing = ( props, {} ) => {
     await authService.login(user.username, user.password, user.grant_type, user);
     if(localStorage.getItem("access_token")){
       navigate("/home");
+      window.location.reload(true);
     }else {
       navigate("/");
     }
-
   }
 
   return (

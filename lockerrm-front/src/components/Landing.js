@@ -27,14 +27,16 @@ const Landing = ( props, {} ) => {
         userRef.current.focus();
     },[])
 
-
+    // values from form
     const [user, setUser] = useState({
         username: "",
         password: "",
         grant_type: 'password'
     });
+    // init variable
     const {username, password} = user;
     const onInputChange = (e) => {
+        // grabs value
         setUser({...user, [e.target.name]: e.target.value});
     }
     async function sendLoginRequest() {
