@@ -91,7 +91,7 @@ const Landing = ( props, {} ) => {
 }
 
 Landing.defaultProps = {
-    message: 'Welcome to the Locker room ! Where you can access all of the latest news, scores , stats,  and more all from your personal device ! Please log in to get the scoop on your favorite teams.'
+    message: 'Welcome to the Locker Room ! Where you can access all of the latest news, scores , stats,  and more all from your personal device ! Please log in to get the scoop on your favorite teams.'
 }
 
 Landing.propTypes = {

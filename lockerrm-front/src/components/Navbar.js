@@ -4,28 +4,14 @@ import GameDisplay from '../displayFolder/GameDisplay';
 import TeamDisplay from '../displayFolder/TeamDisplay';
 import Landing from '../displayFolder/LandingDisplay';
 import NewsDisplay from '../displayFolder/NewsDisplay';
+import HomeDisplay from '../displayFolder/HomeDisplay';
 import Register from '../settings/Register';
 import CreatePost from '../forum/CreatePost';
 import Forum from '../forum/Forum';
-import HomeDisplay from "../displayFolder/HomeDisplay";
 import authService from "../services/auth.service";
+import About from "./About";
+import Error from "../settings/Error";
 
-// class Navbar extends Component{
-//   constructor(props) {
-//     super(props);
-//     this.logOut = this.logOut.bind(this);
-//
-//     this.state = {
-//       showUserContent: false,
-//       showForum: false,
-//       currentUser: undefined
-//     };
-//   }
-//   logOut(){
-//     authService.logout();
-//   }
-//   render(){
-//     const currentUser = authService.getCurrentUser()
 export default function Navbar(){
   const currentUser = authService.getCurrentUser()
 
@@ -44,20 +30,31 @@ export default function Navbar(){
     authService.logout();
   }
     return(
-        <div className="App">
-          <Router>
-            <div className="Navbar">
-              <nav className="navbar navbar-expand-lg navbar-light bg-light w-100">
-                <Link to={"/home"} className="navbar-brand">
-                  The Locker Room
-                </Link>
-                <button className="navbar-toggler" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#navbarSupportedContent"
-                        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                  <span className="navbar-toggler-icon"></span>
-                </button>
-                <div className="collapse navbar-collapse" id="navbarSupportedContent">
-                  <ul className="navbar-nav mr-auto">
+     
+    <React.Fragment>
+      <Router>
+        <div className="Navbar">
+          <nav className="navbar navbar-expand-lg navbar-light bg-light w-100">
+            <Link to={'/home'} className="navbar-brand">
+              The Locker Room
+            </Link>
+            <button
+              className="navbar-toggler"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#navbarSupportedContent"
+              aria-controls="navbarSupportedContent"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
+              <span className="navbar-toggler-icon"></span>
+            </button>
+            <div
+              className="collapse navbar-collapse"
+              id="navbarSupportedContent"
+            >
+              <ul className="navbar-nav mr-auto">
+   
                     <li className="nav-item">
                       <Link to={'/news'} id="news" className="nav-link">
                         News Information
@@ -176,19 +173,23 @@ export default function Navbar(){
               </nav>
             </div>
 
-
-            <Routes>
-              <Route path="/home" element={<HomeDisplay />} />
-              <Route path="/" element={<Landing />} />
-              <Route path="/schedules" element={<GameDisplay />} />
-              <Route path="/teams" element={<TeamDisplay />} />
-              <Route path="/news" element={<NewsDisplay />} />
-              <Route path="/register" element={<Register />} />
-              <Route path="/forum" element={<Forum />} />
-              <Route path="/create-post" element={<CreatePost />} />
-            </Routes>
-          </Router>
+          </nav>
         </div>
-    );
+        <Routes>
+          <Route path="/" element={<Landing />} />
+          <Route path="/home" element={<HomeDisplay />} />
+          <Route path="/schedules" element={<GameDisplay />} />
+          <Route path="/teams" element={<TeamDisplay />} />
+          <Route path="/news" element={<NewsDisplay />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/forum" element={<Forum />} />
+          <Route path="/create-post" element={<CreatePost />} />
+          <Route path="/about" element={<About />} />
+          <Route path='*' element={<Error />}/>
+        </Routes>
+      </Router>
+    </React.Fragment>
+  );
+
 }
 

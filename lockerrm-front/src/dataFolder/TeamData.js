@@ -3,7 +3,7 @@ import React from 'react';
 import axios from 'axios';
 
 export default function TeamData() {
-  const teamUrl = 'https://nfl-api1.p.rapidapi.com/nflteaminfo?teamid=15';
+  const teamUrl = 'https://nfl-api1.p.rapidapi.com/nflteamplayers?teamid=25';
 
   const options = {
     method: 'GET',
