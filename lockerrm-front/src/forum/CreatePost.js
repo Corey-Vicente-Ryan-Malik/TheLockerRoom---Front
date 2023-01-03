@@ -2,40 +2,38 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Post.css';
 import React from "react";
+import authService from '../services/auth.service';
 
 const CreatePost = () => {
-  const [postContent, setPostContent] = useState('');
-  const user = JSON.parse(localStorage.getItem('user'));
+  const [postContent, setPostContent] = useState("");
   const navigate = useNavigate();
 
+  // Function submits POST request to API
   const handleSubmit = (e) => {
     e.preventDefault();
-
+    
     const post = { user, postContent };
-    const API = 'http://localhost:8080/posts/create';
+    // TODO: grab all user fields to send in request
+    const user = null;
 
-    fetch(API, {
+    const API = "http://localhost:8080/posts/create";
+    const options = {
       method: 'POST',
-      credentials: 'include',
-      mode: 'no-cors',
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
+        "Authorization": "Bearer" + localStorage.getItem("access_token")
       },
-      body: JSON.stringify(post),
-    })
-      // Getting 401 error (unauthorized)
-      // Currently not grabbing logged in user
-      // I need to grab current logged in user
-      // Send both the user, and the post being created in request
-      // Currently only sending post, without valid user credentials
-      .then(() => {
-        console.log('POST request fulfilled.');
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+      body: JSON.stringify(post)
+    }
 
-    navigate('/forum');
+    fetch(API, options)
+    .then(() => {
+      navigate("/forum");
+      console.log("Request was fullfilled.");
+    })
+    .catch((err) => {
+      console.log(err);
+    })
   };
 
   return (

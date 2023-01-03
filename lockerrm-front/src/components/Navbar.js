@@ -7,6 +7,7 @@ import NewsDisplay from '../displayFolder/NewsDisplay';
 import HomeDisplay from '../displayFolder/HomeDisplay';
 import Register from '../settings/Register';
 import CreatePost from '../forum/CreatePost';
+import EditPost from '../forum/EditPost';
 import Forum from '../forum/Forum';
 import About from "./About";
 import Error from "../settings/Error";
@@ -175,6 +176,7 @@ export default function Navbar() {
           <Route path="/register" element={<Register />} />
           <Route path="/forum" element={<Forum />} />
           <Route path="/create-post" element={<CreatePost />} />
+          <Route path="/edit-post" element={<EditPost />} />
           <Route path="/about" element={<About />} />
           <Route path='*' element={<Error />}/>
         </Routes>
