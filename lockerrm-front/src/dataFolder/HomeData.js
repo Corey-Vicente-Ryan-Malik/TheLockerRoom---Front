@@ -401,8 +401,79 @@ export default function HomeData() {
         }
       }
     }
-    console.log(athletePositionAbbrArr);
     return athletePositionAbbrArr;
+  }
+
+  function athleteAge(allData) {
+    let athleteAgeArr = [];
+    let allDataOne;
+    let allDataTwo;
+    for (let i in allData) {
+      allDataOne = allData.team.athletes;
+
+      for (let i in allDataOne) {
+        allDataTwo = allDataOne[i].age;
+
+        athleteAgeArr.push(allDataTwo);
+      }
+    }
+    return athleteAgeArr;
+  }
+
+  function athleteStatus(allData) {
+    let athleteStatusArr = [];
+    let allDataOne;
+    let allDataTwo;
+    for (let i in allData) {
+      allDataOne = allData.team.athletes;
+
+      for (let i in allDataOne) {
+        allDataTwo = allDataOne[i].status;
+
+        athleteStatusArr.push(allDataTwo.name);
+      }
+    }
+    return athleteStatusArr;
+  }
+
+  function athleteInjuryStatus(allData) {
+    let athleteInjuryStatusArr = [];
+    let allDataOne = allData.team.athletes;
+    let allDataTwo;
+    let allDataThree;
+    for (let i in allDataOne) {
+      allDataTwo = allDataOne[i].injuries[0];
+
+      if (allDataTwo === undefined) {
+        allDataThree = 'Injury Status: No Injury';
+        athleteInjuryStatusArr.push(allDataThree);
+      } else {
+        allDataThree = `Injury Status: ${allDataTwo.status}`;
+        athleteInjuryStatusArr.push(allDataThree);
+      }
+    }
+    return athleteInjuryStatusArr;
+  }
+
+  function athleteInjury(allData) {
+    let athleteInjuryArr = [];
+    let allDataOne = allData.team.athletes;
+    let allDataTwo;
+    let allDataThree;
+    let allDataFour;
+    for (let i in allDataOne) {
+      allDataTwo = allDataOne[i].injuries[0];
+
+      if (allDataTwo === undefined) {
+        allDataThree = 'Injury: N/A';
+        athleteInjuryArr.push(allDataThree);
+      } else {
+        allDataThree = allDataTwo.details;
+        allDataFour = `Injury: ${allDataThree.detail} @ (${allDataThree.side}) ${allDataThree.type}`;
+        athleteInjuryArr.push(allDataFour);
+      }
+    }
+    return athleteInjuryArr;
   }
 
   function createPlayerObjects(data) {
@@ -415,6 +486,10 @@ export default function HomeData() {
     let athleteDraftArr = athleteDraft(data);
     let athletePositionArr = athletePosition(data);
     let athletePositionAbbrArr = athletePostitionAbbr(data);
+    let athleteAgeArr = athleteAge(data);
+    let athleteStatusArr = athleteStatus(data);
+    let athleteInjuryStatusArr = athleteInjuryStatus(data);
+    let athleteInjuryArr = athleteInjury(data);
     athleteNameArr.forEach((nflPlayer) => {
       let player = {};
       player.playerName = nflPlayer;
@@ -429,6 +504,10 @@ export default function HomeData() {
       allTeamPlayers[i].playerDraft = athleteDraftArr[i];
       allTeamPlayers[i].playerPosition = athletePositionArr[i];
       allTeamPlayers[i].playerPositionAbbr = athletePositionAbbrArr[i];
+      allTeamPlayers[i].playerAge = athleteAgeArr[i];
+      allTeamPlayers[i].playerStatus = athleteStatusArr[i];
+      allTeamPlayers[i].playerInjuryStatus = athleteInjuryStatusArr[i];
+      allTeamPlayers[i].playerInjury = athleteInjuryArr[i];
     }
     setPlayers(allTeamPlayers);
   }
@@ -532,17 +611,21 @@ export default function HomeData() {
                   alt="Player Headshot"
                   style={playerImage}
                 />
-                <p>Name: {player.playerName}</p> <br />
-                <p>Jersey #: {player.playerJersey}</p> <br />
-                <p>Draft: {player.playerDraft}</p> <br />
-                <p>
+                <div>
+                  Name(age): {player.playerName} ({player.playerAge})
+                </div>
+                <div>Status: {player.playerStatus}</div>
+                <div>{player.playerInjuryStatus}</div>
+                <div>{player.playerInjury}</div>
+                <div>Jersey #: {player.playerJersey}</div>
+                <div>Draft Information: {player.playerDraft}</div>
+                <div>
                   Position: {player.playerPosition} - (
                   {player.playerPositionAbbr})
-                </p>
-                <br />
-                <p>
+                </div>
+                <div>
                   Ht / Wt: {player.playerHeight} - {player.playerWeight}
-                </p>
+                </div>
               </div>
             </div>
           );
