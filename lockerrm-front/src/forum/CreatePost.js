@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import './Post.css';
+
 import React from "react";
 import authService from '../services/auth.service';
 
@@ -11,7 +11,7 @@ const CreatePost = () => {
   // Function submits POST request to API
   const handleSubmit = (e) => {
     e.preventDefault();
-    
+
     const post = { user, postContent };
     // TODO: grab all user fields to send in request
     const user = null;

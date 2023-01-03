@@ -1,9 +1,12 @@
 import { useEffect, useState } from 'react';
 import React from 'react';
 import axios, { all } from 'axios';
-
+import {render} from "react-dom";
+import * as events from "events";
 export default function HomeData() {
-  const teamUrl = 'https://nfl-api1.p.rapidapi.com/nflteamplayers?teamid=25';
+  const currentTeam = localStorage.getItem("currentTeam");
+  console.log(JSON.parse(currentTeam))
+  const teamUrl = `https://nfl-api1.p.rapidapi.com/nflteamplayers?teamid=${JSON.parse(currentTeam)}`;
 
   const options = {
     method: 'GET',

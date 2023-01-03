@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import authService from '../services/auth.service';
+import "./Forum.css"
 
 
 const Forum = () => {
@@ -43,7 +44,7 @@ const Forum = () => {
               <button onClick={() => {
                 // If logged in user username === posts username
                 // Send user to edit post form
-                if (user.username === post.user.username) {
+                if (currentUser["username"] === post.user.username) {
                   navigate("/edit-post")
                 } else {
                   alert("You are not the owner of the post.");
@@ -53,7 +54,7 @@ const Forum = () => {
               <button onClick={() => {
                 // If logged in user username === posts username
                 // Allow user to delete post
-                if (user.username === post.user.username) {
+                if (currentUser["username"] === post.user.username) {
                   const DELETE_POST_API = "http://localhost:8080/posts/" + post.id + "/delete";
                   const requestOptions = {
                     method: "DELETE",

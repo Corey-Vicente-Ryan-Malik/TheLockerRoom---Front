@@ -1,4 +1,4 @@
-import React, {Component, useState} from 'react';
+import React, { useState } from 'react';
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import GameDisplay from '../displayFolder/GameDisplay';
 import TeamDisplay from '../displayFolder/TeamDisplay';
@@ -7,188 +7,220 @@ import NewsDisplay from '../displayFolder/NewsDisplay';
 import HomeDisplay from '../displayFolder/HomeDisplay';
 import Register from '../settings/Register';
 import CreatePost from '../forum/CreatePost';
-import EditPost from '../forum/EditPost';
 import Forum from '../forum/Forum';
-import authService from "../services/auth.service";
 import About from "./About";
 import Error from "../settings/Error";
+import authService from "../services/auth.service";
+import axios from "axios";
 
-export default function Navbar(){
+
+export default function Navbar() {
   const currentUser = authService.getCurrentUser()
 
 
   const [team, setTeam] = useState({
-    favoriteTeam: "",
+    currentTeam: "7",
   });
 
-  const {favoriteTeam} = team;
-  console.log(team);
+  const {currentTeam} = team;
+  localStorage.setItem("currentTeam", JSON.stringify(currentTeam));
   const onInputChange = (e) => {
     setTeam({ ...team, [e.target.name]: e.target.value });
+    axios.post("/HomeData");
+
   };
 
   const logOut = (e) => {
     e.preventDefault();
     authService.logout();
   }
-    return(
-     
-    <React.Fragment>
-      <Router>
-        <div className="Navbar">
-          <nav className="navbar navbar-expand-lg navbar-light bg-light w-100">
-            <Link to={'/home'} className="navbar-brand">
-              The Locker Room
-            </Link>
-            <button
-              className="navbar-toggler"
-              type="button"
-              data-bs-toggle="collapse"
-              data-bs-target="#navbarSupportedContent"
-              aria-controls="navbarSupportedContent"
-              aria-expanded="false"
-              aria-label="Toggle navigation"
-            >
-              <span className="navbar-toggler-icon"></span>
-            </button>
-            <div
-              className="collapse navbar-collapse"
-              id="navbarSupportedContent"
-            >
-              <ul className="navbar-nav mr-auto">
+  return (
 
-                    {currentUser && (
-                        <li className="nav-item">
-                          <Link to={'/forum'} id="forum" className="nav-link">
-                            Forum
-                          </Link>
-                        </li>
-                    )}
+      <React.Fragment>
+        <Router>
+          <div className="Navbar">
+            <nav className="navbar navbar-expand-lg navbar-light bg-light w-100">
+              <Link to={'/home'} className="navbar-brand">
+                The Locker Room
+              </Link>
+              <button
+                  className="navbar-toggler"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#navbarSupportedContent"
+                  aria-controls="navbarSupportedContent"
+                  aria-expanded="false"
+                  aria-label="Toggle navigation"
+              >
+                <span className="navbar-toggler-icon"></span>
+              </button>
+              <div
+                  className="collapse navbar-collapse"
+                  id="navbarSupportedContent"
+              >
+                <ul className="navbar-nav mr-auto">
 
-                    <li className="nav-item">
-                      <Link to={'/teams'} id="teams" className="nav-link">
-                        Team Information
-                      </Link>
-                    </li>
-                    <li className="nav-item">
-                      <Link to={'/schedules'} id="schedules" className="nav-link">
-                        Weekly Schedules
-                      </Link>
-                    </li>
-                  </ul>
-                  <div className="d-flex my-2 my-lg-0 ms-auto">
-                    <select
-                        name="favoriteTeam"
-                        onChange={(e) => onInputChange(e)}
+                  {/*<li className="nav-item active">*/}
+                  {/*  <Link to={'/scores'} className="nav-link" id="scores">*/}
+                  {/*    <span className="sr-only"></span>*/}
+                  {/*    Scores*/}
+                  {/*  </Link>*/}
+                  {/*</li>*/}
+                  {/*<li className="nav-item">*/}
+                  {/*  <Link to={'/standings'} id="standings" className="nav-link">*/}
+                  {/*    Standings*/}
+                  {/*  </Link>*/}
+                  {/*</li>*/}
+
+
+                  <li className="nav-item">
+                    <Link to={'/news'} id="news" className="nav-link">
+                      News
+                    </Link>
+                  </li>
+                  {currentUser && (
+                      <li className="nav-item">
+                        <Link to={'/forum'} id="forum" className="nav-link">
+                          Forum
+                        </Link>
+                      </li>
+                  )}
+
+                  <li className="nav-item">
+                    <Link to={'/teams'} id="teams" className="nav-link">
+                      Team Information
+                    </Link>
+                  </li>
+                  <li className="nav-item">
+                    <Link to={'/schedules'} id="schedules" className="nav-link">
+                      Weekly Schedules
+                    </Link>
+                  </li>
+                </ul>
+                <form className="d-flex my-2 my-lg-0 ms-auto">
+                  <select
+                      name="currentTeam"
+                      onChange={(e) => onInputChange(e)}
+                  >
+                    {/*<option defaultValue="Select Your Favorite Team">*/}
+                    {/*  Select Your Favorite Team*/}
+                    {/*</option>*/}
+                    <option value="25">San Fransisco 49ers</option>
+                    <option value="3">Chicago Bears</option>
+                    <option value="4">Cincinnati Bengals</option>
+                    <option value="2">Buffalo Bills</option>
+                    <option value="7">Denver Broncos</option>
+                    <option value="5">Cleveland Browns</option>
+                    <option value="27">Tampa Bay Buccaneers</option>
+                    <option value="22">Arizona Cardinals</option>
+                    <option value="24">Los Angeles Chargers</option>
+                    <option value="12">Kansas City Chiefs</option>
+                    <option value="11">Indianapolis Colts</option>
+                    <option value="28">Washington Commanders</option>
+                    <option value="6">Dallas Cowboys</option>
+                    <option value="15">Miami Dolphins</option>
+                    <option value="21">Philadelphia Eagles</option>
+                    <option value="1">Atlanta Falcons</option>
+                    <option value="19">New York Giants</option>
+                    <option value="30">Jacksonville Jaguars</option>
+                    <option value="20">New York Jets</option>
+                    <option value="8">Detroit Lions</option>
+                    <option value="9">Green Bay Packers</option>
+                    <option value="29">Carolina Panthers</option>
+                    <option value="17">New England Patriots</option>
+                    <option value="13">Las Vegas Raiders</option>
+                    <option value="14">Los Angeles Rams</option>
+                    <option value="33">Baltimore Ravens</option>
+                    <option value="18">New Orleans Saints</option>
+                    <option value="26">Seattle Seahawks</option>
+                    <option value="23"> Pittsburgh Steelers</option>
+                    <option value="34">Houston Texans</option>
+                    <option value="10">Tennessee Titans</option>
+                    <option value="16">Minnesota Vikings</option>
+                  </select>
+                </form>
+                {/*<form className="d-flex my-2 my-lg-0 ms-auto">*/}
+                {/*  <input*/}
+                {/*      className="form-control mr-sm-2"*/}
+                {/*      type="search"*/}
+                {/*      placeholder="Search"*/}
+                {/*      aria-label="Search"*/}
+                {/*  />*/}
+                {/*  <button*/}
+                {/*      className="btn btn-outline-success my-2 my-sm-0"*/}
+                {/*      type="submit"*/}
+                {/*  >*/}
+                {/*    Search*/}
+                {/*  </button>*/}
+                {/*</form>*/}
+
+                <ul className="navbar-nav">
+                  <li className="nav-item dropdown">
+                    <Link
+                        to={'/lockerrm-front/src/components/Navbar#'}
+                        id="navbarDropdownMenuLink"
+                        className="nav-link dropdown-toggle"
+                        role="button"
+                        data-bs-toggle="dropdown"
+                        aria-expanded="false"
                     >
-                      {/*<option defaultValue="Select Your Favorite Team">*/}
-                      {/*  Select Your Favorite Team*/}
-                      {/*</option>*/}
-                      <option value="San Fransisco 49ers">San Fransisco 49ers</option>
-                      <option value="Chicago Bears">Chicago Bears</option>
-                      <option value="Cincinnati Bengals">Cincinnati Bengals</option>
-                      <option value="Buffalo Bills">Buffalo Bills</option>
-                      <option value="Denver Broncos">Denver Broncos</option>
-                      <option value="Cleveland Browns">Cleveland Browns</option>
-                      <option value="Tampa Bay Buccaneers">Tampa Bay Buccaneers</option>
-                      <option value="Arizona Cardinals">Arizona Cardinals</option>
-                      <option value="Los Angeles Chargers">Los Angeles Chargers</option>
-                      <option value="Kansas City Chiefs">Kansas City Chiefs</option>
-                      <option value="Indianapolis Colts">Indianapolis Colts</option>
-                      <option value="Washington Commanders">Washington Commanders</option>
-                      <option value="Dallas Cowboys">Dallas Cowboys</option>
-                      <option value="Miami Dolphins">Miami Dolphins</option>
-                      <option value="Philadelphia Eagles">Philadelphia Eagles</option>
-                      <option value="Atlanta Falcons">Atlanta Falcons</option>
-                      <option value="New York Giants">New York Giants</option>
-                      <option value="Jacksonville Jaguars">Jacksonville Jaguars</option>
-                      <option value="New York Jets">New York Jets</option>
-                      <option value="Detroit Lions">Detroit Lions</option>
-                      <option value="Green Bay Packers">Green Bay Packers</option>
-                      <option value="Carolina Panthers">Carolina Panthers</option>
-                      <option value="New England Patriots">New England Patriots</option>
-                      <option value="Las Vegas Raiders">Las Vegas Raiders</option>
-                      <option value="Los Angeles Rams">Los Angeles Rams</option>
-                      <option value="Baltimore ravens">Baltimore Ravens</option>
-                      <option value="New Orleans Saints">New Orleans Saints</option>
-                      <option value="Seattle Seahawks">Seattle Seahawks</option>
-                      <option value="Pittsburgh Steelers"> Pittsburgh Steelers</option>
-                      <option value="Houston Texans">Houston Texans</option>
-                      <option value="Tennessee Titans">Tennessee Titans</option>
-                      <option value="Minnesota Vikings">Minnesota Vikings</option>
-                    </select>
-                  </div>
-
-                  <ul className="navbar-nav">
-                    <li className="nav-item dropdown">
-                      <Link
-                          to={'/lockerrm-front/src/components/Navbar#'}
-                          id="navbarDropdownMenuLink"
-                          className="nav-link dropdown-toggle"
-                          role="button"
-                          data-bs-toggle="dropdown"
-                          aria-expanded="false"
-                      >
-                        <i className="fa-solid fa-user-gear"></i>
-                      </Link>
-                      <ul
-                          className="dropdown-menu dropdown-menu-end"
-                          aria-labelledby="navbarDropdownMenuLink"
-                      >
-                        {currentUser &&(
-                            <li>
-                              <Link to={"/edit"} id="edit" className="dropdown-item">
-                                Edit Profile
-                              </Link>
-                            </li>
-                        )}
-                        {currentUser && (
-                            <li>
-                              <Link to={"/Settings"} id="settings" className="dropdown-item">
-                                Settings
-                              </Link>
-                            </li>
-                        )}
-                        {currentUser ? (
-                            <li>
-                              <Link to={"/"} className="dropdown-item" onClick={logOut}>
-                                Logout
-                              </Link>
-                            </li>
-                        ):(
-                            <li>
-                              <Link to={"/"} className="dropdown-item">
-                                Login
-                              </Link>
-                            </li>
-                        )}
-                      </ul>
-                    </li>
-                  </ul>
-
-                </div>
-              </nav>
-            </div>
-
-          </nav>
-        </div>
-        <Routes>
-          <Route path="/home" element={<HomeDisplay />} />
-          <Route path="/" element={<Landing />} />
-          <Route path="/home" element={<HomeDisplay />} />
-          <Route path="/schedules" element={<GameDisplay />} />
-          <Route path="/teams" element={<TeamDisplay />} />
-          <Route path="/news" element={<NewsDisplay />} />
-          <Route path="/register" element={<Register />} />
-          <Route path="/forum" element={<Forum />} />
-          <Route path="/create-post" element={<CreatePost />} />
-          <Route path="/edit-post" element={<EditPost />} />
-          <Route path="/about" element={<About />} />
-          <Route path='*' element={<Error />}/>
-        </Routes>
-      </Router>
-    </React.Fragment>
+                      <i className="fa-solid fa-user-gear"></i>
+                    </Link>
+                    <ul
+                        className="dropdown-menu dropdown-menu-end"
+                        aria-labelledby="navbarDropdownMenuLink"
+                    >
+                      {currentUser && (
+                          <li>
+                            <Link to={'/edit'} id="edit" className="dropdown-item">
+                              Edit Profile
+                            </Link>
+                          </li>
+                      )}
+                      {currentUser && (
+                          <li>
+                            <Link
+                                to={'/Settings'}
+                                id="settings"
+                                className="dropdown-item"
+                            >
+                              Settings
+                            </Link>
+                          </li>
+                      )}
+                      {currentUser ? (
+                          <li>
+                            <Link to={"/"} className="dropdown-item" onClick={logOut}>
+                              Logout
+                            </Link>
+                          </li>
+                      ):(
+                          <li>
+                            <Link to={"/"} className="dropdown-item">
+                              Login
+                            </Link>
+                          </li>
+                      )}
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+            </nav>
+          </div>
+          <Routes>
+            <Route path="/home" element={<HomeDisplay />} />
+            <Route path="/" element={<Landing />} />
+            <Route path="/home" element={<HomeDisplay />} />
+            <Route path="/schedules" element={<GameDisplay />} />
+            <Route path="/teams" element={<TeamDisplay />} />
+            <Route path="/news" element={<NewsDisplay />} />
+            <Route path="/register" element={<Register />} />
+            <Route path="/forum" element={<Forum />} />
+            <Route path="/create-post" element={<CreatePost />} />
+            <Route path="/about" element={<About />} />
+            <Route path='*' element={<Error />}/>
+          </Routes>
+        </Router>
+      </React.Fragment>
   );
-
 }
-
