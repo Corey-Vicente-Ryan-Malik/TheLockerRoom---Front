@@ -4,6 +4,7 @@ import GameDisplay from '../displayFolder/GameDisplay';
 import TeamDisplay from '../displayFolder/TeamDisplay';
 import Landing from '../displayFolder/LandingDisplay';
 import NewsDisplay from '../displayFolder/NewsDisplay';
+import HomeDisplay from '../displayFolder/HomeDisplay';
 import Register from '../settings/Register';
 import CreatePost from '../forum/CreatePost';
 import Forum from '../forum/Forum';
@@ -165,9 +166,9 @@ export default function Navbar() {
             </div>
           </nav>
         </div>
-
         <Routes>
           <Route path="/" element={<Landing />} />
+          <Route path="/home" element={<HomeDisplay />} />
           <Route path="/schedules" element={<GameDisplay />} />
           <Route path="/teams" element={<TeamDisplay />} />
           <Route path="/news" element={<NewsDisplay />} />
