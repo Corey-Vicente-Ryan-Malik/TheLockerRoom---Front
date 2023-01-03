@@ -20,26 +20,15 @@ class AuthService {
                     localStorage.setItem("refresh_token", data.refresh_token);
                     console.log("Refresh token set")
                     localStorage.setItem('user', JSON.stringify(user));
+
                 }
-                const API = "http://localhost:8080/user/";
-                const options = {
-                    method: "GET",
-                    headers: {
-                        "Content-Type": "application/json",
-                        "Authorization": "Bearer " + localStorage.getItem("access_token")
-                    },
-                }
-                fetch(API, options)
-                    .then((response) => response.json())
-                    .then((data) => {
-                        console.log(data);
-                        localStorage.setItem("user", JSON.stringify(data));
-                    });
+
             })
     }
     logout(){
         localStorage.clear()
         window.location.reload(true);
+
     }
     register(firstname, lastname, email, username, password, favoriteTeam){
         return axios.post(API_URL + "/register",{
