@@ -141,7 +141,7 @@ const RegisterPage = {
 
 const RegisterForm = {
   display: 'grid',
-  margin: 'auto',
+  margin: '50px auto',
   border: 'solid black',
   borderRadius: '15px',
   width: '60%',
