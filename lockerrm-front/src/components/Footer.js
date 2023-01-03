@@ -36,13 +36,13 @@ export default function Footer() {
             <MDBCol md="2" lg="2" xl="2" className="mx-auto mb-4">
               <h6 className="text-uppercase fw-bold mb-4">Get The Scoop</h6>
               <p>
-                <a href="/scores" className="text-reset">
+                <a href="/schedules" className="text-reset">
                   Scores
                 </a>
               </p>
               <p>
-                <a href="/stats" className="text-reset">
-                  Stats
+                <a href="/news" className="text-reset">
+                  News
                 </a>
               </p>
               <p>
@@ -71,7 +71,7 @@ export default function Footer() {
               </p>
               <p>
                 <a href="/home" className="text-reset">
-                  News
+                  Home
                 </a>
               </p>
               <p>
