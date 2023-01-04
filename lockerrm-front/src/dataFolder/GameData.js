@@ -346,12 +346,13 @@ export default function GameData() {
   };
 
   const image = {
-    width: '200px',
-    height: '200px',
+    width: '70%',
+    height: '70%',
   };
 
   const textCenter = {
     textAlign: 'center',
+    fontSize: '55%'
   };
 
   return (
