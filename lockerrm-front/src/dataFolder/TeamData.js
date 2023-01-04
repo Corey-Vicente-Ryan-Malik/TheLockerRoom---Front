@@ -599,9 +599,10 @@ export default function HomeData() {
 
   return (
     <div>
-      <span>Select the team you would like to view: </span>
       <select name="teamId" onBlur={handleSelectedTeam}>
-        <option name="favoriteOption">Change Your Favorite Team?</option>
+        <option name="favoriteOption">
+          Select the team you would like to view!
+        </option>
         <option name="favoriteOption" value="1">
           Atlanta Falcons
         </option>
