@@ -11,10 +11,10 @@ const Register = (props, {}) => {
     email: '',
     username: '',
     password: '',
-    fav_team_id: '',
+    favoriteTeam: '',
   });
 
-  const { firstname, lastname, email, username, password, fav_team_id } = user;
+  const { firstname, lastname, email, username, password, favoriteTeam } = user;
   const onInputChange = (e) => {
     setUser({ ...user, [e.target.name]: e.target.value });
   };
@@ -66,7 +66,7 @@ const Register = (props, {}) => {
           />
 
           <select
-            name="fav_team_id"
+            name="favoriteTeam"
             style={FavoriteTeam}
             // value={favoriteTeam}
             onChange={(e) => onInputChange(e)}
