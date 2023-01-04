@@ -43,6 +43,7 @@ export default function HomeData() {
 
   useEffect(() => {
     axios.get(teamUrl, options).then((response) => {
+      console.log(response.data);
       createTeamObjects(response.data);
       createPlayerObjects(response.data);
     });
