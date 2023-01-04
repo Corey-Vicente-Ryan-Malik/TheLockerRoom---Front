@@ -7,12 +7,12 @@ import NewsDisplay from '../displayFolder/NewsDisplay';
 import HomeDisplay from '../displayFolder/HomeDisplay';
 import Register from '../settings/Register';
 import CreatePost from '../forum/CreatePost';
+import EditPost from '../forum/EditPost';
 import Forum from '../forum/Forum';
 import About from "./About";
 import Error from "../settings/Error";
 import Edit from "../settings/Edit";
 import authService from "../services/auth.service";
-import axios from "axios";
 
 
 export default function Navbar() {
@@ -190,6 +190,7 @@ export default function Navbar() {
             <Route path="/register" element={<Register />} />
             <Route path="/forum" element={<Forum />} />
             <Route path="/create-post" element={<CreatePost />} />
+            <Route path="/edit-post/:id" element={<EditPost />} />
             <Route path="/about" element={<About />} />
             <Route path='*' element={<Error />}/>
           </Routes>

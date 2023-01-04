@@ -2,6 +2,8 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import React from "react";
 import authService from '../services/auth.service';
+import Form from "react-bootstrap/Form";
+import Button from "react-bootstrap/Button";
 
 const CreatePost = () => {
   const [postBody, setPostBody] = useState("");
@@ -38,15 +40,19 @@ const CreatePost = () => {
   return (
     <div className="createPost">
       <h3>Create a New Post</h3>
-      <form>
-        <label>Post:</label>
-        <textarea
-          required
-          value={postBody}
-          onChange={(e) => setPostBody(e.target.value)}
-        ></textarea>
-        <button onClick={ handleSubmit }>Post</button>
-      </form>
+      <Form style={{margin: "auto", width: '30%'}}>
+        <Form.Group className="mb-2">
+          <Form.Control
+            as="textarea"
+            rows={3}
+            required
+            value={postBody}
+            onChange={(e) => setPostBody(e.target.value)}
+          ></Form.Control>
+          <Form.Text className="text-muted">Express yourself in 500 words or less.</Form.Text>
+        </Form.Group>
+        <Button variant="primary" size="sm" onClick={ handleSubmit }>Post</Button>
+      </Form>
     </div>
   );
 };

@@ -2,6 +2,8 @@ import { React, useState} from 'react'
 import { useNavigate, useParams } from 'react-router-dom';
 import authService from '../services/auth.service';
 import './Forum.css';
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
 
 const EditPost = () => {
     const navigate = useNavigate();
@@ -32,17 +34,19 @@ const EditPost = () => {
     
 
     return(
-        <div className="createPost">
+        <div className="editPost">
             <h3>Edit Your Post</h3>
-            <form onSubmit={onSubmit}>
-                <label>Post:</label>
-                <textarea 
+            <Form style={{margin: "auto", width: "30%"}} onSubmit={onSubmit}>
+                <Form.Control
+                as="textarea"
+                rows={3}
+                className="mb-3"
                 required
                 value={ postBody }
                 onChange={(e) => setPostBody(e.target.value)}
-                ></textarea>
-                <button type="submit">Edit Post</button>
-            </form>
+                ></Form.Control>
+                <Button variant="success" type="submit">Edit Post</Button>
+            </Form>
         </div>
     )
 }
