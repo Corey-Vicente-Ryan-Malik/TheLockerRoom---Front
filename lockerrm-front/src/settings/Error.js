@@ -3,7 +3,7 @@ import React from "react";
 
 function Error() {
     return(
-        <div>
+        <div className="">
             <img src={holup}/>
 
             <h1>
@@ -14,4 +14,4 @@ function Error() {
     )
 }
 
-export default Error
+export default Error;
