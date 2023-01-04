@@ -17,7 +17,7 @@ const CreatePost = () => {
     const user = authService.getCurrentUser();
     const post = { user, postBody };
 
-    const API = "http://localhost:8080/posts/create";
+    const API = "https://lockerrm.us:8080/posts/create";
     const options = {
       method: 'POST',
       headers: {

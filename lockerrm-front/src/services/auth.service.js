@@ -2,11 +2,11 @@ import axios from 'axios';
 import React from 'react';
 import Navbar from '../components/Navbar';
 
-const API_URL = 'http://localhost:8080/oauth/token';
+const API_URL = 'https://lockerrm.us:8080/oauth/token';
 
 class AuthService {
   login(username, password, grant_type, user) {
-    return fetch('http://localhost:8080/oauth/token', {
+    return fetch('https://lockerrm.us:8080/oauth/token', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded',
@@ -22,7 +22,7 @@ class AuthService {
           localStorage.setItem('refresh_token', data.refresh_token);
           console.log('Refresh token set');
           localStorage.setItem('user', JSON.stringify(user));
-          const API = 'http://localhost:8080/user/';
+          const API = 'https://lockerrm.us:8080/user/';
           const options = {
             method: 'GET',
             headers: {
@@ -42,7 +42,7 @@ class AuthService {
   logout() {
     localStorage.clear();
     // change url path in production
-    window.location.href = 'http://localhost:3000/';
+    window.location.href = 'https://lockerrm.us/';
   }
   register(firstname, lastname, email, username, password, favoriteTeam) {
     return axios.post(API_URL + '/register', {

@@ -17,7 +17,7 @@ const EditPost = () => {
         const user = authService.getCurrentUser();
         const post = { user, postBody }
 
-        const EDIT_API = "http://localhost:8080/posts/" + id + "/edit-post";
+        const EDIT_API = "https://lockerrm.us:8080/posts/" + id + "/edit-post";
         const options = {
             method: "PUT",
             headers: {

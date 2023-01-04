@@ -20,7 +20,7 @@ const Register = (props, {}) => {
   };
   const onSubmit = async (e) => {
     e.preventDefault();
-    await axios.post('http://localhost:8080/register', user);
+    await axios.post('https://lockerrm.us:8080/register', user);
     navigate('/');
     console.log(user);
   };
