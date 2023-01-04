@@ -1,7 +1,13 @@
-import React, { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import authService from '../services/auth.service';
-import "./Forum.css"
+import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import authService from "../services/auth.service";
+import "./Forum.css";
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+import Card from "react-bootstrap/Card";
+import Button from "react-bootstrap/Button";
+import Alert from "react-bootstrap/Alert";
 
 
 const Forum = () => {
@@ -32,50 +38,68 @@ const Forum = () => {
   
   return (
     <div>
-      <h2>Welcome to The Locker Room's Forum</h2>
+      <h2 className="forumWelcome">The Locker Room Forums</h2>
 
-      <button onClick={() => navigate('/create-post')}>Create Post</button>
+      <Button style={{marginLeft: '19rem', marginBottom: '1rem'}} variant="dark" onClick={() => navigate('/create-post')}>Create Post</Button>
 
-      <div className="allPosts">
-        {posts.map((post) => (
-          <div key={post.id}>
-              <small>Created by @{post.user.username}</small>
-              <p>{post.postBody}</p>
+      <Container>
+        <Alert variant="success">
+          <Alert.Heading>Hey, {currentUser.username}!</Alert.Heading>
+          <p>
+            Welcome to The Locker Rooms Forums page, and thank you for joining us. Here in the forums, feel free to look around and see what other people have to say about the latest
+            NFL games and news going on today!
+          </p>
+          <hr />
+          <p className="mb-0">
+            Have any questions or concerns? Contact us at lockerrm@gmail.com
+          </p>
+        </Alert>
+        <Row>
+          {posts.map((post) => (
+            <Col>
+              <Card style={{
+                width: '20rem',
+                padding: '1rem',
+                marginBottom: '1rem',
+                }} key={post.id}>
+                  <Card.Subtitle className="text-muted">Created by @{post.user.username}</Card.Subtitle>
+                  <Card.Text>{post.postBody}</Card.Text>
 
-              <button onClick={() => {
-                // If logged in user username === posts username
-                // Send user to edit post form
-                if (currentUser["username"] === post.user.username) {
-                  navigate("/edit-post" + "/" + post.id);
-                } else {
-                  alert("You are not the owner of the post.");
-                }
-              }}>Edit</button>
-
-              <button onClick={() => {
-                // If logged in user username === posts username
-                // Allow user to delete post
-                if (currentUser["username"] === post.user.username) {
-                  const DELETE_POST_API = "http://localhost:8080/posts/" + post.id + "/delete";
-                  const requestOptions = {
-                    method: "DELETE",
-                    headers: {
-                      "Content-Type": "application/json",
-                      "Authorization": "Bearer" + localStorage.getItem("access_token")
+                  <Button style={{width: '30%'}} variant="outline-success" size="sm" onClick={() => {
+                    // If logged in user username === posts username
+                    // Send user to edit post form
+                    if (currentUser["username"] === post.user.username) {
+                      navigate("/edit-post" + "/" + post.id);
+                    } else {
+                      alert("You are not the owner of the post.");
                     }
-                  }
-                  fetch(DELETE_POST_API, requestOptions)
-                  .then(navigate("/forum"));
-                } else {
-                  alert("You are not the owner of this post.");
-                }
-              }}>Delete</button>
-          </div>
-        ))}
+                  }}>Edit</Button>
 
-      </div>
+                  <Button style={{width: '30%', }} variant="outline-danger" size="sm" onClick={() => {
+                    // If logged in user username === posts username
+                    // Allow user to delete post
+                    if (currentUser["username"] === post.user.username) {
+                      const DELETE_POST_API = "http://localhost:8080/posts/" + post.id + "/delete";
+                      const requestOptions = {
+                        method: "DELETE",
+                        headers: {
+                          "Content-Type": "application/json",
+                          "Authorization": "Bearer" + localStorage.getItem("access_token")
+                        }
+                      }
+                      fetch(DELETE_POST_API, requestOptions)
+                      .then(window.location.reload(true));
+                    } else {
+                      alert("You are not the owner of this post.");
+                    }
+                  }}>Delete</Button>
+              </Card>
+            </Col>
+          ))}
+        </Row>
+      </Container>
 
-      </div>
+    </div>
 
   );
 };

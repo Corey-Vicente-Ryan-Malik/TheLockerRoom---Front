@@ -1,23 +1,11 @@
-.createPost {
-    max-width: 500px;
-    margin: 0 auto;
+.forumWelcome {
     text-align: center;
 }
 
-.createPost label {
-    text-align: left;
-    display: block;
-}
-
 .createPost h3 {
-    margin-bottom: 30px;
+    text-align: center;
 }
 
-.createPost textarea {
-    width: 100%;
-    padding: 6px 10px;
-    margin: 10px 0;
-    border: 1px solid #ddd;
-    box-sizing: border-box;
-    display: block;
+.editPost h3 {
+    text-align: center;
 }
