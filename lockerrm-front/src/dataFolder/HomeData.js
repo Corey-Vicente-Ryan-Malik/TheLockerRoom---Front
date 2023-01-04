@@ -5,7 +5,7 @@ import authService from '../services/auth.service';
 
 export default function HomeData() {
   const loggedInUser = authService.getCurrentUser();
-  console.log(loggedInUser);
+  // console.log(loggedInUser);
 
   const teamUrl = `https://nfl-api1.p.rapidapi.com/nflteamplayers?teamid=${loggedInUser.favoriteTeam}`;
 
@@ -22,7 +22,6 @@ export default function HomeData() {
 
   useEffect(() => {
     axios.get(teamUrl, options).then((response) => {
-      console.log(response.data);
       createTeamObjects(response.data);
       createPlayerObjects(response.data);
     });
