@@ -1,12 +1,13 @@
 import { useEffect, useState } from 'react';
 import React from 'react';
-import axios, { all } from 'axios';
-import {render} from "react-dom";
-import * as events from "events";
+import axios from 'axios';
+import authService from '../services/auth.service';
+
 export default function HomeData() {
-  const currentTeam = localStorage.getItem("currentTeam");
-  console.log(JSON.parse(currentTeam))
-  const teamUrl = `https://nfl-api1.p.rapidapi.com/nflteamplayers?teamid=${JSON.parse(currentTeam)}`;
+  const loggedInUser = authService.getCurrentUser();
+  // console.log(loggedInUser);
+
+  const teamUrl = `https://nfl-api1.p.rapidapi.com/nflteamplayers?teamid=${loggedInUser.favoriteTeam}`;
 
   const options = {
     method: 'GET',
@@ -21,7 +22,6 @@ export default function HomeData() {
 
   useEffect(() => {
     axios.get(teamUrl, options).then((response) => {
-      console.log(response.data);
       createTeamObjects(response.data);
       createPlayerObjects(response.data);
     });

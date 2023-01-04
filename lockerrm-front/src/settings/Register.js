@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom';
-import React  from "react";
+import React from 'react';
 
 const Register = (props, {}) => {
   const navigate = useNavigate();
@@ -21,9 +21,8 @@ const Register = (props, {}) => {
   const onSubmit = async (e) => {
     e.preventDefault();
     await axios.post('http://localhost:8080/register', user);
-    navigate("/");
-    console.log(user)
-
+    navigate('/');
+    console.log(user);
   };
   return (
     <div className="RegisterPage">
@@ -71,7 +70,8 @@ const Register = (props, {}) => {
             // value={favoriteTeam}
             onChange={(e) => onInputChange(e)}
           >
-            <option value="25">San Fransisco 49ers</option>
+            <option>Select Your Favorite Team</option>
+            <option value="25">San Francisco 49ers</option>
             <option value="3">Chicago Bears</option>
             <option value="4">Cincinnati Bengals</option>
             <option value="2">Buffalo Bills</option>
@@ -128,7 +128,7 @@ const Register = (props, {}) => {
       </div>
     </div>
   );
-}
+};
 
 const RegisterPage = {
   display: 'flex',

@@ -8,7 +8,6 @@ export default function NewsData() {
 
   useEffect(() => {
     axios.get(newsUrl).then((response) => {
-      console.log(response.data);
       createNewsObject(response.data);
     });
   }, []);
