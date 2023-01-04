@@ -96,7 +96,7 @@ export default function Edit() {
       />
       <br /> */}
       <select name="favoriteTeam" onBlur={handleFavTeamChange}>
-        <option name="favoriteOption">Choose Your Favorite Team</option>
+        <option name="favoriteOption">Change Your Favorite Team?</option>
         <option name="favoriteOption" value="1">
           Atlanta Falcons
         </option>

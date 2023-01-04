@@ -70,6 +70,7 @@ const Register = (props, {}) => {
             // value={favoriteTeam}
             onChange={(e) => onInputChange(e)}
           >
+            <option>Select Your Favorite Team</option>
             <option value="25">San Francisco 49ers</option>
             <option value="3">Chicago Bears</option>
             <option value="4">Cincinnati Bengals</option>
