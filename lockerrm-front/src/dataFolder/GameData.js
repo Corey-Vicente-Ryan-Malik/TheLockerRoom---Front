@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import React from 'react';
 import axios from 'axios';
+import '../StyleFolder/GameStyle.css';
 
 export default function GameData() {
   const scheduleUrl =
@@ -329,72 +330,44 @@ export default function GameData() {
     setGames(allGames);
   }
 
-  const cardLayout = {
-    display: 'flex',
-    border: '1px solid black',
-    width: '98vw',
-    margin: '15px auto',
-    fontSize: '20px',
-  };
-
-  const cardItem = {
-    display: 'flex',
-    border: '1px solid black',
-    width: '20%',
-    justifyContent: 'center',
-    alignItems: 'center',
-  };
-
-  const image = {
-    width: '70%',
-    height: '70%',
-  };
-
-  const textCenter = {
-    textAlign: 'center',
-    fontSize: '55%',
-  };
-
   return (
-    <React.Fragment>
+    <div className="home_container">
+      <h1>Weekly Schedule</h1>
       {games.map((game) => {
         return (
-          <div key={game.id} style={cardLayout}>
-            <div style={cardItem}>
-              <div style={textCenter}>
-                {game.homeTeam} <br />
-                {game.homeRecord}
+          <div key={game.id}>
+            <div className="game_container">
+              <div className="game_leftContainer">
+                <h1>Away</h1>
+                <img
+                  className="away_logo"
+                  src={game.awayLogo}
+                  alt="Team Logo"
+                />
+                <div className="away_team">{game.awayTeam}</div>
+                <div className="away_record">({game.awayRecord})</div>
               </div>
-            </div>
-
-            <div style={cardItem}>
-              <img src={game.homeLogo} style={image} alt="Home Team Logo" />
-            </div>
-
-            <div style={cardItem}>
-              <div style={textCenter}>
-                {game.gameName} <br />
-                {game.gameDate} <br />
-                {game.gameSituation}
-                <div>
-                  {game.homeScore} - {game.awayScore}
+              <div className="game_middleContainer">
+                <div className="game_name">{game.gameName}</div>
+                <div className="game_date">{game.gameDate}</div>
+                <div className="game_score">
+                  {game.awayScore} - {game.homeScore}
                 </div>
               </div>
-            </div>
-
-            <div style={cardItem}>
-              <img src={game.awayLogo} style={image} alt="AwayTeamLogo" />
-            </div>
-
-            <div style={cardItem}>
-              <div style={textCenter}>
-                {game.awayTeam} <br />
-                {game.awayRecord}
+              <div className="game_rightContainer">
+                <h1>Home</h1>
+                <img
+                  className="home_logo"
+                  src={game.homeLogo}
+                  alt="Team Logo"
+                />
+                <div className="home_team">{game.homeTeam}</div>
+                <div className="home_record">({game.homeRecord})</div>
               </div>
             </div>
           </div>
         );
       })}
-    </React.Fragment>
+    </div>
   );
 }
