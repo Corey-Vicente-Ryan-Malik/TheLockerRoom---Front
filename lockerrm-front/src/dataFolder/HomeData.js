@@ -552,33 +552,36 @@ export default function HomeData() {
   }
 
   return (
-    <div className="team_container">
-      <h1>Team Information</h1>
-      {teams.map((team) => {
-        return (
-          <div key={team.teamId}>
-            {/* <div className="teamInformation" style={teamCard}>
-              <h1>Team Information</h1>
-              <h3>{team.teamName}</h3>
-              <p>{team.teamStanding}</p> <br />
-              <img src={team.teamLogo} alt="Team Logo" style={teamImage} />{' '}
-              <br />
-              <p>
-                {team.teamSeasonalWins} - {team.teamSeasonalLosses} -{' '}
-                {team.teamSeasonalTies}
-              </p>{' '}
-              <br />
-              <p>
-                {team.teamDivisionalWins} - {team.teamDivisionalLosses} -{' '}
-                {team.teamDivisionalTies}
-              </p>{' '}
-              <br />
-              <p>{team.teamStadium}</p> <br />
-              <p>{team.teamLocation}</p> <br />
-            </div> */}
-          </div>
-        );
-      })}
+    <div className="home_container">
+      <div className="team_container">
+        {teams.map((team) => {
+          return (
+            <div key={team.teamId} className="team_containerWhole">
+              <div className="team_containerLeft">
+                <img
+                  className="team_image"
+                  src={team.teamLogo}
+                  alt="Team Logo"
+                />
+              </div>
+              <div className="team_containerRight">
+                <div className="team_title">{team.teamName}</div>
+                <div className="team_info">
+                  <div>{team.teamStanding}</div>
+                  <div>
+                    Seasonal Record : {team.teamSeasonalWins} -{' '}
+                    {team.teamSeasonalLosses} - {team.teamSeasonalTies}
+                  </div>
+                  <div>
+                    Divisional Record : {team.teamDivisionalWins} -{' '}
+                    {team.teamDivisionalLosses} - {team.teamDivisionalTies}
+                  </div>
+                </div>
+              </div>
+            </div>
+          );
+        })}
+      </div>
       <div className="player_container">
         <h1>Player Details</h1> <br />
         {players.map((player) => {
@@ -586,7 +589,11 @@ export default function HomeData() {
             <div key={player.playerId} className="container_card">
               <div className="main_card">
                 <div className="card_image">
-                  <img src={player.playerHeadshot} alt="Player HeadShot" />
+                  <img
+                    className="player_image"
+                    src={player.playerHeadshot}
+                    alt="Player HeadShot"
+                  />
                 </div>
                 <div className="card_content">
                   <div className="card_title">

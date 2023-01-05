@@ -1,6 +1,6 @@
 body {
     color: #272727;
-    font-family: 'Times New Roman', Times, serif;
+    /* font-family: 'Times New Roman', Times, serif; */
     font-style: normal;
     font-weight: 400;
     letter-spacing: 0;
@@ -11,10 +11,8 @@ h1 {
     font-size: 3em;
     margin: auto;
 }
-img {
-    height: auto;
+.home_container {
     max-width: 100%;
-    vertical-align: middle;
 }
 
 /* ------------------------------------------------ */
@@ -26,6 +24,12 @@ img {
     justify-content: space-evenly;
     padding: 0;
     max-width: 95%;
+    margin: auto;
+}
+.player_image {
+    height: auto;
+    max-width: 100%;
+    vertical-align: middle;
 }
 .container_card {
     width: 20%;
@@ -54,7 +58,44 @@ img {
 /* ------------------------------------------------ */
 
 /* Team Specific CSS (Start) */
-
+.team_container {
+    max-width: 95%;
+    margin: auto;
+}
+.team_containerWhole {
+    max-width: 100%;
+    margin: auto;
+    height: 45vh;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+}
+.team_containerLeft {
+    width: 40%;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+}
+.team_containerRight {
+    width: 60%;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+}
+.team_image {
+    height: 50%;
+    width: 100%;
+}
+.team_title {
+    text-align: center;
+    font-size: 5em;
+    margin: auto;
+}
+.team_info {
+    text-align: center;
+    font-size: 3em;
+    margin: auto;
+}
 /* Team Specific CSS (End) */
 
 /* ------------------------------------------------ */
