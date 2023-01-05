@@ -1,0 +1,138 @@
+body {
+    color: #272727;
+    /* font-family: 'Times New Roman', Times, serif; */
+    font-style: normal;
+    font-weight: 400;
+    letter-spacing: 0;
+}
+h1 {
+    width: 85%;
+    text-align: center;
+    font-size: 3em;
+    margin: auto;
+}
+.home_container {
+    max-width: 100%;
+}
+
+/* ------------------------------------------------ */
+
+/* Player Specific CSS (Start) */
+.player_container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    padding: 0;
+    max-width: 95%;
+    margin: auto;
+}
+.player_image {
+    height: auto;
+    max-width: 100%;
+    vertical-align: middle;
+}
+.container_card {
+    width: 20%;
+}
+.main_card {
+    border: 1px solid black;
+    border-radius: 0.75rem;
+    box-shadow: 0 20px 40px -14px rgba(0, 0, 0, 0.25);
+    height: auto; /* Is this something we want to use? */
+    width: 95%;
+    margin: 25px auto;
+}
+.card_content {
+    width: 100%;
+    text-align: center;
+    margin: auto;
+}
+.card_title {
+    font-size: 1.5em;
+}
+.card_info {
+    font-size: 1.10em;
+}
+/* Player Specific CSS (End) */
+
+/* ------------------------------------------------ */
+
+/* Team Specific CSS (Start) */
+.team_container {
+    max-width: 95%;
+    margin: auto;
+}
+.team_containerWhole {
+    max-width: 100%;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+}
+.team_containerLeft {
+    width: 40%;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+}
+.team_containerRight {
+    width: 60%;
+    margin: auto;
+}
+.team_image {
+    height: 525px;
+}
+.team_title {
+    text-align: center;
+    font-size: 4.75em;
+    margin: auto;
+}
+.team_info {
+    text-align: center;
+    font-size: 2.75em;
+    margin: auto;
+}
+/* Team Specific CSS (End) */
+
+/* ------------------------------------------------ */
+
+/* Dropdown Specific CSS (Start) */
+.dropdown_form {
+    width: 50%;
+    font-size: 1.5em;
+    margin: 5px auto;
+}
+select {
+    width: 80%;
+    height: 38px;
+    padding: 0;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+button {
+    padding: 0;
+    width: 18%;
+    border: 1px solid black;
+    border-radius: 5px;
+    margin: 0 0 0 1%
+}
+/* Dropdown Specific CSS (End) */
+
+/* ------------------------------------------------ */
+
+/* Media Query CSS both Player & Team */
+@media(max-width: 1250px) {
+    .container_card {
+        width: 25%;
+    }
+}
+@media(max-width: 950px) {
+    .container_card {
+        width: 33.33%;
+    }
+}
+@media(max-width: 650px) {
+    .container_card {
+        width: 50%;
+    }
+}

@@ -352,7 +352,7 @@ export default function GameData() {
 
   const textCenter = {
     textAlign: 'center',
-    fontSize: '55%'
+    fontSize: '55%',
   };
 
   return (

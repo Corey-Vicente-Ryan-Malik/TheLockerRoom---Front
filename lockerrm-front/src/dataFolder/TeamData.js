@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import React from 'react';
 import axios from 'axios';
 import authService from '../services/auth.service';
+import '../StyleFolder/HomeStyle.css';
 
 export default function HomeData() {
   const [teams, setTeams] = useState([]);
@@ -571,198 +572,348 @@ export default function HomeData() {
     setTeams(allTeams);
   }
 
-  const homeView = {
-    textAlign: 'center',
-    display: 'grid',
-  };
-  const teamCard = {
-    gridColumn: 1,
-    gridRow: 1,
-    border: '1px solid black',
-  };
-  const playerIndex = {
-    gridColumn: 2,
-    gridRow: 1,
-    border: '1px solid black',
-  };
-  const playerCard = {
-    border: '1px solid black',
-  };
-  const teamImage = {
-    width: '100px',
-    height: '100px',
-  };
-  const playerImage = {
-    width: '125px',
-    height: '100px',
-  };
-
   return (
-    <div>
-      <select name="teamId" onBlur={handleSelectedTeam}>
-        <option name="favoriteOption">
-          Select the team you would like to view!
-        </option>
-        <option name="favoriteOption" value="1">
-          Atlanta Falcons
-        </option>
-        <option name="favoriteOption" value="2">
-          Buffalo Bills
-        </option>
-        <option name="favoriteOption" value="3">
-          Chicago Bears
-        </option>
-        <option name="favoriteOption" value="4">
-          Cincinnati Bengals
-        </option>
-        <option name="favoriteOption" value="5">
-          Cleveland Browns
-        </option>
-        <option name="favoriteOption" value="6">
-          Dallas Cowboys
-        </option>
-        <option name="favoriteOption" value="7">
-          Denver Broncos
-        </option>
-        <option name="favoriteOption" value="8">
-          Detroit Lions
-        </option>
-        <option name="favoriteOption" value="9">
-          Green Bay Packers
-        </option>
-        <option name="favoriteOption" value="10">
-          Tennessee Titans
-        </option>
-        <option name="favoriteOption" value="11">
-          Indianapolis Colts
-        </option>
-        <option name="favoriteOption" value="12">
-          Kansas City Chiefs
-        </option>
-        <option name="favoriteOption" value="13">
-          Las Vegas Raiders
-        </option>
-        <option name="favoriteOption" value="14">
-          Los Angeles Rams
-        </option>
-        <option name="favoriteOption" value="15">
-          Miami Dolphins
-        </option>
-        <option name="favoriteOption" value="16">
-          Minnesota Vikings
-        </option>
-        <option name="favoriteOption" value="17">
-          New England Patriots
-        </option>
-        <option name="favoriteOption" value="18">
-          New Orleans Saints
-        </option>
-        <option name="favoriteOption" value="19">
-          New York Giants
-        </option>
-        <option name="favoriteOption" value="20">
-          New York Jets
-        </option>
-        <option name="favoriteOption" value="21">
-          Philadelphia Eagles
-        </option>
-        <option name="favoriteOption" value="22">
-          Arizona Cardinals
-        </option>
-        <option name="favoriteOption" value="23">
-          Pittsburgh Steelers
-        </option>
-        <option name="favoriteOption" value="24">
-          Los Angeles Chargers
-        </option>
-        <option name="favoriteOption" value="25">
-          San Fransisco 49ers
-        </option>
-        <option name="favoriteOption" value="26">
-          Seattle Seahawks
-        </option>
-        <option name="favoriteOption" value="27">
-          Tampa Bay Buccaneers
-        </option>
-        <option name="favoriteOption" value="28">
-          Washington Commanders
-        </option>
-        <option name="favoriteOption" value="29">
-          Carolina Panthers
-        </option>
-        <option name="favoriteOption" value="30">
-          Jacksonville Jaguars
-        </option>
-        <option name="favoriteOption" value="33">
-          Baltimore Ravens
-        </option>
-        <option name="favoriteOption" value="34">
-          Houston Texans
-        </option>
-      </select>
-      <button onClick={submitChange}>View Team</button>
-      <div style={homeView}>
+    <div className="home_container">
+      <div className="dropdown_form">
+        <select name="teamId" className="dropdown" onBlur={handleSelectedTeam}>
+          <option name="favoriteOption">
+            Select the team you would like to view!
+          </option>
+          <option name="favoriteOption" value="1">
+            Atlanta Falcons
+          </option>
+          <option name="favoriteOption" value="2">
+            Buffalo Bills
+          </option>
+          <option name="favoriteOption" value="3">
+            Chicago Bears
+          </option>
+          <option name="favoriteOption" value="4">
+            Cincinnati Bengals
+          </option>
+          <option name="favoriteOption" value="5">
+            Cleveland Browns
+          </option>
+          <option name="favoriteOption" value="6">
+            Dallas Cowboys
+          </option>
+          <option name="favoriteOption" value="7">
+            Denver Broncos
+          </option>
+          <option name="favoriteOption" value="8">
+            Detroit Lions
+          </option>
+          <option name="favoriteOption" value="9">
+            Green Bay Packers
+          </option>
+          <option name="favoriteOption" value="10">
+            Tennessee Titans
+          </option>
+          <option name="favoriteOption" value="11">
+            Indianapolis Colts
+          </option>
+          <option name="favoriteOption" value="12">
+            Kansas City Chiefs
+          </option>
+          <option name="favoriteOption" value="13">
+            Las Vegas Raiders
+          </option>
+          <option name="favoriteOption" value="14">
+            Los Angeles Rams
+          </option>
+          <option name="favoriteOption" value="15">
+            Miami Dolphins
+          </option>
+          <option name="favoriteOption" value="16">
+            Minnesota Vikings
+          </option>
+          <option name="favoriteOption" value="17">
+            New England Patriots
+          </option>
+          <option name="favoriteOption" value="18">
+            New Orleans Saints
+          </option>
+          <option name="favoriteOption" value="19">
+            New York Giants
+          </option>
+          <option name="favoriteOption" value="20">
+            New York Jets
+          </option>
+          <option name="favoriteOption" value="21">
+            Philadelphia Eagles
+          </option>
+          <option name="favoriteOption" value="22">
+            Arizona Cardinals
+          </option>
+          <option name="favoriteOption" value="23">
+            Pittsburgh Steelers
+          </option>
+          <option name="favoriteOption" value="24">
+            Los Angeles Chargers
+          </option>
+          <option name="favoriteOption" value="25">
+            San Fransisco 49ers
+          </option>
+          <option name="favoriteOption" value="26">
+            Seattle Seahawks
+          </option>
+          <option name="favoriteOption" value="27">
+            Tampa Bay Buccaneers
+          </option>
+          <option name="favoriteOption" value="28">
+            Washington Commanders
+          </option>
+          <option name="favoriteOption" value="29">
+            Carolina Panthers
+          </option>
+          <option name="favoriteOption" value="30">
+            Jacksonville Jaguars
+          </option>
+          <option name="favoriteOption" value="33">
+            Baltimore Ravens
+          </option>
+          <option name="favoriteOption" value="34">
+            Houston Texans
+          </option>
+        </select>
+        <button className="dropdown_button" onClick={submitChange}>
+          View Team
+        </button>
+      </div>
+      <div className="team_container">
         {teams.map((team) => {
           return (
-            <div key={team.teamId}>
-              <div className="teamInformation" style={teamCard}>
-                <h1>Team Information</h1>
-                <h3>{team.teamName}</h3>
-                <p>{team.teamStanding}</p> <br />
+            <div key={team.teamId} className="team_containerWhole">
+              <div className="team_containerLeft">
                 <img
+                  className="team_image"
                   src={team.teamLogo}
                   alt="Team Logo"
-                  style={teamImage}
-                />{' '}
-                <br />
-                <p>
-                  {team.teamSeasonalWins} - {team.teamSeasonalLosses} -{' '}
-                  {team.teamSeasonalTies}
-                </p>{' '}
-                <br />
-                <p>
-                  {team.teamDivisionalWins} - {team.teamDivisionalLosses} -{' '}
-                  {team.teamDivisionalTies}
-                </p>{' '}
-                <br />
-                <p>{team.teamStadium}</p> <br />
-                <p>{team.teamLocation}</p> <br />
+                />
+              </div>
+              <div className="team_containerRight">
+                <div className="team_title">{team.teamName}</div>
+                <div className="team_info">
+                  <div>{team.teamStanding}</div>
+                  <div>
+                    Seasonal Record : {team.teamSeasonalWins} -{' '}
+                    {team.teamSeasonalLosses} - {team.teamSeasonalTies}
+                  </div>
+                  <div>
+                    Divisional Record : {team.teamDivisionalWins} -{' '}
+                    {team.teamDivisionalLosses} - {team.teamDivisionalTies}
+                  </div>
+                </div>
               </div>
             </div>
           );
         })}
-        <div className="playerInformaion" style={playerIndex}>
-          <h1>Player Information</h1>
-          {players.map((player) => {
-            return (
-              <div key={player.playerId}>
-                <div style={playerCard}>
+      </div>
+      <div className="player_container">
+        <h1>Team Roster</h1> <br />
+        {players.map((player) => {
+          return (
+            <div key={player.playerId} className="container_card">
+              <div className="main_card">
+                <div className="card_image">
                   <img
+                    className="player_image"
                     src={player.playerHeadshot}
-                    alt="Player Headshot"
-                    style={playerImage}
+                    alt="Player HeadShot"
                   />
-                  <div>
-                    Name(age): {player.playerName} ({player.playerAge})
+                </div>
+                <div className="card_content">
+                  <div className="card_title">
+                    {player.playerName} - ({player.playerAge})
                   </div>
-                  <div>Status: {player.playerStatus}</div>
-                  <div>{player.playerInjuryStatus}</div>
-                  <div>{player.playerInjury}</div>
-                  <div>Jersey #: {player.playerJersey}</div>
-                  <div>Draft Information: {player.playerDraft}</div>
-                  <div>
-                    Position: {player.playerPosition} - (
-                    {player.playerPositionAbbr})
-                  </div>
-                  <div>
-                    Ht / Wt: {player.playerHeight} - {player.playerWeight}
+                  <div className="card_info">
+                    <div>
+                      {player.playerPosition} - {player.playerPositionAbbr}
+                    </div>
+                    <div>
+                      {player.playerHeight} - {player.playerWeight}
+                    </div>
+                    <div>Jersey: {player.playerJersey}</div>
+                    <div>{player.playerInjuryStatus}</div>
+                    <div>{player.playerInjury}</div>
                   </div>
                 </div>
               </div>
-            );
-          })}
-        </div>
+            </div>
+          );
+        })}
       </div>
     </div>
   );
+
+  // return (
+  //   <div>
+  // <select name="teamId" onBlur={handleSelectedTeam}>
+  //   <option name="favoriteOption">
+  //     Select the team you would like to view!
+  //   </option>
+  //   <option name="favoriteOption" value="1">
+  //     Atlanta Falcons
+  //   </option>
+  //   <option name="favoriteOption" value="2">
+  //     Buffalo Bills
+  //   </option>
+  //   <option name="favoriteOption" value="3">
+  //     Chicago Bears
+  //   </option>
+  //   <option name="favoriteOption" value="4">
+  //     Cincinnati Bengals
+  //   </option>
+  //   <option name="favoriteOption" value="5">
+  //     Cleveland Browns
+  //   </option>
+  //   <option name="favoriteOption" value="6">
+  //     Dallas Cowboys
+  //   </option>
+  //   <option name="favoriteOption" value="7">
+  //     Denver Broncos
+  //   </option>
+  //   <option name="favoriteOption" value="8">
+  //     Detroit Lions
+  //   </option>
+  //   <option name="favoriteOption" value="9">
+  //     Green Bay Packers
+  //   </option>
+  //   <option name="favoriteOption" value="10">
+  //     Tennessee Titans
+  //   </option>
+  //   <option name="favoriteOption" value="11">
+  //     Indianapolis Colts
+  //   </option>
+  //   <option name="favoriteOption" value="12">
+  //     Kansas City Chiefs
+  //   </option>
+  //   <option name="favoriteOption" value="13">
+  //     Las Vegas Raiders
+  //   </option>
+  //   <option name="favoriteOption" value="14">
+  //     Los Angeles Rams
+  //   </option>
+  //   <option name="favoriteOption" value="15">
+  //     Miami Dolphins
+  //   </option>
+  //   <option name="favoriteOption" value="16">
+  //     Minnesota Vikings
+  //   </option>
+  //   <option name="favoriteOption" value="17">
+  //     New England Patriots
+  //   </option>
+  //   <option name="favoriteOption" value="18">
+  //     New Orleans Saints
+  //   </option>
+  //   <option name="favoriteOption" value="19">
+  //     New York Giants
+  //   </option>
+  //   <option name="favoriteOption" value="20">
+  //     New York Jets
+  //   </option>
+  //   <option name="favoriteOption" value="21">
+  //     Philadelphia Eagles
+  //   </option>
+  //   <option name="favoriteOption" value="22">
+  //     Arizona Cardinals
+  //   </option>
+  //   <option name="favoriteOption" value="23">
+  //     Pittsburgh Steelers
+  //   </option>
+  //   <option name="favoriteOption" value="24">
+  //     Los Angeles Chargers
+  //   </option>
+  //   <option name="favoriteOption" value="25">
+  //     San Fransisco 49ers
+  //   </option>
+  //   <option name="favoriteOption" value="26">
+  //     Seattle Seahawks
+  //   </option>
+  //   <option name="favoriteOption" value="27">
+  //     Tampa Bay Buccaneers
+  //   </option>
+  //   <option name="favoriteOption" value="28">
+  //     Washington Commanders
+  //   </option>
+  //   <option name="favoriteOption" value="29">
+  //     Carolina Panthers
+  //   </option>
+  //   <option name="favoriteOption" value="30">
+  //     Jacksonville Jaguars
+  //   </option>
+  //   <option name="favoriteOption" value="33">
+  //     Baltimore Ravens
+  //   </option>
+  //   <option name="favoriteOption" value="34">
+  //     Houston Texans
+  //   </option>
+  // </select>
+  //     <button onClick={submitChange}>View Team</button>
+  //     </div>
+  //     <div className="home_container">
+  //     <div className="team_container">
+  //       {teams.map((team) => {
+  //         return (
+  //           <div key={team.teamId} className="team_containerWhole">
+  //             <div className="team_containerLeft">
+  //               <img
+  //                 className="team_image"
+  //                 src={team.teamLogo}
+  //                 alt="Team Logo"
+  //               />
+  //             </div>
+  //             <div className="team_containerRight">
+  //               <div className="team_title">{team.teamName}</div>
+  //               <div className="team_info">
+  //                 <div>{team.teamStanding}</div>
+  //                 <div>
+  //                   Seasonal Record : {team.teamSeasonalWins} -{' '}
+  //                   {team.teamSeasonalLosses} - {team.teamSeasonalTies}
+  //                 </div>
+  //                 <div>
+  //                   Divisional Record : {team.teamDivisionalWins} -{' '}
+  //                   {team.teamDivisionalLosses} - {team.teamDivisionalTies}
+  //                 </div>
+  //               </div>
+  //             </div>
+  //           </div>
+  //         );
+  //       })}
+  //     </div>
+  //     <div className="player_container">
+  //       <h1>Player Details</h1> <br />
+  //       {players.map((player) => {
+  //         return (
+  //           <div key={player.playerId} className="container_card">
+  //             <div className="main_card">
+  //               <div className="card_image">
+  //                 <img
+  //                   className="player_image"
+  //                   src={player.playerHeadshot}
+  //                   alt="Player HeadShot"
+  //                 />
+  //               </div>
+  //               <div className="card_content">
+  //                 <div className="card_title">
+  //                   {player.playerName} - ({player.playerAge})
+  //                 </div>
+  //                 <div className="card_info">
+  //                   <div>
+  //                     {player.playerPosition} - {player.playerPositionAbbr}
+  //                   </div>
+  //                   <div>
+  //                     {player.playerHeight} - {player.playerWeight}
+  //                   </div>
+  //                   <div>Jersey: {player.playerJersey}</div>
+  //                   <div>{player.playerInjuryStatus}</div>
+  //                   <div>{player.playerInjury}</div>
+  //                 </div>
+  //               </div>
+  //             </div>
+  //           </div>
+  //         );
+  //       })}
+  //     </div>
+  //     )
 }

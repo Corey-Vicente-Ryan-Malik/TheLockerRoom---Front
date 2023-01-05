@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import React from 'react';
 import axios from 'axios';
 import authService from '../services/auth.service';
+import '../StyleFolder/HomeStyle.css';
 
 export default function HomeData() {
   const loggedInUser = authService.getCurrentUser();
@@ -550,84 +551,65 @@ export default function HomeData() {
     setTeams(allTeams);
   }
 
-  const homeView = {
-    textAlign: 'center',
-    display: 'grid',
-  };
-  const teamCard = {
-    gridColumn: 1,
-    gridRow: 1,
-    border: '1px solid black',
-  };
-  const playerIndex = {
-    gridColumn: 2,
-    gridRow: 1,
-    border: '1px solid black',
-  };
-  const playerCard = {
-    border: '1px solid black',
-  };
-  const teamImage = {
-    width: '100px',
-    height: '100px',
-  };
-  const playerImage = {
-    width: '125px',
-    height: '100px',
-  };
-
   return (
-    <div style={homeView}>
-      {teams.map((team) => {
-        return (
-          <div key={team.teamId}>
-            <div className="teamInformation" style={teamCard}>
-              <h1>Team Information</h1>
-              <h3>{team.teamName}</h3>
-              <p>{team.teamStanding}</p> <br />
-              <img src={team.teamLogo} alt="Team Logo" style={teamImage} />{' '}
-              <br />
-              <p>
-                {team.teamSeasonalWins} - {team.teamSeasonalLosses} -{' '}
-                {team.teamSeasonalTies}
-              </p>{' '}
-              <br />
-              <p>
-                {team.teamDivisionalWins} - {team.teamDivisionalLosses} -{' '}
-                {team.teamDivisionalTies}
-              </p>{' '}
-              <br />
-              <p>{team.teamStadium}</p> <br />
-              <p>{team.teamLocation}</p> <br />
+    <div className="home_container">
+      <div className="team_container">
+        {teams.map((team) => {
+          return (
+            <div key={team.teamId} className="team_containerWhole">
+              <div className="team_containerLeft">
+                <img
+                  className="team_image"
+                  src={team.teamLogo}
+                  alt="Team Logo"
+                />
+              </div>
+              <div className="team_containerRight">
+                <div className="team_title">{team.teamName}</div>
+                <div className="team_info">
+                  <div>{team.teamStanding}</div>
+                  <div>
+                    Seasonal Record : {team.teamSeasonalWins} -{' '}
+                    {team.teamSeasonalLosses} - {team.teamSeasonalTies}
+                  </div>
+                  <div>
+                    Divisional Record : {team.teamDivisionalWins} -{' '}
+                    {team.teamDivisionalLosses} - {team.teamDivisionalTies}
+                  </div>
+                </div>
+              </div>
             </div>
-          </div>
-        );
-      })}
-      <div className="playerInformaion" style={playerIndex}>
-        <h1>Player Information</h1>
+          );
+        })}
+      </div>
+      <div className="player_container">
+        <h1>Team Roster</h1> <br />
         {players.map((player) => {
           return (
-            <div key={player.playerId}>
-              <div style={playerCard}>
-                <img
-                  src={player.playerHeadshot}
-                  alt="Player Headshot"
-                  style={playerImage}
-                />
-                <div>
-                  Name(age): {player.playerName} ({player.playerAge})
+            <div key={player.playerId} className="container_card">
+              <div className="main_card">
+                <div className="card_image">
+                  <img
+                    className="player_image"
+                    src={player.playerHeadshot}
+                    alt="Player HeadShot"
+                  />
                 </div>
-                <div>Status: {player.playerStatus}</div>
-                <div>{player.playerInjuryStatus}</div>
-                <div>{player.playerInjury}</div>
-                <div>Jersey #: {player.playerJersey}</div>
-                <div>Draft Information: {player.playerDraft}</div>
-                <div>
-                  Position: {player.playerPosition} - (
-                  {player.playerPositionAbbr})
-                </div>
-                <div>
-                  Ht / Wt: {player.playerHeight} - {player.playerWeight}
+                <div className="card_content">
+                  <div className="card_title">
+                    {player.playerName} - ({player.playerAge})
+                  </div>
+                  <div className="card_info">
+                    <div>
+                      {player.playerPosition} - {player.playerPositionAbbr}
+                    </div>
+                    <div>
+                      {player.playerHeight} - {player.playerWeight}
+                    </div>
+                    <div>Jersey: {player.playerJersey}</div>
+                    <div>{player.playerInjuryStatus}</div>
+                    <div>{player.playerInjury}</div>
+                  </div>
                 </div>
               </div>
             </div>
