@@ -583,7 +583,7 @@ export default function HomeData() {
         })}
       </div>
       <div className="player_container">
-        <h1>Player Details</h1> <br />
+        <h1>Team Roster</h1> <br />
         {players.map((player) => {
           return (
             <div key={player.playerId} className="container_card">

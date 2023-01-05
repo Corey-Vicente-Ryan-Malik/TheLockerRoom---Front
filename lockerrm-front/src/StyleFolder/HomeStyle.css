@@ -45,7 +45,7 @@ h1 {
 .card_content {
     width: 100%;
     text-align: center;
-    margin: 5px auto;
+    margin: auto;
 }
 .card_title {
     font-size: 1.5em;
@@ -65,7 +65,6 @@ h1 {
 .team_containerWhole {
     max-width: 100%;
     margin: auto;
-    height: 45vh;
     display: flex;
     flex-wrap: wrap;
     align-content: center;
@@ -79,24 +78,45 @@ h1 {
 .team_containerRight {
     width: 60%;
     margin: auto;
-    display: flex;
-    flex-wrap: wrap;
 }
 .team_image {
-    height: 50%;
-    width: 100%;
+    height: 525px;
 }
 .team_title {
     text-align: center;
-    font-size: 5em;
+    font-size: 4.75em;
     margin: auto;
 }
 .team_info {
     text-align: center;
-    font-size: 3em;
+    font-size: 2.75em;
     margin: auto;
 }
 /* Team Specific CSS (End) */
+
+/* ------------------------------------------------ */
+
+/* Dropdown Specific CSS (Start) */
+.dropdown_form {
+    width: 50%;
+    font-size: 1.5em;
+    margin: 5px auto;
+}
+select {
+    width: 80%;
+    height: 38px;
+    padding: 0;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+button {
+    padding: 0;
+    width: 18%;
+    border: 1px solid black;
+    border-radius: 5px;
+    margin: 0 0 0 1%
+}
+/* Dropdown Specific CSS (End) */
 
 /* ------------------------------------------------ */
 
