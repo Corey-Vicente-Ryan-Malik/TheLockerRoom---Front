@@ -36,7 +36,7 @@ export default function Navbar() {
       <Router>
         <div className="Navbar">
           <nav className="navbar navbar-expand-lg navbar-light bg-light w-100">
-            <Link to={'/home'} className="navbar-brand">
+            <Link to={'/home'} className=" mx-3 navbar-brand">
               The Locker Room
             </Link>
             <button
@@ -120,7 +120,7 @@ export default function Navbar() {
               </form>
 
               <ul className="navbar-nav">
-                <li className="nav-item dropdown">
+                <li className="nav-item mx-3 dropdown">
                   <Link
                     to={'/lockerrm-front/src/components/Navbar#'}
                     id="navbarDropdownMenuLink"
@@ -138,7 +138,7 @@ export default function Navbar() {
                     {currentUser && (
                       <li>
                         <Link to={'/edit'} id="edit" className="dropdown-item">
-                          Edit Profile
+                          Profile
                         </Link>
                       </li>
                     )}
