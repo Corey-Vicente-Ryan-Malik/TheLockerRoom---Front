@@ -3,8 +3,9 @@ import React from "react";
 
 function Error() {
     return(
-        <div className="">
-            <img src={holup}/>
+        <div className="ErrorPage" style={ErrorPage}>
+            <img style={Image} src={holup}/>
+
 
             <h1>
                 404...That page doesn't exist big fella.
@@ -14,4 +15,19 @@ function Error() {
     )
 }
 
-export default Error;
+const ErrorPage = {
+    display:'flex',
+    flexDirection:'column',
+    alignItems:'center',
+    // justifyContent: 'center',
+    margin:'15px auto'
+
+
+}
+
+const Image = {
+    height:'50%',
+    width:'50%'
+
+}
+
