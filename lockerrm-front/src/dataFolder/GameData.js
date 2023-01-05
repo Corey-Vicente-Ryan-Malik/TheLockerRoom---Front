@@ -331,7 +331,7 @@ export default function GameData() {
   }
 
   return (
-    <div className="home_container">
+    <div className="weekly_container">
       <h1>Weekly Schedule</h1>
       {games.map((game) => {
         return (
