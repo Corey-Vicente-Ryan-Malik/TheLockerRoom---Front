@@ -142,17 +142,6 @@ export default function Navbar() {
                         </Link>
                       </li>
                     )}
-                    {currentUser && (
-                      <li>
-                        <Link
-                          to={'/Settings'}
-                          id="settings"
-                          className="dropdown-item"
-                        >
-                          Settings
-                        </Link>
-                      </li>
-                    )}
                     {currentUser ? (
                       <li>
                         <Link
