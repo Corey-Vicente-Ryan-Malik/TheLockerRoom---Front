@@ -551,22 +551,13 @@ export default function HomeData() {
     setTeams(allTeams);
   }
 
-  const teamCard = {
-    gridColumn: 1,
-    gridRow: 1,
-    border: '1px solid black',
-  };
-  const teamImage = {
-    width: '100px',
-    height: '100px',
-  };
-
   return (
-    <div>
+    <div className="team_container">
+      <h1>Team Information</h1>
       {teams.map((team) => {
         return (
           <div key={team.teamId}>
-            <div className="teamInformation" style={teamCard}>
+            {/* <div className="teamInformation" style={teamCard}>
               <h1>Team Information</h1>
               <h3>{team.teamName}</h3>
               <p>{team.teamStanding}</p> <br />
@@ -584,11 +575,11 @@ export default function HomeData() {
               <br />
               <p>{team.teamStadium}</p> <br />
               <p>{team.teamLocation}</p> <br />
-            </div>
+            </div> */}
           </div>
         );
       })}
-      <div className="container">
+      <div className="player_container">
         <h1>Player Details</h1> <br />
         {players.map((player) => {
           return (

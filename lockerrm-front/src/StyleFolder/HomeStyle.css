@@ -4,9 +4,23 @@ body {
     font-style: normal;
     font-weight: 400;
     letter-spacing: 0;
-    background-color: lightgray;
 }
-.container {
+h1 {
+    width: 85%;
+    text-align: center;
+    font-size: 3em;
+    margin: auto;
+}
+img {
+    height: auto;
+    max-width: 100%;
+    vertical-align: middle;
+}
+
+/* ------------------------------------------------ */
+
+/* Player Specific CSS (Start) */
+.player_container {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
@@ -24,11 +38,6 @@ body {
     width: 95%;
     margin: 25px auto;
 }
-img {
-    height: auto;
-    max-width: 100%;
-    vertical-align: middle;
-}
 .card_content {
     width: 100%;
     text-align: center;
@@ -40,13 +49,17 @@ img {
 .card_info {
     font-size: 1.10em;
 }
-h1 {
-    width: 85%;
-    text-align: center;
-    font-size: 3em;
-    margin: auto;
-}
+/* Player Specific CSS (End) */
 
+/* ------------------------------------------------ */
+
+/* Team Specific CSS (Start) */
+
+/* Team Specific CSS (End) */
+
+/* ------------------------------------------------ */
+
+/* Media Query CSS both Player & Team */
 @media(max-width: 1250px) {
     .container_card {
         width: 25%;
