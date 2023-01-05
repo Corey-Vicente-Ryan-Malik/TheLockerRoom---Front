@@ -1,0 +1,82 @@
+.home_container {
+    border: 1px solid black;
+    width: 98%;
+    margin: auto;
+}
+.game_container {
+    border: 1px solid black;
+    width: 98%;
+    height: 30vh;
+    margin: 25px auto;
+    display: flex;
+}
+.game_leftContainer {
+    border: 1px solid black;
+    width: 24%;
+    height: 98%;
+    margin: auto;
+    text-align: center;
+}
+.game_middleContainer {
+    border: 1px solid black;
+    width: 49%;
+    height: 98%;
+    margin: auto;
+    text-align: center;
+}
+.game_rightContainer {
+    border: 1px solid black;
+    width: 24%;
+    height: 98%;
+    margin: auto;
+    text-align: center;
+}
+.game_name {
+    width: 98%;
+    margin: 20px auto;
+    font-size: 40px;
+}
+.game_date {
+    width: 98%;
+    margin: 15px auto;
+    font-size: 30px;
+}
+.game_score {
+    width: 98%;
+    margin: auto;
+    font-size: 75px;
+}
+.home_logo {
+    width: 100px;
+    height: 100px;
+    margin: 10px auto 0 auto;
+}
+.away_logo {
+    width: 100px;
+    height: 100px;
+    margin: 10px auto 0 auto;
+}
+.home_team {
+    width: 98%;
+    margin: 5px auto;
+    font-size: 25px;
+    text-align: center;
+}
+.away_team {
+    width: 98%;
+    margin: 5px auto;
+    font-size: 25px;
+    text-align: center;
+}
+.home_record {
+    width: 98%;
+    margin: 5px auto;
+    font-size: 20px;
+    text-align: center;
+}
+.away_record {
+    width: 98%;
+    margin: 5px auto;
+    font-size: 20px;
+    text-align: center;
+}
