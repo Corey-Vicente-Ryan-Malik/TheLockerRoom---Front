@@ -1,8 +1,8 @@
 import axios from 'axios';
 import React from 'react';
-import Navbar from '../components/Navbar';
+// import Navbar from '../components/Navbar';
 
-const API_URL = 'http://localhost:8080/oauth/token';
+// const API_URL = 'https://lockerrm.us:8080/oauth/token';
 
 class AuthService {
   login(username, password, grant_type, user) {
@@ -45,7 +45,7 @@ class AuthService {
     window.location.href = 'http://localhost:3000/';
   }
   register(firstname, lastname, email, username, password, favoriteTeam) {
-    return axios.post(API_URL + '/register', {
+    return axios.post('http://localhost:8080/register', {
       firstname,
       lastname,
       email,

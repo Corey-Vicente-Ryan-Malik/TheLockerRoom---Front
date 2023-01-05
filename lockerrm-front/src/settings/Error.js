@@ -6,6 +6,7 @@ function Error() {
         <div className="ErrorPage" style={ErrorPage}>
             <img style={Image} src={holup}/>
 
+
             <h1>
                 404...That page doesn't exist big fella.
             </h1>
@@ -30,4 +31,3 @@ const Image = {
 
 }
 
-export default Error

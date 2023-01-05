@@ -40,7 +40,7 @@ export default function NewsData() {
     let allDataTwo;
     for (let i in allData) {
       allDataOne = allData[i].Categories;
-      allDataTwo = `Categories: ${allDataOne}`;
+      allDataTwo = `${allDataOne}`;
 
       if (allDataOne !== '') {
         newsCategoriesArr.push(allDataTwo);
@@ -96,6 +96,7 @@ export default function NewsData() {
       let article = {};
       article.newsContent = info;
       allArticles.push(article);
+
     });
 
     for (let i = 0; i < allArticles.length; i++) {
@@ -105,64 +106,117 @@ export default function NewsData() {
       allArticles[i].newsSource = newsSourceArr[i];
       allArticles[i].newsCategories = newsCategoriesArr[i];
       allArticles[i].newsUpdate = newsUpdateArr[i];
+
     }
     setNews(allArticles);
   }
+  //
+  // const cardLayout = {
+  //   display: 'flex',
+  //   border: '1px solid black',
+  //   width: '75vw',
+  //   margin: '25px auto',
+  //   fontFamily: 'Times New Roman',
+  //   fontSize: '25px',
+  //   color: 'black',
+  //   backgroundColor: 'lightGrey',
+  // };
+  // const cardItem = {
+  //   display: 'flex',
+  //   justifyContent: 'start',
+  //   alignItems: 'center',
+  //   flexDirection: 'column'
+  // };
+  // const header = {
+  //   fontSize: '60px',
+  // };
+  // const footer = {
+  //   // display: 'flex',
+  //   // justifyContent: 'space-between',
+  //   // fontSize: '18px',
+  // };
+  // const link = {
+  //   color: 'green',
+  // };
+  // const subHeader = {
+  //   display: 'flex',
+  //   justifyContent: 'start',
+  //   alignItems: 'center',
+  //   flexDirection: 'row'
+  // }
+  const articleContainer = {
+    display: 'flex',
+    flexDirection: 'column',
+    width: '60%',
+    marginLeft:"auto",
+    marginRight:"auto",
+    marginBottom: "3em",
+    marginTop: '3em'
 
-  const cardLayout = {
-    display: 'flex',
-    border: '1px solid black',
-    width: '75vw',
-    margin: '25px auto',
-    fontFamily: 'Times New Roman',
-    fontSize: '25px',
-    color: 'black',
-    backgroundColor: 'lightGrey',
-  };
-  const cardItem = {
-    justifyContent: 'center',
-    alignItems: 'center',
-    textAlign: 'center',
-    width: '71vw',
-    margin: 'auto',
-  };
-  const header = {
-    fontSize: '60px',
-  };
-  const footer = {
-    display: 'flex',
-    justifyContent: 'space-between',
-    fontSize: '18px',
-  };
-  const link = {
-    color: 'green',
-  };
+  }
+  const title = {
+    textAlign: 'left'
+  }
+  const articleSource = {
+    textAlign: 'left',
+  }
+  const articleTabs = {
+    display: "flex",
+    flexDirection: "row"
+  }
+  const articlePublished = {
+    marginRight: "1em",
+    backgroundColor: '#A9A9A9',
+    borderRadius: '7px',
+    color: 'white',
+    padding: '.5em',
+
+  }
+  const articleCat ={
+    marginRight: ".25em",
+    backgroundColor: 'black',
+    borderRadius: '5px',
+    color: 'white',
+    padding: '.5em',
+    fontWeight: "bold",
+  }
+  const articleBody = {
+    marginTop: ".5em",
+    fontsize: "2rem"
+  }
+
 
   return (
     <React.Fragment>
       {news.map((article) => {
         return (
-          <div key={article.newsId} style={cardLayout}>
-            <div style={cardItem}>
-              <h1 style={header}>{article.newsTitle}</h1>
-              <p>{article.newsContent}</p>
-              <div style={footer}>
-                {/* <div>Categories: {article.newsCategories}</div> */}
-                <div>{article.newsCategories}</div>
-                <div>Updated: {article.newsUpdate}</div>
-                <div>
-                  <a
-                    style={link}
-                    href={article.newsLink}
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    Source: {article.newsSource}
-                  </a>
-                </div>
+            <div key={article.newsId} style={articleContainer}>
+              <div style={articleTabs}>
+                <div style={articlePublished}>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
+                       className="bi bi-calendar2" viewBox="0 0 16 16">
+                    <path
+                        d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM2 2a1 1 0 0 0-1 1v11a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1H2z"/>
+                    <path d="M2.5 4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5H3a.5.5 0 0 1-.5-.5V4z"/>
+                  </svg> {article.newsUpdate}</div>
+                <div style={articleCat}>{article.newsCategories || "General" }</div>
+              </div>
+              <h1 style={title}>{article.newsTitle}</h1>
+              <div>
+                <p style={articleBody}>{article.newsContent}</p>
+              </div>
+              <div style={articleSource}>
+
+                <a href={article.newsLink} target="_blank" rel="noreferrer">
+                  Source: {article.newsSource}
+                </a>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                     className="bi bi-arrow-right" viewBox="0 0 16 16">
+                  <path fill-rule="evenodd"
+                        d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
+                </svg>
               </div>
             </div>
-          </div>
         );
       })}
     </React.Fragment>
