@@ -21,7 +21,7 @@ code {
     display: grid;
     margin: 50px auto;
     border: solid black;
-    borderRadius: 25px;
+    border-radius: 25px;
     width: 40vw;
     height: 60vh;
 }
