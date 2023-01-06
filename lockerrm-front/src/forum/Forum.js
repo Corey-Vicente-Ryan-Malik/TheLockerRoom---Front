@@ -87,7 +87,7 @@ const Forum = () => {
             }}
             key={post.id}
           >
-            <Card.Subtitle className="text-muted">
+            <Card.Subtitle className="text-muted dots">
               Posted by {post.user.username}
               <Dropdown>
                 <Dropdown.Toggle as={customToggle} />
