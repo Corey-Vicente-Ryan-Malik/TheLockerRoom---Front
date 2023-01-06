@@ -28,22 +28,22 @@
     margin-left: 12em;
     color: red;
 }
-input{
+.inputBox{
     margin-left: auto;
     margin-right: auto;
     width: 60%;
     border: none;
     border-bottom: 1px solid lightgrey;
 }
-select{
-    width: 60%;
-    margin-left: auto;
-    margin-right: auto;
-    border: none;
-    border-bottom: 1px solid lightgrey;
+/*select{*/
+/*    width: 60%;*/
+/*    margin-left: auto;*/
+/*    margin-right: auto;*/
+/*    border: none;*/
+/*    border-bottom: 1px solid lightgrey;*/
 
-}
-button{
+/*}*/
+#buttonBox{
     width: 54%;
     margin:1em auto;
     height: 3em;

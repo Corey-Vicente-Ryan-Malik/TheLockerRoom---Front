@@ -49,15 +49,27 @@
     width: 100%;
 
 }
-input{
+.inputBox2{
     height: 3em;
+    border: none;
     border-bottom: 1px solid lightgrey;
     width: 80%;
+    margin-left: auto;
+    margin-right: auto;
 }
-button{
-    height: 2em;
-    width: 30%;
-    margin: 0;
+#landingButton{
+    height: 3em;
+    width: 75%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: .75em;
+}
+#landingButton2{
+    height: 3em;
+    width: 75%;
+    margin-left: auto;
+    margin-right: auto;
+    /*margin: 0;*/
 }
 .buttonContainer{
     display: flex;

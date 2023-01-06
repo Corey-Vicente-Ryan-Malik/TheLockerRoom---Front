@@ -40,7 +40,7 @@ const Register = (props, {}) => {
           <div className="inputContainer">
             <label htmlFor="firstname"></label>
             {errors.firstName &&( <p className="error">{errors.firstName}</p>)}
-            <input
+            <input className="inputBox"
                 // className="firstNameInput"
                 id="firstname"
                 type="text"
@@ -54,6 +54,7 @@ const Register = (props, {}) => {
             <label htmlFor="lastname"></label>
             {errors.lastName &&( <p className="error">{errors.lastName}</p>)}
             <input
+                className="inputBox"
                 id="lastname"
                 type="text"
                 placeholder=" Last Name"
@@ -66,6 +67,7 @@ const Register = (props, {}) => {
             <label htmlFor="email"></label>
             {errors.email &&( <p className="error">{errors.email}</p>)}
             <input
+                className="inputBox"
                 id="email"
                 type="text"
                 placeholder="Email"
@@ -78,6 +80,7 @@ const Register = (props, {}) => {
             <label htmlFor="username"></label>
             {errors.username &&( <p className="error">{errors.username}</p>)}
             <input
+                className="inputBox"
                 id="username"
                 type="text"
                 placeholder="Username"
@@ -90,6 +93,7 @@ const Register = (props, {}) => {
             <label htmlFor="favoriteTeam"></label>
             {errors.favoriteTeam &&( <p className="error">{errors.favoriteTeam}</p>)}
             <select
+                className="inputBox"
                 id="favoriteTeam"
                 name="favoriteTeam"
 
@@ -138,6 +142,7 @@ const Register = (props, {}) => {
             <label htmlFor="password"></label>
             {errors.password && <p className="error">{errors.password}</p>}
             <input
+                className="inputBox"
                 id="password"
                 placeholder=" Enter Password"
                 type="password"
@@ -151,6 +156,7 @@ const Register = (props, {}) => {
             <label htmlFor="confirmPassword"></label>
             {errors.confirmPassword && <p className="error">{errors.confirmPassword}</p>}
             <input
+                className="inputBox"
                 id="confirmPassword"
                 placeholder=" Re-enter Password"
                 type="password"
@@ -161,7 +167,7 @@ const Register = (props, {}) => {
           </div>
 
 
-          <button type="button" className="btn btn-primary" onClick={onSubmit}>Sign Up</button>
+          <button type="button" id="buttonBox" className="btn btn-primary" onClick={onSubmit}>Sign Up</button>
         </form>
       </div>
     </div>

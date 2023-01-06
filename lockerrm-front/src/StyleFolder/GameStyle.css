@@ -1,5 +1,4 @@
-.home_container {
-    border: 1px solid black;
+.weekly_container {
     width: 98%;
     margin: auto;
 }
@@ -11,21 +10,18 @@
     display: flex;
 }
 .game_leftContainer {
-    border: 1px solid black;
     width: 24%;
     height: 98%;
     margin: auto;
     text-align: center;
 }
 .game_middleContainer {
-    border: 1px solid black;
     width: 49%;
     height: 98%;
     margin: auto;
     text-align: center;
 }
 .game_rightContainer {
-    border: 1px solid black;
     width: 24%;
     height: 98%;
     margin: auto;
@@ -34,49 +30,63 @@
 .game_name {
     width: 98%;
     margin: 20px auto;
-    font-size: 40px;
+    font-size: 30px;
 }
 .game_date {
     width: 98%;
     margin: 15px auto;
-    font-size: 30px;
+    font-size: 25px;
 }
 .game_score {
     width: 98%;
     margin: auto;
-    font-size: 75px;
+    font-size: 60px;
 }
 .home_logo {
     width: 100px;
     height: 100px;
-    margin: 10px auto 0 auto;
+    margin: auto;
 }
 .away_logo {
     width: 100px;
     height: 100px;
-    margin: 10px auto 0 auto;
+    margin: auto;
 }
 .home_team {
     width: 98%;
     margin: 5px auto;
-    font-size: 25px;
+    font-size: 20px;
     text-align: center;
 }
 .away_team {
     width: 98%;
     margin: 5px auto;
-    font-size: 25px;
+    font-size: 20px;
     text-align: center;
 }
 .home_record {
     width: 98%;
-    margin: 5px auto;
-    font-size: 20px;
+    margin: auto;
+    font-size: 15px;
     text-align: center;
 }
 .away_record {
     width: 98%;
-    margin: 5px auto;
-    font-size: 20px;
+    margin: auto;
+    font-size: 15px;
     text-align: center;
+}
+.home_title {
+    width: 98%;
+    margin: auto;
+    font-size: 30px;
+    text-align: center;
+    font-weight: bold;
+}
+.away_title {
+    width: 98%;
+    margin: auto;
+    font-size: 30px;
+    text-align: center;
+    font-weight: bold;
 }

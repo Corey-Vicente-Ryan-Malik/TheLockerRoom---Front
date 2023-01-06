@@ -87,10 +87,10 @@ const Landing = (props, {}) => {
                 <p className="error">{errMsg}</p>
                 {errors.username && <p className="error">{errors.username} </p>}
                 <input
+                    className="inputBox2"
                     name="username"
                     ref={userRef}
                     required
-                    className="input"
                     placeholder="Username"
                     type="text"
                     value={username}
@@ -108,7 +108,7 @@ const Landing = (props, {}) => {
                     name="password"
                     ref={userRef}
                     required
-                    className="input"
+                    className="inputBox2"
                     type="password"
                     placeholder="Password"
                     value={password}
@@ -118,8 +118,8 @@ const Landing = (props, {}) => {
               </div>
             </div>
             <div className="buttonContainer">
-              <button type="button" className="btn btn-dark" onClick={(e) => sendLoginRequest()}>Login</button>
-              <button type="button" className="btn btn-dark" onClick={onClick}>Create Account</button>
+              <button type="button" id="landingButton" className="btn btn-dark" onClick={(e) => sendLoginRequest()}>Login</button>
+              <button type="button" id="landingButton2" className="btn btn-dark" onClick={onClick}>Create Account</button>
             </div>
 
           </form>

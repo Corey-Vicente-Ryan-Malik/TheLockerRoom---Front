@@ -331,14 +331,14 @@ export default function GameData() {
   }
 
   return (
-    <div className="home_container">
+    <div className="weekly_container">
       <h1>Weekly Schedule</h1>
       {games.map((game) => {
         return (
           <div key={game.id}>
             <div className="game_container">
               <div className="game_leftContainer">
-                <h1>Away</h1>
+                <div className="away_title">Away</div>
                 <img
                   className="away_logo"
                   src={game.awayLogo}
@@ -355,7 +355,7 @@ export default function GameData() {
                 </div>
               </div>
               <div className="game_rightContainer">
-                <h1>Home</h1>
+                <div className="home_title">Home</div>
                 <img
                   className="home_logo"
                   src={game.homeLogo}

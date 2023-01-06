@@ -1,5 +1,13 @@
+a { color: #000 }
+a:link { text-decoration: none; }
+a:visited { text-decoration: none; }
+a:hover { text-decoration: none; }
+a:active { text-decoration: none; }
+
+
 .forumWelcome {
     text-align: center;
+    margin: 1rem auto 1rem;
 }
 
 .createPost h3 {
@@ -8,4 +16,14 @@
 
 .editPost h3 {
     text-align: center;
+}
+
+.threeDots:after {
+    content: "\2807";
+    font-size: 20px;
+}
+
+.dots {
+    display: flex;
+    justify-content: space-between;
 }
