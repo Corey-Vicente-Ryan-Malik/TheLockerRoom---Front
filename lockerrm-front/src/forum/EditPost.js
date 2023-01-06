@@ -39,10 +39,8 @@ const EditPost = () => {
   // Function sends PUT request to edit post.
   const onSubmit = (e) => {
     e.preventDefault();
-
     const user = authService.getCurrentUser();
     const post = { user, postBody };
-
     const EDIT_API = 'http://localhost:8080/posts/' + id + '/edit-post';
     const options = {
       method: 'PUT',
@@ -52,7 +50,6 @@ const EditPost = () => {
       },
       body: JSON.stringify(post),
     };
-
     fetch(EDIT_API, options)
       .then(() => {
         navigate('/forum');
@@ -64,17 +61,26 @@ const EditPost = () => {
 
   return (
     <div className="editPost">
-      <h3>Edit Your Post</h3>
-      <Container>
+      <Container style={{ display: 'flex', justifyContent: 'space-between' }}>
+        <h2 style={{ marginTop: '2rem', marginBottom: '0' }}>Edit Your Post</h2>
+      </Container>
+      <hr style={{ width: '90%', margin: '1rem auto 3rem' }} />
+      <Container style={{ margin: '1rem auto 10rem' }} className="text-center">
         <Form style={{ margin: 'auto' }} onSubmit={onSubmit}>
           <Form.Control
             as="textarea"
-            rows={3}
+            rows={4}
             className="mb-3"
             required
             defaultValue={currentPost}
             onChange={(e) => setPostBody(e.target.value)}
           ></Form.Control>
+          <Form.Text
+            style={{ display: 'block', margin: '1rem auto 1rem' }}
+            className="text-muted"
+          >
+            Express yourself in 500 words or less, again.
+          </Form.Text>
           <Button variant="success" type="submit">
             Edit Post
           </Button>
@@ -91,5 +97,4 @@ const EditPost = () => {
     </div>
   );
 };
-
 export default EditPost;
