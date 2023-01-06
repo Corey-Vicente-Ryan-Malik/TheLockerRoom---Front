@@ -12,6 +12,11 @@ const EditPost = () => {
   const [currentPost, setCurrentPost] = useState('');
   const { id } = useParams();
 
+  const handleCancel = (e) => {
+    e.preventDefault();
+    navigate('/forum');
+  };
+
   const getCurrentPost = 'http://localhost:8080/posts/' + id;
   const getPostOptions = {
     method: 'GET',
@@ -72,6 +77,14 @@ const EditPost = () => {
           ></Form.Control>
           <Button variant="success" type="submit">
             Edit Post
+          </Button>
+          <Button
+            variant="danger"
+            className="mx-2"
+            type="button"
+            onClick={handleCancel}
+          >
+            Cancel
           </Button>
         </Form>
       </Container>

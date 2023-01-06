@@ -21,3 +21,8 @@ a:active { text-decoration: none; }
     content: "\2807";
     font-size: 20px;
 }
+
+.text-muted {
+    display: flex;
+    justify-content: space-between;
+}
