@@ -50,11 +50,11 @@ const Forum = () => {
   ));
   
   return (
-    <div style={{ backgroundColor: "e5e4e2" }}>
+    <div>
       <h2 className="forumWelcome">The Locker Room Forums</h2>
 
 
-      <Container>
+      <Container style={{backgroundColor: "e5e4e2"}}>
         <Alert variant="success">
           <Alert.Heading>Hey, {currentUser.username}!</Alert.Heading>
           <p>
@@ -67,18 +67,18 @@ const Forum = () => {
           </p>
         </Alert>
 
-        <Button style={{marginBottom: '1rem'}} variant="dark" onClick={() => navigate('/create-post')}>Create Post</Button>
+        <Button variant="dark" onClick={() => navigate('/create-post')}>Create Post</Button>
+
+        <hr style={{margin: "1rem auto 1rem"}} />
 
         {posts.map((post) => (
           <Card style={{
-            width: '80%',
+            width: '100%',
             padding: '1.5rem',
             marginBottom: '1rem',
             }} key={post.id}>
 
-              <Card.Subtitle className="text-muted">Posted by {post.user.username}</Card.Subtitle>
-              <Card.Text style={{ marginBottom: "0px"}}>{post.postBody}</Card.Text>
-
+              <Card.Subtitle className="text-muted dots">Posted by {post.user.username}
               <Dropdown>
                 <Dropdown.Toggle as={customToggle} />
                 <Dropdown.Menu size="sm" title="">
@@ -111,8 +111,13 @@ const Forum = () => {
                   }}>Delete</Dropdown.Item>
                 </Dropdown.Menu>
               </Dropdown>
+              </Card.Subtitle>
+
+              <Card.Text style={{ marginBottom: "0px"}}>{post.postBody}</Card.Text>
+              
           </Card>
         ))}
+        <hr style={{margin: "1rem auto 1rem"}} />
       </Container>
 
     </div>
