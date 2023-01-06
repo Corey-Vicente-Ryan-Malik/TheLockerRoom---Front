@@ -53,7 +53,7 @@ const Landing = (props, {}) => {
         user
     );
     if (localStorage.getItem('access_token')) {
-      const API = 'https://lockerrm.us:8080/user/';
+      const API = 'http://localhost:8080/user/';
       const options = {
         method: 'GET',
         headers: {
