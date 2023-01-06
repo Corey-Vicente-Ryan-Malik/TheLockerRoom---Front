@@ -7,6 +7,7 @@ a:active { text-decoration: none; }
 
 .forumWelcome {
     text-align: center;
+    margin: 1rem auto 1rem;
 }
 
 .createPost h3 {

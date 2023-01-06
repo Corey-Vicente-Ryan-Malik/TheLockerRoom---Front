@@ -1,13 +1,13 @@
-import React, { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import authService from '../services/auth.service';
-import Container from 'react-bootstrap/Container';
-import Card from 'react-bootstrap/Card';
-import Button from 'react-bootstrap/Button';
-import Alert from 'react-bootstrap/Alert';
-import Dropdown from 'react-bootstrap/Dropdown';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import './Forum.css';
+import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import authService from "../services/auth.service";
+import Container from "react-bootstrap/Container";
+import Card from "react-bootstrap/Card";
+import Button from "react-bootstrap/Button";
+import Alert from "react-bootstrap/Alert";
+import Dropdown from "react-bootstrap/Dropdown";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "./Forum.css";
 
 const Forum = () => {
   const [posts, setPosts] = useState([]);
@@ -53,7 +53,8 @@ const Forum = () => {
     <div>
       <h2 className="forumWelcome">The Locker Room Forums</h2>
 
-      <Container style={{ backgroundColor: 'e5e4e2' }}>
+      <Container style={{backgroundColor: "e5e4e2"}}>
+
         <Alert variant="success">
           <Alert.Heading>Hey, {currentUser.username}!</Alert.Heading>
           <p>
@@ -68,23 +69,19 @@ const Forum = () => {
           </p>
         </Alert>
 
-        <Button variant="dark" onClick={() => navigate('/create-post')}>
-          Create Post
-        </Button>
+        <Button variant="dark" onClick={() => navigate('/create-post')}>Create Post</Button>
 
-        <hr style={{ margin: '1rem auto 1rem' }} />
+        <hr style={{margin: "1rem auto 1rem"}} />
 
         {posts.map((post) => (
-          <Card
-            style={{
-              width: '100%',
-              padding: '1.5rem',
-              marginBottom: '1rem',
-            }}
-            key={post.id}
-          >
-            <Card.Subtitle className="text-muted dots">
-              Posted by {post.user.username}
+          <Card style={{
+            width: '100%',
+            padding: '1.5rem',
+            marginBottom: '1rem',
+            }} key={post.id}>
+
+              <Card.Subtitle className="text-muted dots">Posted by {post.user.username}
+
               <Dropdown>
                 <Dropdown.Toggle as={customToggle} />
                 <Dropdown.Menu size="sm" title="">
@@ -128,14 +125,15 @@ const Forum = () => {
                   </Dropdown.Item>
                 </Dropdown.Menu>
               </Dropdown>
-            </Card.Subtitle>
 
-            <Card.Text style={{ marginBottom: '0px' }}>
-              {post.postBody}
-            </Card.Text>
+              </Card.Subtitle>
+
+              <Card.Text style={{ marginBottom: "0px"}}>{post.postBody}</Card.Text>
+              
           </Card>
         ))}
-        <hr style={{ margin: '1rem auto 1rem' }} />
+        <hr style={{margin: "1rem auto 1rem"}} />
+
       </Container>
     </div>
   );
