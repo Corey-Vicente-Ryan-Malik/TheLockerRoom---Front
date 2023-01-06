@@ -4,6 +4,7 @@ import authService from '../services/auth.service';
 import './Forum.css';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
+import Container from 'react-bootstrap/esm/Container';
 
 const EditPost = () => {
     const navigate = useNavigate();
@@ -11,6 +12,26 @@ const EditPost = () => {
     const { id } = useParams();
     
     
+    let currentPost;
+    const getCurrentPost = "http://localhost:8080/posts/" + id;
+    const getPostOptions = {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json",
+            "Authorization": "Bearer " + localStorage.getItem("access_token")
+        }
+    }
+
+    // Sending GET request to retrieve current post being edited.
+    fetch(getCurrentPost, getPostOptions)
+    .then(response => response.json())
+    .then(data => {
+        console.log(data);
+        currentPost = data.postBody;
+    })
+    .catch(err => console.log(err))
+    
+    // Function sends PUT request to edit post.
     const onSubmit = (e) => {
         e.preventDefault();
         
@@ -36,17 +57,19 @@ const EditPost = () => {
     return(
         <div className="editPost">
             <h3>Edit Your Post</h3>
-            <Form style={{margin: "auto", width: "30%"}} onSubmit={onSubmit}>
+            <Container>
+            <Form style={{margin: "auto"}} onSubmit={onSubmit}>
                 <Form.Control
                 as="textarea"
                 rows={3}
                 className="mb-3"
                 required
-                value={ postBody }
+                value={ currentPost }
                 onChange={(e) => setPostBody(e.target.value)}
                 ></Form.Control>
                 <Button variant="success" type="submit">Edit Post</Button>
             </Form>
+            </Container>
         </div>
     )
 }
