@@ -268,24 +268,19 @@ export default function HomeData() {
     let allDataThree;
     for (let i in allData) {
       allDataOne = allData.team.athletes;
-      // console.log(allDataOne);
       for (let i in allDataOne) {
-        allDataTwo = allDataOne[i].headshot;
-
-        if (allDataTwo.href === undefined) {
-          athleteHeadshotArr.push(nfl);
-        } else if (allDataThree !== allDataTwo.href) {
-          allDataThree = allDataTwo.href;
-          athleteHeadshotArr.push(allDataThree);
+        allDataOne[i].headshot === undefined
+          ? (allDataTwo = { href: nfl, alt: 'playerHeadshot' })
+          : (allDataTwo = allDataOne[i].headshot);
+        for (let i in allDataTwo) {
+          if (allDataThree !== allDataTwo.href) {
+            allDataThree = allDataTwo.href;
+            athleteHeadshotArr.push(allDataThree);
+          } else if (allDataThree === undefined) {
+            allDataThree = nfl;
+            athleteHeadshotArr.push(allDataThree);
+          }
         }
-
-        // if (allDataThree !== allDataTwo.href) {
-        //   allDataThree = allDataTwo.href;
-        //   athleteHeadshotArr.push(allDataThree);
-        // } else if (allDataTwo.href === undefined) {
-        //   allDataThree = nfl;
-        //   athleteHeadshotArr.push(allDataThree);
-        // }
       }
     }
     return athleteHeadshotArr;
