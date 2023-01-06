@@ -34,6 +34,7 @@
     width: 60%;
     border: none;
     border-bottom: 1px solid lightgrey;
+    outline: none;
 }
 /*select{*/
 /*    width: 60%;*/

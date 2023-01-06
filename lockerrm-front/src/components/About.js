@@ -45,7 +45,7 @@ export default function About() {
                     <Card.Img variant="top" src={about2}/>
                     <Card.Body>
                         <Card.Title>Ryan Harris</Card.Title>
-                        <Card.Text style={iconDisplay} >
+                        <Card.Text >
                             <a target={"_blank"} href="https://www.linkedin.com/in/ryantharris/ "><i style={icon} className="fa-brands fa-linkedin"></i></a>
                             <a target={"_blank"} href="https://github.com/ryant67 "><i style={icon} className="fa-brands fa-github"></i></a>
                             <a target={"_blank"} href="https://alumni.codeup.com/students/1657"><i style={icon} className="fa-solid fa-envelope"></i></a>
