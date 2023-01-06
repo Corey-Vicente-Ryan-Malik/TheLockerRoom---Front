@@ -71,6 +71,7 @@ h1 {
 }
 .team_containerLeft {
     width: 40%;
+    height: 300px;
     margin: auto;
     display: flex;
     justify-content: center;
@@ -79,17 +80,14 @@ h1 {
     width: 60%;
     margin: auto;
 }
-.team_image {
-    height: 400px;
-}
 .team_title {
     text-align: center;
-    font-size: 4em;
+    font-size: 3.5em;
     margin: auto;
 }
 .team_info {
     text-align: center;
-    font-size: 2em;
+    font-size: 1.75em;
     margin: auto;
 }
 /* Team Specific CSS (End) */
@@ -101,6 +99,7 @@ h1 {
     width: 98%;
     font-size: 1em;
     margin: 5px auto;
+    z-index: 100;
 }
 .dropdown_select {
     width: auto;

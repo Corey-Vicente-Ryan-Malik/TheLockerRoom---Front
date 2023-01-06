@@ -14,8 +14,13 @@ export default function Edit() {
 
   const loggedInUser = authService.getCurrentUser();
 
+  const handleChange = (e) => {
+    e.preventDefault();
+    navigate('/home');
+  };
+
   const handleUsernameChange = (e) => {
-    if(e.target.value === '') {
+    if (e.target.value === '') {
       setUsername(loggedInUser.username);
     } else {
       setUsername(e.target.value);
@@ -32,7 +37,7 @@ export default function Edit() {
 
   const handleFavTeamChange = (e) => {
     if (e.target.value === null || e.target.value === undefined) {
-      setFavTeam(6)
+      setFavTeam(6);
     } else {
       setFavTeam(e.target.value);
     }
@@ -50,54 +55,61 @@ export default function Edit() {
       favoriteTeam: favTeam,
     };
 
-    const API = "http://localhost:8080/users/" + loggedInUser.id + "/edit-profile";
+    const API =
+      'http://localhost:8080/users/' + loggedInUser.id + '/edit-profile';
     const options = {
-      method: "PUT",
+      method: 'PUT',
       headers: {
-        "Content-Type": "application/json",
-        "Authorization": "Bearer " + localStorage.getItem("access_token"),
+        'Content-Type': 'application/json',
+        Authorization: 'Bearer ' + localStorage.getItem('access_token'),
       },
       body: JSON.stringify(User),
     };
 
     if (User.username.length > 20) {
-      alert("Error: username cannot be longer than 20 letters.\nPlease try again.");
+      alert(
+        'Error: username cannot be longer than 20 letters.\nPlease try again.'
+      );
     }
 
     fetch(API, options)
-    .then(navigate("/home"))
-    .catch((err) => (console.log(err)));
+      .then(navigate('/home'))
+      .catch((err) => console.log(err));
   };
 
   const handleDelete = () => {
-    const answer = window.confirm("Are you sure you want to delete your profile?\nTHIS ACTION IS IRREVERSABLE.");
+    const answer = window.confirm(
+      'Are you sure you want to delete your profile?\nTHIS ACTION IS IRREVERSABLE.'
+    );
 
-    const DELETE_API = "http://localhost:8080/users/" + loggedInUser.id + "/delete-profile";
+    const DELETE_API =
+      'http://localhost:8080/users/' + loggedInUser.id + '/delete-profile';
     const headerOptions = {
-      method: "DELETE",
+      method: 'DELETE',
       headers: {
-        "Content-Type": "application/json",
-        "Authorization": "Bearer " + localStorage.getItem("access_token"),
+        'Content-Type': 'application/json',
+        Authorization: 'Bearer ' + localStorage.getItem('access_token'),
       },
       body: JSON.stringify(loggedInUser),
     };
 
     if (answer) {
       fetch(DELETE_API, headerOptions)
-      .then(() => {
-        localStorage.clear();
-        navigate("/")
-      })
-      .catch((err) => {alert(err)})
+        .then(() => {
+          localStorage.clear();
+          navigate('/');
+        })
+        .catch((err) => {
+          alert(err);
+        });
     }
-
-  }
+  };
 
   return (
     <div>
-      <h1 style={{marginTop: "1rem", marginLeft: "12rem", marginBottom: "1rem"}}>Welcome @{loggedInUser.username}</h1>
+      <h1 style={{ margin: '1rem auto' }}>Welcome {loggedInUser.username}</h1>
 
-      <Form style={{width: "40%",  margin: "auto"}}>
+      <Form style={{ width: '40%', margin: 'auto' }}>
         <Form.Label>First Name</Form.Label>
         <Form.Control
           type="text"
@@ -232,10 +244,19 @@ export default function Edit() {
           </option>
         </Form.Select>
         <br />
-        <Button variant="outline-success" onClick={submitChange}>Edit Profile</Button>
+        <div style={{ display: 'flex' }}>
+          <Button variant="success" onClick={submitChange}>
+            Submit Changes
+          </Button>
+          <Button className="mx-1" variant="dark" onClick={handleChange}>
+            Cancel
+          </Button>
+        </div>
         <br />
       </Form>
-      <Button variant="danger" onClick={handleDelete}>DELETE PROFILE</Button>
+      <Button variant="danger" onClick={handleDelete}>
+        DELETE PROFILE
+      </Button>
     </div>
   );
 }
