@@ -244,19 +244,23 @@ export default function Edit() {
           </option>
         </Form.Select>
         <br />
-        <div style={{ display: 'flex' }}>
-          <Button variant="success" onClick={submitChange}>
-            Submit Changes
-          </Button>
-          <Button className="mx-1" variant="dark" onClick={handleChange}>
-            Cancel
-          </Button>
+        <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+          <div className="edit_buttons">
+            <Button variant="success" onClick={submitChange}>
+              Submit Changes
+            </Button>
+            <Button variant="dark" className="mx-1" onClick={handleChange}>
+              Cancel
+            </Button>
+          </div>
+          <div className="delete_button">
+            <Button variant="danger" onClick={handleDelete}>
+              Delete Profile
+            </Button>
+          </div>
         </div>
         <br />
       </Form>
-      <Button variant="danger" onClick={handleDelete}>
-        DELETE PROFILE
-      </Button>
     </div>
   );
 }
