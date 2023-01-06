@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import React from 'react';
 import axios from 'axios';
 import authService from '../services/auth.service';
+import nfl from '../images/nfl.png';
 import '../StyleFolder/HomeStyle.css';
 
 export default function HomeData() {
@@ -267,14 +268,16 @@ export default function HomeData() {
     let allDataThree;
     for (let i in allData) {
       allDataOne = allData.team.athletes;
-
       for (let i in allDataOne) {
-        allDataTwo = allDataOne[i].headshot;
-
+        allDataOne[i].headshot === undefined
+          ? (allDataTwo = { href: nfl, alt: 'playerHeadshot' })
+          : (allDataTwo = allDataOne[i].headshot);
         for (let i in allDataTwo) {
           if (allDataThree !== allDataTwo.href) {
             allDataThree = allDataTwo.href;
-
+            athleteHeadshotArr.push(allDataThree);
+          } else if (allDataThree === undefined) {
+            allDataThree = nfl;
             athleteHeadshotArr.push(allDataThree);
           }
         }
