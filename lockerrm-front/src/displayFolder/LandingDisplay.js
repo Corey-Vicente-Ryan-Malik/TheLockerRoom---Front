@@ -3,9 +3,11 @@ import logo from '../images/logo.jpeg';
 import { Redirect, Route, useNavigate } from 'react-router-dom';
 import '../index.css';
 import { useEffect, useRef, useState, useContext } from 'react';
-import AuthContext from '../context/AuthProvider';
 import React from 'react';
 import axios from 'axios';
+import "./LandingDisplay.css";
+
+import validation from './validation';
 
 import authService from '../services/auth.service';
 
@@ -16,6 +18,9 @@ const Landing = (props, {}) => {
     navigate('/register');
   };
 
+  const [errors, setErrors] = useState({
+
+  });
   const userRef = useRef();
   const errRef = useRef();
   const [errMsg, setErrMsg] = useState('');
@@ -33,12 +38,18 @@ const Landing = (props, {}) => {
   const onInputChange = (e) => {
     setUser({ ...user, [e.target.name]: e.target.value });
   };
+
   async function sendLoginRequest() {
+    setErrors(validation(user))
+    if(errors){
+      navigate("/")
+      setErrMsg("**Invalid Username or Password")
+    }
     await authService.login(
-      user.username,
-      user.password,
-      user.grant_type,
-      user
+        user.username,
+        user.password,
+        user.grant_type,
+        user
     );
     if (localStorage.getItem('access_token')) {
       const API = 'http://localhost:8080/user/';
@@ -50,77 +61,129 @@ const Landing = (props, {}) => {
         },
       };
       await fetch(API, options)
-        .then((response) => response.json())
-        .then((data) => {
-          console.log(data);
-          localStorage.setItem('user', JSON.stringify(data));
-        });
+          .then((response) => response.json())
+          .then((data) => {
+            console.log(data);
+            localStorage.setItem('user', JSON.stringify(data));
+          });
       navigate('/home');
       window.location.reload(true);
-    } else {
-      navigate('/');
     }
   }
 
   return (
-    <div className="landingPage">
-      <div className="landingInfo" style={landingInfo}>
-        <img className="landLogo" style={landLogo} src={logo} />
-        <p className="message" style={message}>
-          {props.message}
-        </p>
+      <div className="Landing">
+        <div className="logoContainer">
+          <div><p className="message">{props.message}</p></div>
+          <img className="IMG" src={logo}/>
+        </div>
+        <div className="formContainer">
+          <form className="formDiv">
+            <h2 className="formTitle">Login</h2>
+            <div className="usernameContainer">
+              <div className="inputDiv">
+                {/*<label htmlFor="username">Username</label>*/}
+                {/*<p></p>*/}
+                <p className="error">{errMsg}</p>
+                {errors.username && <p className="error">{errors.username} </p>}
+                <input
+                    name="username"
+                    ref={userRef}
+                    required
+                    className="input"
+                    placeholder="Username"
+                    type="text"
+                    value={username}
+                    onChange={(e) => onInputChange(e)}
+                />
+
+              </div>
+
+            </div>
+            <div className="passwordContainer">
+              <div className="inputDiv2">
+                <p>{errors.password && <p className="error">{errors.password}</p>}</p>
+                {/*<label htmlFor="password">Password</label>*/}
+                <input
+                    name="password"
+                    ref={userRef}
+                    required
+                    className="input"
+                    type="password"
+                    placeholder="Password"
+                    value={password}
+                    onChange={(e) => onInputChange(e)}
+                />
+
+              </div>
+            </div>
+            <div className="buttonContainer">
+              <button type="button" className="btn btn-dark" onClick={(e) => sendLoginRequest()}>Login</button>
+              <button type="button" className="btn btn-dark" onClick={onClick}>Create Account</button>
+            </div>
+
+          </form>
+        </div>
       </div>
-      <div className="landingForm">
-        <p
-          ref={errRef}
-          className={errMsg ? 'errmsg' : 'offscreen'}
-          aria-live="assertive"
-        >
-          {errMsg}
-        </p>
-        {/*<label htmlFor="username">Username</label>*/}
-        <input
-          type="text"
-          className="username"
-          value={username}
-          name="username"
-          placeholder="Username"
-          style={usernameForm}
-          onChange={(e) => onInputChange(e)}
-          ref={userRef}
-          required
-        />
 
-        {/*<label htmlFor="password">Password</label>*/}
-        <input
-          type="password"
-          className="password"
-          value={password}
-          name="password"
-          placeholder="Password"
-          style={passwordForm}
-          onChange={(e) => onInputChange(e)}
-          ref={userRef}
-          required
-        />
-
-        <button
-          style={loginBtn}
-          type="button"
-          onClick={(e) => sendLoginRequest()}
-        >
-          Log-In
-        </button>
-
-        <a href="#" style={forgotPassword}>
-          Forgot Password?
-        </a>
-
-        <button className="registerBtn" style={registerBtn} onClick={onClick}>
-          Create New Account?
-        </button>
-      </div>
-    </div>
+    // <div className="landingPage">
+    //   <div className="landingInfo" style={landingInfo}>
+    //     <img className="landLogo" style={landLogo} src={logo} />
+    //     <p className="message" style={message}>
+    //       {props.message}
+    //     </p>
+    //   </div>
+    //   <div className="landingForm">
+    //     <p
+    //       ref={errRef}
+    //       className={errMsg ? 'errmsg' : 'offscreen'}
+    //       aria-live="assertive"
+    //     >
+    //       {errMsg}
+    //     </p>
+    //     {/*<label htmlFor="username">Username</label>*/}
+    //     <input
+    //       type="text"
+    //       className="username"
+    //       value={username}
+    //       name="username"
+    //       placeholder="Username"
+    //       style={usernameForm}
+    //       onChange={(e) => onInputChange(e)}
+    //       ref={userRef}
+    //       required
+    //     />
+    //
+    //     {/*<label htmlFor="password">Password</label>*/}
+    //     <input
+    //       type="password"
+    //       className="password"
+    //       value={password}
+    //       name="password"
+    //       placeholder="Password"
+    //       style={passwordForm}
+    //       onChange={(e) => onInputChange(e)}
+    //       ref={userRef}
+    //       required
+    //     />
+    //
+    //     <button
+    //       style={loginBtn}
+    //       type="button"
+    //       onClick={(e) => sendLoginRequest()}
+    //     >
+    //       Log-In
+    //     </button>
+    //
+    //     <a href="#" style={forgotPassword}>
+    //       Forgot Password?
+    //     </a>
+    //
+    //     <button className="registerBtn" style={registerBtn} onClick={onClick}>
+    //       Create New Account?
+    //     </button>
+    //   </div>
+    // </div>
   );
 };
 

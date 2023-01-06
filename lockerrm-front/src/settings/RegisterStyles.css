@@ -1,0 +1,51 @@
+.RegisterPage{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 45%;
+    margin: 3em auto;
+    border: 1px solid lightgrey;
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+}
+.inputContainer{
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    margin-right: auto;
+    margin-left: auto;
+
+    /*justify-content: start;*/
+}
+.formTitle{
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+.error{
+    font-size: small;
+    margin-left: 12em;
+    color: red;
+}
+input{
+    margin-left: auto;
+    margin-right: auto;
+    width: 60%;
+    border: none;
+    border-bottom: 1px solid lightgrey;
+}
+select{
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+    border: none;
+    border-bottom: 1px solid lightgrey;
+
+}
+button{
+    width: 54%;
+    margin:1em auto;
+    height: 3em;
+
+}

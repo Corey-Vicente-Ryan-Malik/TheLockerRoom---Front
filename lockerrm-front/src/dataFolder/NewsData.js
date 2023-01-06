@@ -155,7 +155,9 @@ export default function NewsData() {
 
   }
   const title = {
-    textAlign: 'left'
+    marginTop: '.5em',
+    marginBottom: '1em',
+    justifySelf: 'start',
   }
   const articleSource = {
     textAlign: 'left',
