@@ -31,8 +31,8 @@ code {
     gridColumn: 1;
     gridRow: 4;
     margin: auto;
-    /*width: 60vw;*/
-    /*height: 60vh;*/
+    width: 25%;
+    height: 55%;
     display: flex;
     justifyContent: center;
     justifyItems: center;
