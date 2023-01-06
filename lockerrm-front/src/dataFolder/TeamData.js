@@ -578,7 +578,11 @@ export default function HomeData() {
   return (
     <div className="home_container">
       <div className="dropdown_form">
-        <select name="teamId" className="dropdown" onBlur={handleSelectedTeam}>
+        <select
+          name="teamId"
+          className="dropdown_select"
+          onBlur={handleSelectedTeam}
+        >
           <option name="favoriteOption">
             Select the team you would like to view!
           </option>
