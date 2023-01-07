@@ -167,4 +167,7 @@ body {
     .dropdown_select {
         width: 80%
     }
+    .roster {
+        margin-bottom: 0;
+    }
 }
