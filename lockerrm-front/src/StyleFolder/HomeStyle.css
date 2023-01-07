@@ -161,11 +161,15 @@ body {
         font-size: 5vw;
     }
     .dropdown_form {
-        font-size: 2.75vw;
+        font-size: 4.5vw;
         justify-content: space-between;
+        height: auto;
     }
     .dropdown_select {
-        width: 80%
+        width: auto;
+    }
+    .dropdown_button {
+        font-size: 2vw;
     }
     .roster {
         margin-bottom: 0;
