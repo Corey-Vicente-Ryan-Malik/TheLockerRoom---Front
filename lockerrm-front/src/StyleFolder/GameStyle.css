@@ -5,8 +5,8 @@
 .game_container {
     border: 1px solid black;
     width: 98%;
-    height: 30vh;
-    margin: 25px auto;
+    height: auto;
+    margin: 5px auto;
     display: flex;
 }
 .game_leftContainer {
@@ -30,63 +30,147 @@
 .game_name {
     width: 98%;
     margin: 20px auto;
-    font-size: 30px;
+    font-size: 2.25vw;
 }
 .game_date {
     width: 98%;
     margin: 15px auto;
-    font-size: 25px;
+    font-size: 1.80vw;
 }
 .game_score {
     width: 98%;
     margin: auto;
-    font-size: 60px;
+    font-size: 4.5vw;
 }
 .home_logo {
-    width: 100px;
-    height: 100px;
+    width: 8vw;
+    height: 16vh;
     margin: auto;
 }
 .away_logo {
-    width: 100px;
-    height: 100px;
+    width: 8vw;
+    height: 16vh;
     margin: auto;
 }
 .home_team {
     width: 98%;
-    margin: 5px auto;
-    font-size: 20px;
+    margin: auto;
+    font-size: 1.75vw;
     text-align: center;
 }
 .away_team {
     width: 98%;
-    margin: 5px auto;
-    font-size: 20px;
+    margin: auto;
+    font-size: 1.75vw;
     text-align: center;
 }
 .home_record {
     width: 98%;
     margin: auto;
-    font-size: 15px;
+    font-size: 1.15vw;
     text-align: center;
 }
 .away_record {
     width: 98%;
     margin: auto;
-    font-size: 15px;
+    font-size: 1.15vw;
     text-align: center;
 }
 .home_title {
     width: 98%;
     margin: auto;
-    font-size: 30px;
+    font-size: 2vw;
     text-align: center;
     font-weight: bold;
 }
 .away_title {
     width: 98%;
     margin: auto;
-    font-size: 30px;
+    font-size: 2vw;
     text-align: center;
     font-weight: bold;
+}
+.schedule {
+    width: 98%;
+    margin: 5px auto;
+    font-size: 3vw;
+}
+
+/* ------------------------------------------------ */
+
+@media(max-width: 1250px) {
+    .home_logo {
+        width: 14vw;
+        height: 14vh;
+    }
+    .away_logo {
+        width: 14vw;
+        height: 14vh;
+    }
+}
+
+@media(max-width: 950px) {
+    .home_logo {
+        width: 13vw;
+        height: 13vh;
+    }
+
+    .away_logo {
+        width: 13vw;
+        height: 13vh;
+    }
+}
+
+@media(max-width: 650px) {
+    .game_name {
+        font-size: 3.5vw;
+    }
+
+    .game_date {
+        font-size: 2.75vw;
+    }
+
+    .game_score {
+        font-size: 6.5vw;
+    }
+
+    .home_logo {
+        width: 16vw;
+        height: 8vh;
+    }
+
+    .away_logo {
+        width: 16vw;
+        height: 8vh;
+    }
+
+    .home_team {
+        font-size: 3vw;
+    }
+
+    .away_team {
+        font-size: 3vw;
+    }
+
+    .home_record {
+        font-size: 2.5vw;
+    }
+
+    .away_record {
+        font-size: 2.5vw;
+    }
+
+    .home_title {
+        font-size: 4vw;
+        font-weight: normal;
+    }
+
+    .away_title {
+        font-size: 4vw;
+        font-weight: normal;
+    }
+
+    .schedule {
+        font-size: 5vw;
+    }
 }
