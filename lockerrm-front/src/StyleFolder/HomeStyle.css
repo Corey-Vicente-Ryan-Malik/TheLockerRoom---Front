@@ -100,23 +100,23 @@ body {
 /* Dropdown Specific CSS (Start) */
 .dropdown_form {
     width: 98%;
-    font-size: 1em;
+    height: auto;
+    font-size: 1.15vw;
     margin: 5px auto;
-    z-index: 100;
+    display: flex;
 }
 .dropdown_select {
     width: auto;
-    height: 26px;
-    padding: 0;
+    height: auto;
     border: 1px solid black;
     border-radius: 5px;
 }
 .dropdown_button {
-    padding: 0 5px;
-    width: 10%;
+    width: auto;
+    height: auto;
     border: 1px solid black;
     border-radius: 5px;
-    margin: 0.5rem 0 0 1%
+    margin-left: 1%;
 }
 /* Dropdown Specific CSS (End) */
 
@@ -139,6 +139,9 @@ body {
     .card_info {
         font-size: 1.75vw;
     }
+    .dropdown_form {
+        font-size: 1.5vw;
+    }
 }
 @media(max-width: 650px) {
     .container_card {
@@ -156,5 +159,12 @@ body {
     }
     .team_title {
         font-size: 5vw;
+    }
+    .dropdown_form {
+        font-size: 2.75vw;
+        justify-content: space-between;
+    }
+    .dropdown_select {
+        width: 80%
     }
 }
