@@ -8,6 +8,7 @@
     height: auto;
     margin: 5px auto;
     display: flex;
+    padding: 1%;
 }
 .game_leftContainer {
     width: 24%;
