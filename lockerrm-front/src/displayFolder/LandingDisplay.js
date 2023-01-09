@@ -43,7 +43,8 @@ const Landing = (props, {}) => {
     setErrors(validation(user))
     if(errors){
       navigate("/")
-      setErrMsg("**Invalid Username or Password")
+
+      // setErrMsg("**Invalid Username or Password")
     }
     await authService.login(
         user.username,
