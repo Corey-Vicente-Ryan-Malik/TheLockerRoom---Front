@@ -4,7 +4,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import React from 'react';
 import registerValidation from './registerValidation';
 import './registerValidation';
-import '../StyleFolder/RegisterStyles.css';
+import './RegisterStyles.css';
 
 const Register = (props, {}) => {
   const navigate = useNavigate();
