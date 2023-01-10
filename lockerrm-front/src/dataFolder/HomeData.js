@@ -585,7 +585,14 @@ export default function HomeData() {
         {players.map((player) => {
           return (
             <div key={player.playerId} className="container_card">
-              <div className="main_card">
+              <div
+                className="main_card"
+                style={
+                  player.playerInjury === 'Injury: N/A'
+                    ? { border: '1px solid black' }
+                    : { border: '2px solid red' }
+                }
+              >
                 <div className="card_image">
                   <img
                     className="player_image"
