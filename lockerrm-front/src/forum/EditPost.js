@@ -1,7 +1,7 @@
 import { React, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import authService from '../services/auth.service';
-import './Forum.css';
+import '../StyleFolder/Forum.css';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Container from 'react-bootstrap/esm/Container';

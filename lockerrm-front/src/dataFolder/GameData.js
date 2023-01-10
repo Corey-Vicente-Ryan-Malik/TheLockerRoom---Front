@@ -332,7 +332,7 @@ export default function GameData() {
 
   return (
     <div className="weekly_container">
-      <h1>Weekly Schedule</h1>
+      <div className="schedule">Weekly Schedule</div>
       {games.map((game) => {
         return (
           <div key={game.id}>

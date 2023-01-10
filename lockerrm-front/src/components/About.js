@@ -2,10 +2,12 @@ import about1 from '../images/CO.jpg';
 import about2 from '../images/RH.jpeg';
 import about3 from '../images/MW.JPG';
 import about4 from '../images/VF2.jpeg';
+
 import icon1 from '../images/codeup.jpg';
 import '../displayFolder/About.css'
 import React from "react";
 import {Button, Card} from "react-bootstrap";
+
 
 export default function About() {
 
@@ -89,20 +91,23 @@ export default function About() {
 }
 
 const aboutPage = {
+
     display: 'grid',
     margin:'15px'
     // width: '50%'
     // width:'50vh'
 }
+
 const aboutContent = {
-    gridColumn: 1,
-    gridRow: 1,
-    margin: '0 auto',
-    width: '80%',
-    textAlign: 'center'
-}
+  gridColumn: 1,
+  gridRow: 1,
+  margin: '0 auto',
+  width: '80%',
+  textAlign: 'center',
+};
 
 const Developer = {
+
     display: 'flex',
     alignItems: 'center',
     margin:'auto'
@@ -119,6 +124,7 @@ const icon = {
     fontSize: '25px'
 
 }
+
 
 const cardIcon = {
     alignItems: 'center',
@@ -175,39 +181,37 @@ const codeLogo = {
 //     width: '70%',
 // }
 {
-
-// const
-
-// const About1 = {
-//     // gridColumn: 1,
-//     // gridRow: 1,
-//     margin: '0 auto',
-//     width: '88vw',
-//     height: '70vh',
-//     display: 'flex',
-//     justifyContent: 'center',
-//     justifyItems: 'center',
-//     alignItems: 'center',
-// }
-//
-// const About2 = {
-//     margin: '0 auto',
-//     width: '50vw',
-//     height: '70vh',
-//     display: 'flex',
-//     justifyContent: 'center',
-//     justifyItems: 'center',
-//     alignItems: 'center',
-// }
-//
-// const About3 = {
-//     margin: '0 auto',
-//     width: '50vw',
-//     height: '70vh',
-//     display: 'flex',
-//     justifyContent: 'center',
-//     justifyItems: 'center',
-//     alignItems: 'center',
+  // const
+  // const About1 = {
+  //     // gridColumn: 1,
+  //     // gridRow: 1,
+  //     margin: '0 auto',
+  //     width: '88vw',
+  //     height: '70vh',
+  //     display: 'flex',
+  //     justifyContent: 'center',
+  //     justifyItems: 'center',
+  //     alignItems: 'center',
+  // }
+  //
+  // const About2 = {
+  //     margin: '0 auto',
+  //     width: '50vw',
+  //     height: '70vh',
+  //     display: 'flex',
+  //     justifyContent: 'center',
+  //     justifyItems: 'center',
+  //     alignItems: 'center',
+  // }
+  //
+  // const About3 = {
+  //     margin: '0 auto',
+  //     width: '50vw',
+  //     height: '70vh',
+  //     display: 'flex',
+  //     justifyContent: 'center',
+  //     justifyItems: 'center',
+  //     alignItems: 'center',
 }
 
 // const aboutContent = {
