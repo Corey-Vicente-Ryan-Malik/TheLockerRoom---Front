@@ -35,7 +35,7 @@ export default function Navbar() {
     <React.Fragment>
       <Router>
         <div className="Navbar">
-          <nav className="navbar navbar-expand-lg navbar-light bg-light w-100">
+          <nav className="navbar navbar-expand-lg navbar-dark bg-dark w-100">
             <Link to={'/home'} className=" mx-3 navbar-brand">
               The Locker Room
             </Link>

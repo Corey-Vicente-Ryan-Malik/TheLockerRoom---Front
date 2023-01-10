@@ -3,12 +3,13 @@ import { useNavigate } from 'react-router-dom';
 import authService from '../services/auth.service';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
+import Container from 'react-bootstrap/esm/Container';
 
 export default function Edit() {
   const [username, setUsername] = useState('');
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
-  const [favTeam, setFavTeam] = useState('');
+  const [favoriteTeam, setFavoriteTeam] = useState('');
 
   const navigate = useNavigate();
 
@@ -20,11 +21,7 @@ export default function Edit() {
   };
 
   const handleUsernameChange = (e) => {
-    if (e.target.value === '') {
-      setUsername(loggedInUser.username);
-    } else {
       setUsername(e.target.value);
-    }
   };
 
   const handleFirstChange = (e) => {
@@ -35,12 +32,8 @@ export default function Edit() {
     setLastName(e.target.value);
   };
 
-  const handleFavTeamChange = (e) => {
-    if (e.target.value === null || e.target.value === undefined) {
-      setFavTeam(6);
-    } else {
-      setFavTeam(e.target.value);
-    }
+  const handleFavoriteTeamChange = (e) => {
+      setFavoriteTeam(parseInt(e.target.value));
   };
 
   const submitChange = () => {
@@ -52,11 +45,10 @@ export default function Edit() {
       lastName: lastName,
       username: username,
       password: loggedInUser.password,
-      favoriteTeam: favTeam,
+      favoriteTeam: favoriteTeam,
     };
 
-    const API =
-      'http://localhost:8080/users/' + loggedInUser.id + '/edit-profile';
+    const API = 'http://localhost:8080/users/' + loggedInUser.id + '/edit-profile';
     const options = {
       method: 'PUT',
       headers: {
@@ -66,22 +58,19 @@ export default function Edit() {
       body: JSON.stringify(User),
     };
 
-    if (User.username.length > 20) {
-      alert(
-        'Error: username cannot be longer than 20 letters.\nPlease try again.'
-      );
-    }
+    console.log(User);
 
     fetch(API, options)
-      .then(navigate('/home'))
+      .then(() => {
+        alert("You have successfully updated your profile.\nYou will now be logged out to re-login.");
+        authService.logout();
+        navigate("/");
+      })
       .catch((err) => console.log(err));
+
   };
 
   const handleDelete = () => {
-    const answer = window.confirm(
-      'Are you sure you want to delete your profile?\nTHIS ACTION IS IRREVERSABLE.'
-    );
-
     const DELETE_API =
       'http://localhost:8080/users/' + loggedInUser.id + '/delete-profile';
     const headerOptions = {
@@ -93,28 +82,31 @@ export default function Edit() {
       body: JSON.stringify(loggedInUser),
     };
 
-    if (answer) {
-      fetch(DELETE_API, headerOptions)
-        .then(() => {
-          localStorage.clear();
-          navigate('/');
-        })
-        .catch((err) => {
-          alert(err);
-        });
-    }
-  };
+    fetch(DELETE_API, headerOptions)
+      .then(() => {
+        localStorage.clear();
+        navigate('/');
+      })
+      .catch((err) => {
+        alert(err);
+      });
+  }
+
+  console.log(loggedInUser);
 
   return (
     <div>
-      <h1 style={{ margin: '1rem auto' }}>Welcome {loggedInUser.username}</h1>
 
-      <Form style={{ width: '40%', margin: 'auto' }}>
+      <Form style={{ width: '40%', margin: '2rem auto 8rem' }}>
+        <h4>Welcome, {loggedInUser.username}!</h4>
+        <h1>Edit Your Profile</h1>
+        <hr style={{margin: "1rem auto 2rem"}} />
         <Form.Label>First Name</Form.Label>
         <Form.Control
           type="text"
           id="firstName"
           name="firstName"
+          defaultValue={loggedInUser.firstName}
           placeholder={loggedInUser.firstName}
           onBlur={handleFirstChange}
         />
@@ -126,6 +118,7 @@ export default function Edit() {
           type="text"
           id="lastName"
           name="lastName"
+          defaultValue={loggedInUser.lastName}
           placeholder={loggedInUser.lastName}
           onBlur={handleLastChange}
         />
@@ -137,6 +130,7 @@ export default function Edit() {
           type="text"
           id="username"
           name="username"
+          defaultValue={loggedInUser.username}
           placeholder={loggedInUser.username}
           onBlur={handleUsernameChange}
         />
@@ -144,7 +138,7 @@ export default function Edit() {
         <br />
 
         <Form.Label>Favorite Team</Form.Label>
-        <Form.Select name="favoriteTeam" onBlur={handleFavTeamChange}>
+        <Form.Select name="favoriteTeam" onBlur={handleFavoriteTeamChange}>
           <option name="favoriteOption">Select Your Favorite Team</option>
           <option name="favoriteOption" value="1">
             Atlanta Falcons
