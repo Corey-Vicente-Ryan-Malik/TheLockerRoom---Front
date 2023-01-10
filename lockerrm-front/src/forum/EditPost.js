@@ -82,7 +82,7 @@ const EditPost = () => {
             Express yourself in 500 words or less, again.
           </Form.Text>
           <Button variant="success" type="submit">
-            Edit Post
+            Confirm Changes
           </Button>
           <Button
             variant="danger"

@@ -34,10 +34,11 @@ const Register = (props, {}) => {
     setErrors(registerValidation(user));
     if (errors) {
       navigate('/register');
+    } else {
+      await axios.post('http://localhost:8080/register', user);
+      navigate('/');
+      console.log(user);
     }
-    await axios.post('http://localhost:8080/register', user);
-    navigate('/');
-    console.log(user);
   };
 
   return (
@@ -66,7 +67,7 @@ const Register = (props, {}) => {
               className="inputBox"
               id="lastname"
               type="text"
-              placeholder=" Last Name"
+              placeholder="Last Name"
               name="lastName"
               value={lastname}
               onChange={(e) => onInputChange(e)}
