@@ -4,12 +4,6 @@ body {
     font-weight: 400;
     letter-spacing: 0;
 }
-h1 {
-    width: 85%;
-    text-align: center;
-    font-size: 3em;
-    margin: auto;
-}
 .home_container {
     max-width: 100%;
 }
@@ -17,6 +11,16 @@ h1 {
 /* ------------------------------------------------ */
 
 /* Player Specific CSS (Start) */
+.divider {
+    width: 94%;
+    margin: auto;
+}
+.roster {
+    width: 100%;
+    margin: 10px auto;
+    text-align: center;
+    font-size: 4.5vw;
+}
 .player_container {
     display: flex;
     flex-wrap: wrap;
@@ -47,10 +51,10 @@ h1 {
     margin: auto;
 }
 .card_title {
-    font-size: 1.5em;
+    font-size: 1.5vw;
 }
 .card_info {
-    font-size: 1.10em;
+    font-size: 1vw;
 }
 /* Player Specific CSS (End) */
 
@@ -59,37 +63,35 @@ h1 {
 /* Team Specific CSS (Start) */
 .team_container {
     max-width: 95%;
-    margin: auto;
-}
-.team_containerWhole {
-    max-width: 100%;
-    margin: auto;
+    height: auto;
+    margin: 10px auto;
     display: flex;
     flex-wrap: wrap;
-    align-content: center;
 }
 .team_containerLeft {
     width: 40%;
-    margin: auto;
     display: flex;
     justify-content: center;
+}
+.team_image {
+    height: 22vw;
+    width: 22vw;
 }
 .team_containerRight {
     width: 60%;
     margin: auto;
 }
-.team_image {
-    height: 400px;
-}
 .team_title {
     text-align: center;
-    font-size: 4em;
     margin: auto;
+    max-width: 100%;
+    font-size: 4vw;
 }
 .team_info {
     text-align: center;
-    font-size: 2em;
     margin: auto;
+    max-width: 100%;
+    font-size: 2vw;
 }
 /* Team Specific CSS (End) */
 
@@ -97,23 +99,24 @@ h1 {
 
 /* Dropdown Specific CSS (Start) */
 .dropdown_form {
-    width: 50%;
-    font-size: 1.5em;
+    width: 98%;
+    height: auto;
+    font-size: 1.15vw;
     margin: 5px auto;
+    display: flex;
 }
 .dropdown_select {
-    width: 80%;
-    height: 38px;
-    padding: 0;
+    width: auto;
+    height: auto;
     border: 1px solid black;
     border-radius: 5px;
 }
 .dropdown_button {
-    padding: 0;
-    width: 18%;
+    width: auto;
+    height: auto;
     border: 1px solid black;
     border-radius: 5px;
-    margin: 0 0 0 1%
+    margin-left: 1%;
 }
 /* Dropdown Specific CSS (End) */
 
@@ -129,9 +132,46 @@ h1 {
     .container_card {
         width: 33.33%;
     }
+    .card_title {
+        font-size: 2.5vw;
+    }
+
+    .card_info {
+        font-size: 1.75vw;
+    }
+    .dropdown_form {
+        font-size: 1.5vw;
+    }
 }
 @media(max-width: 650px) {
     .container_card {
         width: 50%;
+    }
+    .card_title {
+        font-size: 4.25vw;
+    }
+
+    .card_info {
+        font-size: 2.80vw;
+    }
+    .team_info {
+        font-size: 3vw;
+    }
+    .team_title {
+        font-size: 5vw;
+    }
+    .dropdown_form {
+        font-size: 4.5vw;
+        justify-content: space-between;
+        height: auto;
+    }
+    .dropdown_select {
+        width: auto;
+    }
+    .dropdown_button {
+        font-size: 2vw;
+    }
+    .roster {
+        margin-bottom: 0;
     }
 }

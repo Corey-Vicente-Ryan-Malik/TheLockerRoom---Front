@@ -556,37 +556,32 @@ export default function HomeData() {
 
   return (
     <div className="home_container">
-      <div className="team_container">
-        {teams.map((team) => {
-          return (
-            <div key={team.teamId} className="team_containerWhole">
-              <div className="team_containerLeft">
-                <img
-                  className="team_image"
-                  src={team.teamLogo}
-                  alt="Team Logo"
-                />
-              </div>
-              <div className="team_containerRight">
-                <div className="team_title">{team.teamName}</div>
-                <div className="team_info">
-                  <div>{team.teamStanding}</div>
-                  <div>
-                    Seasonal Record : {team.teamSeasonalWins} -{' '}
-                    {team.teamSeasonalLosses} - {team.teamSeasonalTies}
-                  </div>
-                  <div>
-                    Divisional Record : {team.teamDivisionalWins} -{' '}
-                    {team.teamDivisionalLosses} - {team.teamDivisionalTies}
-                  </div>
+      {teams.map((team) => {
+        return (
+          <div key={team.teamId} className="team_container">
+            <div className="team_containerLeft">
+              <img className="team_image" src={team.teamLogo} alt="Team Logo" />
+            </div>
+            <div className="team_containerRight">
+              <div className="team_title">{team.teamName}</div>
+              <div className="team_info">
+                <div>{team.teamStanding}</div>
+                <div>
+                  Seasonal Record : {team.teamSeasonalWins} -{' '}
+                  {team.teamSeasonalLosses} - {team.teamSeasonalTies}
+                </div>
+                <div>
+                  Divisional Record : {team.teamDivisionalWins} -{' '}
+                  {team.teamDivisionalLosses} - {team.teamDivisionalTies}
                 </div>
               </div>
             </div>
-          );
-        })}
-      </div>
+          </div>
+        );
+      })}
+      <hr className="divider" />
+      <div className="roster">Team Roster</div>
       <div className="player_container">
-        <h1>Team Roster</h1> <br />
         {players.map((player) => {
           return (
             <div key={player.playerId} className="container_card">
