@@ -130,84 +130,9 @@ const Landing = (props, {}) => {
           </form>
         </div>
       </div>
-
-    // <div className="landingPage">
-    //   <div className="landingInfo" style={landingInfo}>
-    //     <img className="landLogo" style={landLogo} src={logo} />
-    //     <p className="message" style={message}>
-    //       {props.message}
-    //     </p>
-    //   </div>
-    //   <div className="landingForm">
-    //     <p
-    //       ref={errRef}
-    //       className={errMsg ? 'errmsg' : 'offscreen'}
-    //       aria-live="assertive"
-    //     >
-    //       {errMsg}
-    //     </p>
-    //     {/*<label htmlFor="username">Username</label>*/}
-    //     <input
-    //       type="text"
-    //       className="username"
-    //       value={username}
-    //       name="username"
-    //       placeholder="Username"
-    //       style={usernameForm}
-    //       onChange={(e) => onInputChange(e)}
-    //       ref={userRef}
-    //       required
-    //     />
-    //
-    //     {/*<label htmlFor="password">Password</label>*/}
-    //     <input
-    //       type="password"
-    //       className="password"
-    //       value={password}
-    //       name="password"
-    //       placeholder="Password"
-    //       style={passwordForm}
-    //       onChange={(e) => onInputChange(e)}
-    //       ref={userRef}
-    //       required
-    //     />
-    //
-    //     <button
-    //       style={loginBtn}
-    //       type="button"
-    //       onClick={(e) => sendLoginRequest()}
-    //     >
-    //       Log-In
-    //     </button>
-    //
-    //     <a href="#" style={forgotPassword}>
-    //       Forgot Password?
-    //     </a>
-    //
-    //     <button className="registerBtn" style={registerBtn} onClick={onClick}>
-    //       Create New Account?
-    //     </button>
-    //   </div>
-    // </div>
   );
 };
 
-// Landing.defaultProps = {
-//   message:
-//     'Welcome to The Locker Room! Where you can access all of the latest NFL news, scores , stats, and more all from your personal device! Please log in to get the scoop on your favorite teams.',
-// };
-
-Landing.propTypes = {
-  message: PropTypes.string.isRequired,
-};
-
-//Landing Page styling
-// const landingPage = {
-//     display: 'flex',
-//     margin: 'auto',
-//     width: '95vw',
-//     height: '95vh',
-// }
 
 //Landing Info styling
 const landingInfo = {
