@@ -43,7 +43,7 @@ export default function About() {
                     </Card.Body>
                 </Card>
 
-                <Card style={devCard}>
+                <Card style={devCard} className="devCard">
                     <Card.Img variant="top" src={about2}/>
                     <Card.Body>
                         <Card.Title>Ryan Harris</Card.Title>
@@ -110,7 +110,7 @@ const Developer = {
 }
 
 const devCard = {
-    width: '18vw',
+    width: '18rem',
     margin: '15px'
 }
 
