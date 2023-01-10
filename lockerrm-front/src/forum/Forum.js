@@ -74,9 +74,11 @@ const Forum = () => {
 
         <hr style={{ margin: '1rem auto 1rem' }} />
 
+        <div style={{display: "flex", flexDirection: "column-reverse"}}>
         {posts.map((post) => (
           <Card
             style={{
+              margin: "0 auto",
               width: '70%',
               padding: '1.5rem',
               marginBottom: '1rem',
@@ -135,7 +137,10 @@ const Forum = () => {
             </Card.Text>
           </Card>
         ))}
+        </div>
+
         <hr style={{ margin: '1rem auto 1rem' }} />
+
       </Container>
     </div>
   );
