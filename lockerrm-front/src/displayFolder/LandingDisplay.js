@@ -75,8 +75,12 @@ const Landing = (props, {}) => {
   return (
       <div className="Landing">
         <div className="logoContainer">
-          <div><p className="message">{props.message}</p></div>
-          <img className="IMG" src={logo}/>
+          <img style={{height: "150px", width: "150px", marginTop: "2rem", marginBottom: "1rem"}} className="IMG" src={logo}/>
+          <p style={{marginTop: "1rem", textAlign: "center"}} className="message">
+            Welcome to The Locker Room!<br />
+            Where you can access all of the latest NFL news, scores , stats, and more.<br /><br />
+            Login to get the scoop on your favorite and least favorite teams.<br />
+          </p>
         </div>
         <div className="formContainer">
           <form className="formDiv">
@@ -188,10 +192,10 @@ const Landing = (props, {}) => {
   );
 };
 
-Landing.defaultProps = {
-  message:
-    'Welcome to the Locker room ! Where you can access all of the latest news, scores , stats,  and more all from your personal device ! Please log in to get the scoop on your favorite teams.',
-};
+// Landing.defaultProps = {
+//   message:
+//     'Welcome to The Locker Room! Where you can access all of the latest NFL news, scores , stats, and more all from your personal device! Please log in to get the scoop on your favorite teams.',
+// };
 
 Landing.propTypes = {
   message: PropTypes.string.isRequired,
