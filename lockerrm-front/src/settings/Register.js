@@ -34,11 +34,11 @@ const Register = (props, {}) => {
     setErrors(registerValidation(user));
     if (errors) {
       navigate('/register');
-    }
+    } else {
       await axios.post('http://localhost:8080/register', user);
       navigate('/');
       console.log(user);
-
+    }
   };
 
   return (
