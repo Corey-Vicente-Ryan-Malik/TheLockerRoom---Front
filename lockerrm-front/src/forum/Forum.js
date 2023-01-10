@@ -14,7 +14,7 @@ const Forum = () => {
   const currentUser = authService.getCurrentUser();
   const navigate = useNavigate();
 
-  const API = 'http://localhost:8080/posts';
+  const API = 'https://lockerrm.us:8080/posts';
   const options = {
     method: 'GET',
     headers: {
@@ -109,7 +109,7 @@ const Forum = () => {
                       // Allow user to delete post
                       if (currentUser['username'] === post.user.username) {
                         const DELETE_POST_API =
-                          'http://localhost:8080/posts/' + post.id + '/delete';
+                          'https://lockerrm.us:8080/posts/' + post.id + '/delete';
                         const requestOptions = {
                           method: 'DELETE',
                           headers: {

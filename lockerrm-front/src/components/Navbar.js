@@ -67,12 +67,14 @@ export default function Navbar() {
                     </Link>
                   </li>
                 )}
+                {currentUser && (
+                    <li className="nav-item">
+                      <Link to={'/teams'} id="teams" className="nav-link">
+                        Team Information
+                      </Link>
+                    </li>
+                )}
 
-                <li className="nav-item">
-                  <Link to={'/teams'} id="teams" className="nav-link">
-                    Team Information
-                  </Link>
-                </li>
                 <li className="nav-item">
                   <Link to={'/schedules'} id="schedules" className="nav-link">
                     Weekly Schedules

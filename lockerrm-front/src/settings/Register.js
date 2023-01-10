@@ -35,7 +35,7 @@ const Register = (props, {}) => {
     if (errors) {
       navigate('/register');
     }
-      await axios.post('http://localhost:8080/register', user);
+      await axios.post('https://lockerrm.us:8080/register', user);
       navigate('/');
       console.log(user);
 

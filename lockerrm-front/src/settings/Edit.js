@@ -72,7 +72,7 @@ export default function Edit() {
 
   const handleDelete = () => {
     const DELETE_API =
-      'http://localhost:8080/users/' + loggedInUser.id + '/delete-profile';
+      'https://lockerrm.us:8080/users/' + loggedInUser.id + '/delete-profile';
     const headerOptions = {
       method: 'DELETE',
       headers: {
