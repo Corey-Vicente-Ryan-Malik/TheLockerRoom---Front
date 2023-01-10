@@ -63,7 +63,9 @@ const CreatePost = () => {
         <h2 style={{marginTop: "2rem", marginBottom: "0"}}>Create Your Own Post</h2>
         <Button style={{marginTop: "2rem"}} variant="dark" onClick={() => {setShow(true)}}>Read the rules</Button>
       </Container>
-      <hr style={{width: "90%", margin: "1rem auto 3rem"}} />
+      <Container>
+        <hr style={{margin: "1rem auto 3rem"}} />
+      </Container>
       <Container style={{margin: "1rem auto 10rem"}} className="text-center">
         <Form>
           <Form.Group className="mb-2">

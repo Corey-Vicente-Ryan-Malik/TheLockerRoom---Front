@@ -77,7 +77,7 @@ const Forum = () => {
         {posts.map((post) => (
           <Card
             style={{
-              width: '100%',
+              width: '70%',
               padding: '1.5rem',
               marginBottom: '1rem',
             }}
