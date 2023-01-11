@@ -14,7 +14,7 @@ const Forum = () => {
   const currentUser = authService.getCurrentUser();
   const navigate = useNavigate();
 
-  const API = 'https://lockerrm.us:8080/posts';
+  const API = 'http://localhost:8080/posts';
   const options = {
     method: 'GET',
     headers: {
@@ -74,73 +74,74 @@ const Forum = () => {
 
         <hr style={{ margin: '1rem auto 1rem' }} />
 
-        <div style={{display: "flex", flexDirection: "column-reverse"}}>
-        {posts.map((post) => (
-          <Card
-            style={{
-              margin: "0 auto",
-              width: '70%',
-              padding: '1.5rem',
-              marginBottom: '1rem',
-            }}
-            key={post.id}
-          >
-            <Card.Subtitle className="text-muted dots">
-              Posted by {post.user.username}
-              <Dropdown>
-                <Dropdown.Toggle as={customToggle} />
-                <Dropdown.Menu size="sm" title="">
-                  <Dropdown.Item
-                    onClick={() => {
-                      // If logged in user username === posts username
-                      // Send user to edit post form
-                      if (currentUser['username'] === post.user.username) {
-                        navigate('/edit-post' + '/' + post.id);
-                      } else {
-                        alert('You are not the owner of the post.');
-                      }
-                    }}
-                  >
-                    Edit
-                  </Dropdown.Item>
-                  <Dropdown.Item
-                    onClick={() => {
-                      // If logged in user username === posts username
-                      // Allow user to delete post
-                      if (currentUser['username'] === post.user.username) {
-                        const DELETE_POST_API =
-                          'https://lockerrm.us:8080/posts/' + post.id + '/delete';
-                        const requestOptions = {
-                          method: 'DELETE',
-                          headers: {
-                            'Content-Type': 'application/json',
-                            Authorization:
-                              'Bearer' + localStorage.getItem('access_token'),
-                          },
-                        };
-                        fetch(DELETE_POST_API, requestOptions).then(
-                          window.location.reload(true)
-                        );
-                      } else {
-                        alert('You are not the owner of this post.');
-                      }
-                    }}
-                  >
-                    Delete
-                  </Dropdown.Item>
-                </Dropdown.Menu>
-              </Dropdown>
-            </Card.Subtitle>
+        <div style={{ display: 'flex', flexDirection: 'column-reverse' }}>
+          {posts.map((post) => (
+            <Card
+              style={{
+                margin: '0 auto',
+                width: '70%',
+                padding: '1.5rem',
+                marginBottom: '1rem',
+              }}
+              key={post.id}
+            >
+              <Card.Subtitle className="text-muted dots">
+                Posted by {post.user.username}
+                <Dropdown>
+                  <Dropdown.Toggle as={customToggle} />
+                  <Dropdown.Menu size="sm" title="">
+                    <Dropdown.Item
+                      onClick={() => {
+                        // If logged in user username === posts username
+                        // Send user to edit post form
+                        if (currentUser['username'] === post.user.username) {
+                          navigate('/edit-post' + '/' + post.id);
+                        } else {
+                          alert('You are not the owner of the post.');
+                        }
+                      }}
+                    >
+                      Edit
+                    </Dropdown.Item>
+                    <Dropdown.Item
+                      onClick={() => {
+                        // If logged in user username === posts username
+                        // Allow user to delete post
+                        if (currentUser['username'] === post.user.username) {
+                          const DELETE_POST_API =
+                            'https://lockerrm.us:8080/posts/' +
+                            post.id +
+                            '/delete';
+                          const requestOptions = {
+                            method: 'DELETE',
+                            headers: {
+                              'Content-Type': 'application/json',
+                              Authorization:
+                                'Bearer' + localStorage.getItem('access_token'),
+                            },
+                          };
+                          fetch(DELETE_POST_API, requestOptions).then(
+                            window.location.reload(true)
+                          );
+                        } else {
+                          alert('You are not the owner of this post.');
+                        }
+                      }}
+                    >
+                      Delete
+                    </Dropdown.Item>
+                  </Dropdown.Menu>
+                </Dropdown>
+              </Card.Subtitle>
 
-            <Card.Text style={{ marginBottom: '0px' }}>
-              {post.postBody}
-            </Card.Text>
-          </Card>
-        ))}
+              <Card.Text style={{ marginBottom: '0px' }}>
+                {post.postBody}
+              </Card.Text>
+            </Card>
+          ))}
         </div>
 
         <hr style={{ margin: '1rem auto 1rem' }} />
-
       </Container>
     </div>
   );
