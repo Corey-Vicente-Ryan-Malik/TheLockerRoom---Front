@@ -1,8 +1,4 @@
 import axios from 'axios';
-import React from 'react';
-// import Navbar from '../components/Navbar';
-
-// const API_URL = 'https://lockerrm.us:8080/oauth/token';
 
 class AuthService {
   login(username, password, grant_type, user) {

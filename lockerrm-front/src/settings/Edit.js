@@ -3,7 +3,6 @@ import { useNavigate } from 'react-router-dom';
 import authService from '../services/auth.service';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
-import Container from 'react-bootstrap/esm/Container';
 
 export default function Edit() {
   const [username, setUsername] = useState('');
@@ -21,7 +20,7 @@ export default function Edit() {
   };
 
   const handleUsernameChange = (e) => {
-      setUsername(e.target.value);
+    setUsername(e.target.value);
   };
 
   const handleFirstChange = (e) => {
@@ -33,7 +32,7 @@ export default function Edit() {
   };
 
   const handleFavoriteTeamChange = (e) => {
-      setFavoriteTeam(parseInt(e.target.value));
+    setFavoriteTeam(parseInt(e.target.value));
   };
 
   const submitChange = () => {
@@ -48,7 +47,8 @@ export default function Edit() {
       favoriteTeam: favoriteTeam,
     };
 
-    const API = 'https://lockerrm.us:8080/users/' + loggedInUser.id + '/edit-profile';
+    const API =
+      'https://lockerrm.us:8080/users/' + loggedInUser.id + '/edit-profile';
     const options = {
       method: 'PUT',
       headers: {
@@ -62,12 +62,13 @@ export default function Edit() {
 
     fetch(API, options)
       .then(() => {
-        alert("You have successfully updated your profile.\nYou will now be logged out to re-login.");
+        alert(
+          'You have successfully updated your profile.\nYou will now be logged out to re-login.'
+        );
         authService.logout();
-        navigate("/");
+        navigate('/');
       })
       .catch((err) => console.log(err));
-
   };
 
   const handleDelete = () => {
@@ -90,17 +91,16 @@ export default function Edit() {
       .catch((err) => {
         alert(err);
       });
-  }
+  };
 
   console.log(loggedInUser);
 
   return (
     <div>
-
       <Form style={{ width: '40%', margin: '2rem auto 8rem' }}>
         <h4>Welcome, {loggedInUser.username}!</h4>
         <h1>Edit Your Profile</h1>
-        <hr style={{margin: "1rem auto 2rem"}} />
+        <hr style={{ margin: '1rem auto 2rem' }} />
         <Form.Label>First Name</Form.Label>
         <Form.Control
           type="text"

@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-import Container from 'react-bootstrap/Container'
+import Container from 'react-bootstrap/Container';
 
 export default function NewsData() {
   const newsUrl = `https://api.sportsdata.io/v3/nfl/scores/json/News?key=${process.env.REACT_APP_SPORTSDATA_KEY}`;
@@ -152,9 +152,9 @@ export default function NewsData() {
 
   return (
     <React.Fragment>
-      <Container style={{marginTop: "3rem"}}>
+      <Container style={{ marginTop: '3rem' }}>
         <h1>NFL News of the Week</h1>
-        <hr style={{margin: ".5rem auto", height: "4px", color: "red"}} />
+        <hr style={{ margin: '.5rem auto', height: '4px', color: 'red' }} />
       </Container>
       {news.map((article) => {
         return (

@@ -1,10 +1,10 @@
 import { useState } from 'react';
 import axios from 'axios';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import React from 'react';
 import registerValidation from './registerValidation';
 import './registerValidation';
-import './RegisterStyles.css';
+import '../StyleFolder/RegisterStyles.css';
 
 const Register = (props, {}) => {
   const navigate = useNavigate();
@@ -50,7 +50,6 @@ const Register = (props, {}) => {
             {errors.firstName && <p className="error">{errors.firstName}</p>}
             <input
               className="inputBox"
-              // className="firstNameInput"
               id="firstname"
               type="text"
               placeholder="First Name"
@@ -107,7 +106,6 @@ const Register = (props, {}) => {
               className="inputBox"
               id="favoriteTeam"
               name="favoriteTeam"
-              // value={favoriteTeam}
               onChange={(e) => onInputChange(e)}
               required
             >
@@ -190,126 +188,5 @@ const Register = (props, {}) => {
     </div>
   );
 };
-
-// const RegisterPage = {
-//   display: 'flex',
-//   margin: '50px auto',
-//   width: '95vw',
-//   height: '95vh',
-// };
-//
-// const RegisterForm = {
-//   display: 'grid',
-//   margin: '50px auto',
-//   border: 'solid black',
-//   borderRadius: '15px',
-//   width: '60%',
-//   height: '60%',
-// };
-//
-// const firstName = {
-//   gridColumn: 1,
-//   gridRow: 1,
-//   margin: '10px auto',
-//   width: '90%',
-//   display: 'flex',
-//   justifyContent: 'center',
-//   justifyItems: 'center',
-//   alignItems: 'center',
-//   padding: '5px',
-//   borderRadius: '10px',
-// };
-//
-// const lastName = {
-//   gridColumn: 1,
-//   gridRow: 2,
-//   margin: '10px auto',
-//   width: '90%',
-//   display: 'flex',
-//   justifyContent: 'center',
-//   justifyItems: 'center',
-//   alignItems: 'center',
-//   padding: '5px',
-//   borderRadius: '10px',
-// };
-//
-// const Email = {
-//   gridColumn: 1,
-//   gridRow: 3,
-//   margin: '10px auto',
-//   width: '90%',
-//   display: 'flex',
-//   justifyContent: 'center',
-//   justifyItems: 'center',
-//   alignItems: 'center',
-//   padding: '5px',
-//   borderRadius: '10px',
-// };
-//
-// const Username = {
-//   gridColumn: 1,
-//   gridRow: 4,
-//   margin: '10px auto',
-//   width: '90%',
-//   display: 'flex',
-//   justifyContent: 'center',
-//   justifyItems: 'center',
-//   alignItems: 'center',
-//   padding: '5px',
-//   borderRadius: '10px',
-// };
-//
-// const FavoriteTeam = {
-//   gridColumn: 1,
-//   gridRow: 5,
-//   margin: '10px auto',
-//   width: '90%',
-//   display: 'flex',
-//   justifyContent: 'center',
-//   justifyItems: 'center',
-//   alignItems: 'center',
-//   padding: '5px',
-//   borderRadius: '10px',
-// };
-//
-// const Password = {
-//   gridColumn: 1,
-//   gridRow: 6,
-//   margin: '10px auto',
-//   width: '90%',
-//   display: 'flex',
-//   justifyContent: 'center',
-//   justifyItems: 'center',
-//   alignItems: 'center',
-//   padding: '5px',
-//   borderRadius: '10px',
-// };
-//
-// const ConfirmPass = {
-//   gridColumn: 1,
-//   gridRow: 7,
-//   margin: '10px auto',
-//   width: '90%',
-//   display: 'flex',
-//   justifyContent: 'center',
-//   justifyItems: 'center',
-//   alignItems: 'center',
-//   padding: '5px',
-//   border: 'solid black',
-//   borderRadius: '15px',
-// };
-//
-// const SaveButton = {
-//   gridColumn: 1,
-//   gridRow: 8,
-//   margin: '10px auto',
-//   width: '60%',
-//   display: 'flex',
-//   justifyContent: 'center',
-//   justifyItems: 'center',
-//   alignItems: 'center',
-//   padding: '5px',
-//   borderRadius: '10px',
-// };
 
 export default Register;

@@ -15,10 +15,8 @@ const ErrorPage = {
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'center',
-  // justifyContent: 'center',
   margin: '15px auto',
 };
-
 const Image = {
   height: '50%',
   width: '50%',
