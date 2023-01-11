@@ -1,46 +1,26 @@
-/*style={{width: '18rem', margin: '15px'}}*/
-
-/*.devCard {*/
-/*    width: 18rem;*/
-/*    margin: 15px;*/
-/*}*/
-
 @media(max-width:320px) {
     .Developer {
         margin: auto;
         justify-content: center;
     }
 }
-
 @media(max-width:570px) {
-
     .Developer {
         display: grid;
         flex-direction: column;
-        /*width: 18rem;*/
-        /*alignItems: center;*/
-        /*justifyContent: center;*/
-
     }
-
     .aboutPage {
         display: grid;
         flex-direction: column;
-        /*width: 25vh;*/
-
     }
-
     #devCard {
         width: 18rem;
     }
-
 }
-
 @media(max-width:768px) {
     #aboutPage {
         width: 50%;
     }
-
     .Developer {
         flex-wrap: wrap;
         margin: auto;

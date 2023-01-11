@@ -10,10 +10,7 @@
         width: 100%;
     }
     .formContainer{
-       /*margin-right: auto;*/
-       /* margin-left: auto;*/
         width: 100%;
-
     }
     .usernameContainer{
         width: 100%;
@@ -29,9 +26,7 @@
         margin: 3em auto;
         width: 60%;
         font-size: x-large;
-
     }
-
     .formDiv{
         width: 100%;
         border: 1px solid lightgrey;
@@ -39,9 +34,7 @@
         padding-top: 3em;
         padding-bottom: 3em;
         box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
-
     }
-
     .inputBox2{
         height: 3em;
         border: none;
@@ -63,7 +56,6 @@
         width: 75%;
         margin-left: auto;
         margin-right: auto;
-        /*margin: 0;*/
     }
     .buttonContainer{
         display: flex;
@@ -85,8 +77,8 @@
         margin-right: auto;
         margin-bottom: 2em;
     }
-
 }
+
 .Landing{
     display: flex;
     flex-direction: row;
@@ -112,15 +104,12 @@
     align-items: center;
     justify-content: center;
     margin: 0;
-
 }
 .message{
     margin: 3em auto;
     width: 60%;
     font-size: x-large;
-
 }
-
 .formDiv{
     width: 60%;
     border: 1px solid lightgrey;
@@ -128,14 +117,12 @@
     padding-top: 3em;
     padding-bottom: 3em;
     box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
-
 }
 .formContainer{
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
-
 }
 .inputBox2{
     height: 3em;
@@ -158,7 +145,6 @@
     width: 75%;
     margin-left: auto;
     margin-right: auto;
-    /*margin: 0;*/
 }
 .buttonContainer{
     display: flex;
@@ -180,9 +166,6 @@
     margin-right: auto;
     margin-bottom: 2em;
 }
-.error{
-
-}
 @media (max-width: 768px) {
     .logoContainer {
         height: 98%;
@@ -196,19 +179,16 @@
         justify-content: center;
         margin: 0;
     }
-
     .formContainer {
         width: 50%;
         height: auto;
         margin: auto;
     }
-
     .formDiv {
         width: 90%;
         height: auto;
         padding: 0 0 15px 0;
     }
-
     .landing {
         height: auto;
         margin: auto;
