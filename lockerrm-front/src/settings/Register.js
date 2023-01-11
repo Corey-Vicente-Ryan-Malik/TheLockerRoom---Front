@@ -181,7 +181,7 @@ const Register = (props, {}) => {
           <button
             type="button"
             id="buttonBox"
-            className="btn btn-primary"
+            className="btn btn-dark"
             onClick={onSubmit}
           >
             Sign Up

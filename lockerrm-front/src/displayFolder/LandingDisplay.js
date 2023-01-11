@@ -78,7 +78,7 @@ const Landing = (props, {}) => {
           <img style={{height: "150px", width: "150px", marginTop: "2rem", marginBottom: "1rem"}} className="IMG" src={logo}/>
           <p style={{marginTop: "1rem", textAlign: "center"}} className="message">
             Welcome to The Locker Room!<br />
-            Where you can access all of the latest NFL news, scores , stats, and more.<br /><br />
+            Where you can access all of the latest NFL news, scores, stats, and more.<br /><br />
             Login to get the scoop on your favorite and least favorite teams.<br />
           </p>
         </div>

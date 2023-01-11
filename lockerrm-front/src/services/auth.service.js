@@ -42,7 +42,7 @@ class AuthService {
   logout() {
     localStorage.clear();
     // change url path in production
-    window.location.href = 'https://lockerrm.us';
+    window.location.href = 'https://lockerrm.us/';
   }
   register(firstname, lastname, email, username, password, favoriteTeam) {
     return axios.post('https://lockerrm.us:8080/register', {

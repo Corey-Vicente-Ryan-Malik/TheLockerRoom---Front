@@ -48,7 +48,7 @@ export default function Edit() {
       favoriteTeam: favoriteTeam,
     };
 
-    const API = 'http://localhost:8080/users/' + loggedInUser.id + '/edit-profile';
+    const API = 'https://lockerrm.us:8080/users/' + loggedInUser.id + '/edit-profile';
     const options = {
       method: 'PUT',
       headers: {
