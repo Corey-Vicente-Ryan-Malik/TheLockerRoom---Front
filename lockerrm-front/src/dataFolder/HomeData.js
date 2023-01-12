@@ -7,7 +7,6 @@ import '../StyleFolder/HomeStyle.css';
 
 export default function HomeData() {
   const loggedInUser = authService.getCurrentUser();
-  // console.log(loggedInUser);
 
   const teamUrl = `https://nfl-api1.p.rapidapi.com/nflteamplayers?teamid=${loggedInUser.favoriteTeam}`;
 

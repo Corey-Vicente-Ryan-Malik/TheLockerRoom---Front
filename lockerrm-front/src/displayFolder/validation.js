@@ -1,13 +1,12 @@
 const validation = (user) => {
-    let errors = {};
+  let errors = {};
 
-    if(!user.username){
-        errors.username="**Username is required"
-
-    }
-    if(!user.password){
-        errors.password="**Password is required"
-    }
-    return errors;
-}
+  if (!user.username) {
+    errors.username = '**Username is required';
+  }
+  if (!user.password) {
+    errors.password = '**Password is required';
+  }
+  return errors;
+};
 export default validation;

@@ -8,12 +8,5 @@ const Login = (props, {}) => {
     console.log('Click Check.');
   };
 };
-// function  Login () {
-//     return (
-//         <div className="Login">
-//             <h1>This is the [ Log in page]</h1>
-//         </div>
-//     );
-// }
 
 export default Login;

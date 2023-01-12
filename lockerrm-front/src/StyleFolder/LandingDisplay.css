@@ -1,0 +1,142 @@
+.Landing {
+    width: 100%;
+    height: auto;
+    display: flex;
+    align-items: center;
+    text-align: center;
+}
+.logoContainer {
+    width: 60%;
+    height: auto;
+}
+.IMG {
+    height: 30vh;
+    width: 15vw;
+    margin: 25px auto 10px auto;
+}
+.message {
+    height: auto;
+    width: 20vw;
+    margin: 10px auto 25px auto;
+    font-size: 1.45vw;
+}
+.formContainer {
+    width: 50%;
+    height: auto;
+}
+.formDiv {
+    width: 60%;
+    height: 45vh;
+    border: 1px solid lightgrey;
+    border-radius: 6px;
+    padding: 0 0 1em 0;
+    margin: 25px auto;
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+    font-size: 1.25vw;
+}
+.formTitle {
+    width: 80%;
+    margin: auto;
+    font-size: 2.5vw;
+}
+.inputDiv {
+    width: 80%;
+    margin: auto;
+}
+.inputDiv2 {
+    width: 80%;
+    margin: auto;
+}
+.inputBox2 {
+    width: 80%;
+    margin: 5px auto;
+    border: none;
+    outline: none;
+    border-bottom: 1px solid lightgrey;
+}
+.buttonContainer {
+    width: 80%;
+    margin: 10px auto 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+}
+#landingButton {
+    width: 80%;
+    margin: 10px auto 5px auto;
+}
+#landingButton2 {
+    width: 80%;
+    margin: 5px auto 10px auto;
+}
+
+@media (max-width: 1000px) {
+    .inputDiv {
+        width: 88%;
+    }
+    .inputDiv2 {
+        width: 88%;
+    }
+    .buttonContainer {
+        width: 88%;
+    }
+}
+@media (max-width: 768px) {
+    .formDiv {
+        width: 84%;
+        font-size: 2vw;
+    }
+    .inputDiv {
+        margin: 25px auto;
+    }
+    .buttonContainer {
+        margin: 30px auto;
+    }
+    .message {
+        width: 30vw;
+        font-size: 2vw;
+    }
+}
+@media (max-width: 576px) {
+    .logoContainer {
+        display: none;
+        height: 0;
+        width: 0;
+    }
+    .formContainer {
+        width: 90%;
+        margin: auto;
+    }
+    .formDiv {
+        font-size: 3.5vw;
+    }
+    .formTitle {
+        font-size: 4vw;
+    }
+}
+@media (max-width: 425px) {
+    .logoContainer {
+        display: none;
+        height: 0;
+        width: 0;
+    }
+    .formContainer {
+        width: 90%;
+        margin: auto;
+    }
+    .formDiv {
+        font-size: 4vw;
+    }
+    .formTitle {
+        font-size: 5vw;
+    }
+}
+@media (max-width: 375px) {
+    .formContainer {
+        width: 98%;
+    }
+}
+@media (max-width: 320px) {
+    .formContainer {
+        width: 98%;
+    }
+}
