@@ -20,7 +20,11 @@ export default function GameData() {
   useEffect(() => {
     axios
       .get(scheduleUrl, options)
-      .then((response) => createGameObjects(response.data));
+      // .then((response) => createGameObjects(response.data));
+      .then((response) => {
+        createGameObjects(response.data);
+        console.log(response.data);
+      });
   }, []);
 
   function homeTeam(allData) {
@@ -298,6 +302,40 @@ export default function GameData() {
     return awayLogoArr;
   }
 
+  function homeColor(allData) {
+    let homeColorArr = [];
+    let homeSecColorArr = [];
+    let allDataOne;
+    let allDataTwo;
+    let allDataThree;
+    let allDataFour;
+    let allDataFive;
+    let allDataSix;
+    for (let property in allData) {
+      allDataOne = allData[property].games;
+
+      for (let property in allDataOne) {
+        allDataTwo = allDataOne[property].competitions;
+
+        for (let property in allDataTwo) {
+          allDataThree = allDataTwo[property].competitors;
+
+          for (let property in allDataThree) {
+            allDataFour = allDataThree[property].team.color;
+            allDataSix = allDataThree[property].team.alternateColor;
+            allDataFive = allDataThree[property].homeAway;
+
+            if (allDataFive === 'home') {
+              homeColorArr.push(allDataFour);
+              homeSecColorArr.push(allDataSix);
+            }
+          }
+        }
+      }
+    }
+    return [homeColorArr, homeSecColorArr];
+  }
+
   function createGameObjects(data) {
     let allGames = [];
     let homeArr = homeTeam(data);
@@ -310,6 +348,8 @@ export default function GameData() {
     let dateArr = gameDate(data);
     let homeLogoArr = homeLogo(data);
     let awayLogoArr = awayLogo(data);
+    let homeColorArr = homeColor(data);
+    let homeSecColorArr = homeColor(data);
     homeArr.forEach((team) => {
       let game = {};
       game.homeTeam = team;
@@ -326,6 +366,8 @@ export default function GameData() {
       allGames[i].awayLogo = awayLogoArr[i];
       allGames[i].gameName = gameArr[i];
       allGames[i].gameDate = dateArr[i];
+      allGames[i].homeColor = homeColorArr[i];
+      allGames[i].homeAltColor = homeSecColorArr[i];
     }
     setGames(allGames);
   }
@@ -336,7 +378,14 @@ export default function GameData() {
       {games.map((game) => {
         return (
           <div key={game.id}>
-            <div className="game_container">
+            <div
+              className="game_container"
+              style={
+                game.gameDate !== 'Final'
+                  ? { border: `3px solid #${game.homeColor}` }
+                  : { border: '3px solid red' }
+              }
+            >
               <div className="game_leftContainer">
                 <div className="away_title">Away</div>
                 <img
