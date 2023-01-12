@@ -14,7 +14,7 @@ const Forum = () => {
   const currentUser = authService.getCurrentUser();
   const navigate = useNavigate();
 
-  const API = 'http://localhost:8080/posts';
+  const API = 'https://lockerrm.us:8080/posts';
   const options = {
     method: 'GET',
     headers: {
