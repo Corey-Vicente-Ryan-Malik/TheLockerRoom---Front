@@ -333,7 +333,7 @@ export default function GameData() {
         }
       }
     }
-    return [homeColorArr, homeSecColorArr];
+    return homeColorArr;
   }
 
   function createGameObjects(data) {
@@ -349,7 +349,6 @@ export default function GameData() {
     let homeLogoArr = homeLogo(data);
     let awayLogoArr = awayLogo(data);
     let homeColorArr = homeColor(data);
-    let homeSecColorArr = homeColor(data);
     homeArr.forEach((team) => {
       let game = {};
       game.homeTeam = team;
@@ -367,7 +366,6 @@ export default function GameData() {
       allGames[i].gameName = gameArr[i];
       allGames[i].gameDate = dateArr[i];
       allGames[i].homeColor = homeColorArr[i];
-      allGames[i].homeAltColor = homeSecColorArr[i];
     }
     setGames(allGames);
   }
