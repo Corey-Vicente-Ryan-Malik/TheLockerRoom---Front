@@ -17,7 +17,9 @@
     margin-left: auto;
 }
 .formTitle {
-    margin: 1em auto;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    text-align: center;
 }
 .error {
     font-size: small;
