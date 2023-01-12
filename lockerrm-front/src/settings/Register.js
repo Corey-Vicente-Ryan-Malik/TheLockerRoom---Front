@@ -34,12 +34,10 @@ const Register = (props, {}) => {
     setErrors(registerValidation(user));
     if (errors) {
       navigate('/register');
-    } else {
-      await axios.post('https://lockerrm.us:8080/register', user);
-      navigate('/');
-      console.log(user);
     }
-
+    await axios.post('https://lockerrm.us:8080/register', user);
+    navigate('/');
+    console.log(user);
   };
 
   return (
