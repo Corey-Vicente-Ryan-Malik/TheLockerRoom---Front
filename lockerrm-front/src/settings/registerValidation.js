@@ -17,7 +17,8 @@ const registerValidation = (user) => {
 
   if (!user.username) {
     errors.username = 'Username required';
-  } else if (user.username > 20) {
+  }
+  if (user.username > 20) {
     errors.username = 'username cannot be longer than 20 characters';
   }
 
