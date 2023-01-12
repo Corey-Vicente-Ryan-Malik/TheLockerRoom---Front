@@ -9,7 +9,6 @@
     margin: 8px auto;
     display: flex;
     padding: 1%;
-    background-color: lightgray;
 }
 .game_leftContainer {
     width: 24%;
@@ -94,8 +93,9 @@
 }
 .schedule {
     width: 98%;
-    margin: auto;
+    margin: .5em auto;
     font-size: 3vw;
+    text-align: center;
 }
 
 /* ------------------------------------------------ */
